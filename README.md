@@ -1,10 +1,13 @@
-## Welcome to my Magic Healing Garden.
-This is a quiet space for healing, reflection, and support. My work draws from nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar. I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, and trauma-informed care to support transformation at every level — physical, emotional, and energetic. Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.
+# Magic Healing Garden
 
-Sometimes true magic is just a change in perception.
+Welcome to my Magic Healing Garden — a space for gentle transformation, rooted in nature, presence, and the body’s wisdom.
+
+This site is a simple one-page introduction to my healing practice, which integrates Chinese Medicine, Zen Shiatsu, Chi Nei Tsang, Theta Healing, flower essences, and trauma-informed care. I studied alchemical healing with Lorie Dechar, and my approach centers on perception shifts, soul restoration, and remembering the deep intelligence within us.
+
+Visit the live site here: [magichealinggarden.com](https://magichealinggarden.com)
+
+Sometimes true magic is just a change in perception.  
 That’s the kind of magic I deal in.
-
-If something here speaks to you, you're warmly invited to reach out.
 
 
 
