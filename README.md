@@ -1,4 +1,12 @@
-## Hi there 👋
+## Welcome to my Magic Healing Garden.
+This is a quiet space for healing, reflection, and support. My work draws from nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar. I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, and trauma-informed care to support transformation at every level — physical, emotional, and energetic. Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.
+
+Sometimes true magic is just a change in perception.
+That’s the kind of magic I deal in.
+
+If something here speaks to you, you're warmly invited to reach out.
+
+
 
 <!--
 **MagicHealingGarden/MagicHealingGarden** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
