@@ -15,9 +15,9 @@
     }
 
     .content {
-      background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+      background: rgba(0, 0, 0, 0.5);
       max-width: 700px;
-      margin: 10% auto;
+      margin: 5% auto;
       padding: 40px;
       border-radius: 15px;
       text-align: center;
@@ -33,6 +33,32 @@
       margin: 0.5em 0;
     }
 
+    form {
+      margin-top: 2em;
+      text-align: left;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      background-color: #5a8f65;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #497752;
+    }
+
     .float-button {
       position: fixed;
       bottom: 20px;
@@ -44,24 +70,32 @@
       font-size: 0.9em;
       text-decoration: none;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
     }
 
     .float-button:hover {
       background-color: #497752;
     }
-
-    a {
-      color: #add8e6;
-    }
   </style>
 </head>
 <body>
   <div class="content">
-    <h1>Welcome to my Magic Healing Garden</h1>
-    <p>Sometimes true magic is just a change in perception. And that’s what I deal in.</p>
+    <h1>Welcome to my Majic Healing Garden</h1>
+    <h2>Sometimes true magic is just a change in perception. And that’s what I deal in.</h2>
     <p>I offer sessions rooted in Chinese medicine, Zen Shiatsu, trauma-informed care, Theta Healing, Chi Nei Tsang, acupressure, and flower essence therapy. My work honors your body's wisdom and your spirit’s capacity for transformation.</p>
     <p>If you're curious, I’d love to connect. 💚</p>
+
+    <form action="https://formspree.io/f/xnnvrrqv" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" name="_replyto" id="email" required />
+
+      <label for="message">Message:</label>
+      <textarea name="message" id="message" rows="5" required></textarea>
+
+      <input type="submit" value="Send Message" />
+    </form>
   </div>
 
   <a class="float-button" href="https://form.typeform.com/to/B8EsqM61" target="_blank">
