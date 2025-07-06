@@ -1,128 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Magic Healing Garden</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      min-height: 100vh;
-      font-family: sans-serif;
-      color: #333;
-      position: relative;
-      z-index: 0;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background-image: url('./natural-medicine-1738161_1280.jpg'); /* update image if needed */
+      margin: 0;
+      padding: 0;
+      background-image: url('essential-oils-2766011_1920.jpg');
       background-size: cover;
-      background-repeat: no-repeat;
       background-position: center;
-      filter: blur(2px);
-      z-index: -2;
-    }
-
-    .content {
-      background-color: rgba(0, 0, 0, 0.6); /* Soft dark background */
-      padding: 2rem;
-      max-width: 700px;
-      margin: 2rem auto;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-    }
-
-    h1 {
-      font-size: 1.8em;
-      margin-bottom: 1em;
-    }
-
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .highlight {
-      font-style: italic;
-      margin: 1.5em 0 0.5em 0;
-      font-size: 1.15em;
-    }
-
-    form {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      width: 250px;
-      margin: 2rem;
-      color: #000;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      background-color: #444;
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    form button:hover {
-      background-color: #222;
+      font-family: 'Georgia', serif;
+      color: #f4f4f4;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
+      background-color: rgba(0, 0, 0, 0.5); /* subtle transparency */
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 700px;
+      margin: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+      margin-bottom: 1em;
+    }
+
+    em {
+      display: block;
+      margin: 1em 0;
+      font-style: italic;
+      font-size: 1.1em;
+      color: #ffd9ec;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div class="content">
-      <h1>Welcome to my Magic Healing Garden</h1>
-      <p>This is a quiet space for healing, reflection, and support. Trained in Acupuncture and Chinese Medicine, I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, trauma-informed care — plus flower essences, essential oils, and homeopathy — to support transformation at every level: physical, emotional, and energetic. My work is also deeply inspired by nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar.
+    <h1>Welcome to my Magic Healing Garden</h1>
+    <p>This is a quiet space for healing, reflection, and support. Trained in Acupuncture and Chinese Medicine, I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, trauma-informed care — plus flower essences, essential oils, and homeopathy — to support transformation at every level: physical, emotional, and energetic. My work is also deeply inspired by nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar.</p>
+    
+    <p>Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.</p>
 
-Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.
+    <em>Sometimes true magic is just a change in perception.</em>
+    <p>That’s the kind of magic I work with.</p>
 
-Sometimes true magic is just a change in perception.
-That’s the kind of magic I work with.
-
-If something here speaks to you, you’re warmly invited to reach out for a one-on-one healing session — a space where we gently explore whatever is ready to shift, soften, or transform.
-      <p class="highlight">Sometimes true magic is just a change in perception.</p>
-      <p>That’s the kind of magic I deal in.</p>
-      <p>If something here speaks to you, you’re warmly invited to reach out.</p>
-    </div>
-
-    <form action="https://formspree.io/f/xnnvrqvj" method="POST">
-      <h2>Contact Me</h2>
-      <label for="email">Your email:</label><br>
-      <input type="email" name="email" id="email" required><br><br>
-
-      <label for="message">Your message:</label><br>
-      <textarea name="message" id="message" rows="5" required></textarea><br><br>
-
-      <button type="submit">Send</button>
-    </form>
+    <p>If something here speaks to you, you’re warmly invited to reach out for a one-on-one healing session — a space where we gently explore whatever is ready to shift, soften, or transform.</p>
   </div>
-
 </body>
 </html>
