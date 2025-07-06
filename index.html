@@ -1,101 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Magic Healing Garden</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-  body {
-    background-image: url('./natural-medicine-1738161_1280.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
+  <meta charset="UTF-8">
+  <title>Magic Healing Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      min-height: 100vh;
+      font-family: sans-serif;
+      color: #333;
+      position: relative;
+      z-index: 0;
+    }
 
-        
-.content {
-  background-color: rgba(0, 0, 0, 0.6); /* slightly darker for better contrast */
-  padding: 2rem;
-  max-width: 700px;
-  margin: auto;
-  margin-top: 2rem;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-image: url('./natural-medicine-1738161_1280.jpg'); /* update image if needed */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(2px);
+      z-index: -2;
+    }
 
+    .content {
+      background-color: rgba(0, 0, 0, 0.6); /* Soft dark background */
+      padding: 2rem;
+      max-width: 700px;
+      margin: 2rem auto;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
 
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 1em;
+    }
 
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
 
+    .highlight {
+      font-style: italic;
+      margin: 1.5em 0 0.5em 0;
+      font-size: 1.15em;
+    }
 
-  h1 {
-    font-size: 1.8em;
-    margin-bottom: 1em;
-  }
+    form {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      width: 250px;
+      margin: 2rem;
+      color: #000;
+    }
 
-  p {
-    font-size: 1.1em;
-    line-height: 1.6;
-  }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
 
-  .highlight {
-    font-style: italic;
-    margin: 1.5em 0 0.5em 0;
-    font-size: 1.15em;
-  }
-</style>
-form {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  width: 250px;
-  margin-left: 2rem;
-}
+    form button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-form input,
-form textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
+    form button:hover {
+      background-color: #222;
+    }
 
-form button {
-  background-color: #444;
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #222;
-}
-
-    </style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="container">
     <div class="content">
-        <h1>Welcome to my Magic Healing Garden</h1>
-        <p>This is a quiet space for healing, reflection, and support. My work draws from nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar. I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, and trauma-informed care to support transformation at every level — physical, emotional, and energetic. Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.</p>
-        <p class="highlight">Sometimes true magic is just a change in perception.</p>
-        <p>That’s the kind of magic I deal in.</p>
-        <p>If something here speaks to you, you're warmly invited to reach out.</p>
+      <h1>Welcome to my Magic Healing Garden</h1>
+      <p>This is a quiet space for healing, reflection, and support. My work draws from nature, the body’s wisdom, and the principles of alchemical healing, which I studied through a year-long mentorship with Lorie Dechar. I weave together tools from Zen Shiatsu, Asian bodywork, Chi Nei Tsang, Theta Healing, and trauma-informed care to support transformation at every level — physical, emotional, and energetic. Alchemy, to me, is about turning the lead of our stuck or painful places into gold — something luminous, truthful, and alive.</p>
+
+      <p class="highlight">Sometimes true magic is just a change in perception.</p>
+      <p>That’s the kind of magic I deal in.</p>
+      <p>If something here speaks to you, you’re warmly invited to reach out.</p>
     </div>
-<h2>Contact Me</h2>
-<form action="https://formspree.io/f/xnnvrrqv" method="POST">
-  <label for="email">Your email:</label><br>
-  <input type="email" name="email" id="email" required><br><br>
 
-  <label for="message">Your message:</label><br>
-  <textarea name="message" id="message" rows="5" required></textarea><br><br>
+    <form action="https://formspree.io/f/xnnvrqvj" method="POST">
+      <h2>Contact Me</h2>
+      <label for="email">Your email:</label><br>
+      <input type="email" name="email" id="email" required><br><br>
 
-  <button type="submit">Send</button>
-</form>
+      <label for="message">Your message:</label><br>
+      <textarea name="message" id="message" rows="5" required></textarea><br><br>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
 </body>
 </html>
