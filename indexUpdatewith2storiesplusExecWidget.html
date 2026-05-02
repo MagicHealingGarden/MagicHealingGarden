@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Healing Garden — Gwen Joseph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f9f5ef;
+      --warm-white: #fdfaf6;
+      --sage: #7a8c72;
+      --deep-sage: #4a5e42;
+      --earth: #8c7355;
+      --dark: #1e1e1a;
+      --mid: #4a4a42;
+      --light-mid: #7a7a6e;
+      --border: #e0d8cc;
+      --accent: #b5956a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--cream);
+      color: var(--dark);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(249, 245, 239, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--deep-sage); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 3rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-inner {
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--deep-sage);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: var(--deep-sage);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--sage); }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border: 1px solid var(--deep-sage);
+      color: var(--deep-sage);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      background: var(--deep-sage);
+      color: white;
+    }
+
+    .hero-quote {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--light-mid);
+    }
+
+    .hero-quote cite {
+      display: block;
+      font-style: normal;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-mid);
+      margin-top: 0.5rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 3rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 3rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--deep-sage);
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 3rem;
+      height: 1px;
+      background: var(--accent);
+      margin: 2rem 0;
+    }
+
+    /* STORIES */
+    #story { background: var(--warm-white); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .story-card {
+      padding: 2.5rem;
+      background: var(--cream);
+      border-left: 2px solid var(--accent);
+    }
+
+    .story-pullquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--deep-sage);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .story-body {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+
+    .story-dialogue {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--dark);
+      padding: 1rem 1.25rem;
+      border-left: 2px solid var(--border);
+      margin: 1rem 0;
+    }
+
+    /* HEALERS */
+    #healers { background: var(--deep-sage); color: white; }
+
+    #healers .section-label { color: rgba(255,255,255,0.5); }
+    #healers .section-title { color: white; }
+    #healers .section-title em { color: #c8d9c0; }
+
+    .healers-intro {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 620px;
+      margin-bottom: 3rem;
+      line-height: 1.9;
+    }
+
+    .healers-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      max-width: 600px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .healers-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .healer-tag {
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .healers-body {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 620px;
+      line-height: 1.9;
+    }
+
+    .healers-body p { margin-bottom: 1rem; }
+
+    /* WHO */
+    #who { background: var(--cream); }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .who-item {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .who-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .who-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .who-body {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+
+    /* ORIGIN / ABOUT */
+    #origin { background: var(--warm-white); }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .origin-body {
+      font-size: 0.98rem;
+      color: var(--mid);
+      line-height: 1.95;
+    }
+
+    .origin-body p { margin-bottom: 1.25rem; }
+    .origin-body p:last-child { margin-bottom: 0; }
+
+    .origin-body strong {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .origin-aside {
+      padding-top: 1rem;
+    }
+
+    .origin-aside-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: var(--deep-sage);
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    .origin-aside-body {
+      font-size: 0.9rem;
+      color: var(--light-mid);
+      line-height: 1.9;
+    }
+
+    .origin-aside-body p { margin-bottom: 1rem; }
+
+    /* SESSIONS */
+    #sessions { background: var(--cream); }
+
+    .sessions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .session-card {
+      padding: 2rem;
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .session-card:hover { border-color: var(--sage); }
+
+    .session-icon {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .session-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .session-body {
+      font-size: 0.88rem;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+
+    .sessions-cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    /* CONTACT */
+    #contact { background: var(--dark); color: white; }
+
+    #contact .section-label { color: rgba(255,255,255,0.4); }
+    #contact .section-title { color: white; }
+    #contact .section-title em { color: var(--accent); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-intro {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .contact-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--accent);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      padding: 0.85rem 1rem;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .form-field textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: var(--earth); }
+
+    .contact-alt {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact-alt a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 3rem;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 6rem 1.5rem 4rem; }
+      .story-grid,
+      .origin-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .who-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sessions-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">Magic Healing Garden</a>
+    <ul class="nav-links">
+      <li><a href="#story">The Work</a></li>
+      <li><a href="#healers">For Healers</a></li>
+      <li><a href="#who">Who I Work With</a></li>
+      <li><a href="#origin">Origin</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top: 8rem; padding-bottom: 5rem; max-width: none;">
+    <div class="hero-inner" style="max-width: 680px; margin: 0 auto; padding: 0 3rem;">
+      <p class="hero-eyebrow">Gwen Joseph — Healer & Guide</p>
+      <h1>Sometimes true magic is just a <em>change</em> in perception.</h1>
+      <p class="hero-sub">That's what I deal in. Body-centered healing that works at the level where things actually get stuck — not just the symptom, but the story underneath it.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Work With Me</a>
+        <a href="#story" class="btn-ghost">See What's Possible</a>
+      </div>
+      <div class="hero-quote">
+        "Most people don't know these things are possible — but they would love to have the work done if it's offered to them."
+        <cite>— A client</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK / STORIES -->
+  <section id="story">
+    <div class="section-inner">
+      <p class="section-label">The Work in Practice</p>
+      <h2 class="section-title">What becomes <em>possible</em></h2>
+
+      <div class="story-grid">
+
+        <!-- ANITA STORY -->
+        <div class="story-card">
+          <div class="story-pullquote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</div>
+          <div class="story-body">
+            <p>Anita came to me while her husband was in the final stages of a chronic illness. A mother, a professional who spent her days supporting others — she was also her husband's primary caretaker, managing everything, holding everything together. She had started overeating as a way to cope, which is so common and so human, and she didn't know how to stop.</p>
+            <p>We began where the body always begins — with what's present. But as we worked, something older came into the room. Her relationship with her mother. A childhood where nurturing had been scarce. A deep, unmet hunger that had nothing to do with food.</p>
+            <p>It isn't easy to give care when we never learned what it felt like to receive it. Her body had found its own way to fill that gap — and we were able to gently, without force, bring healing to that original wound. We worked with the archetypal mother — the mother energy she had always needed — and offered her nervous system something it had been waiting a long time for.</p>
+            <p>A few days after our sessions, Anita sent me a note: <em>"I haven't thought about — or craved — sugar for several days now. How weird is that?"</em></p>
+            <p>Weeks later, she told me she had placed one small candy in a bowl on her counter. Not to eat — to remind herself that she no longer needed it.</p>
+            <p>That is what healing looks like when it goes all the way down.</p>
+          </div>
+        </div>
+
+        <!-- ELENA STORY -->
+        <div class="story-card">
+          <div class="story-pullquote">"That sounds like forgiveness."</div>
+          <div class="story-body">
+            <p>Elena came to me months after an injury that had left her system shaken. She had tension in her body, migraines, some memory issues, and a low mood that had been present even before the injury.</p>
+            <p>We started there — moving the qi and blood stagnation, according to the TCM diagnosis. After just one session, her migraines eased significantly. Her neck and shoulders felt more relaxed. She reported a "really restful night's sleep."</p>
+            <p>A couple of weeks later, she naturally brought up something she hadn't shared before. Years ago, during a medical procedure, there had been a moment where she didn't feel safe or fully seen. That experience had stayed with her in her body long after the event.</p>
+            <p>In session, it surfaced while we were working near an area that still held tension and memory. We paused the bodywork and stayed with what was present.</p>
+            <p>I explained that I sometimes work with a process that supports the release of energetic imprints that can remain in the system after difficult experiences. These imprints can linger in the body. And they can take up space.</p>
+            <p>She paused and said:</p>
+            <div class="story-dialogue">"That sounds like forgiveness."</div>
+            <p>I smiled.</p>
+            <div class="story-dialogue">"Sometimes it is. But it doesn't require forgiveness. It simply asks: Do you want to keep carrying this in your body? If not, we can let it go."</div>
+            <p>We deserve to love ourselves enough to release what hurts us. So I asked her gently: <em>"Do you give permission to release the energy connected to that experience?"</em></p>
+            <p>She said, <em>"Absolutely."</em></p>
+            <p><em>"That energy does not belong to you. We're going to let it go."</em></p>
+            <p>She nodded — clear and steady.</p>
+            <p>Every release begins with permission. I always ask clearly, and they respond clearly. Only then does the work begin.</p>
+            <p>Later that week she told me the session had been profound. That she could still feel the effervescent, sparkly energy that had helped clear what had been held there for so long.</p>
+            <p>In the weeks that followed, her creativity began returning.</p>
+            <p>And a month later — the scar that had always brought the memory back with it was fading.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR HEALERS -->
+  <section id="healers">
+    <div class="section-inner">
+      <p class="section-label">For the People Who Tend to Everyone Else</p>
+      <h2 class="section-title">I work with <em>healers</em></h2>
+
+      <p class="healers-quote">"If you spend your days holding space for other people's healing — this is for you."</p>
+
+      <p class="healers-intro">Not as a specialty I chose, but as a pattern I noticed. When I look back at the people I've done my deepest work with — the ones whose stories stay with me — they are almost always people who spend their lives in service to others.</p>
+
+      <p class="healers-intro">The Waldorf school teacher. The healer who carried sixty years of nightmares she had never told anyone about. The special education worker whose body had absorbed years of others' stress. The professional who gave everything to everyone around her, while her own needs quietly went unmet.</p>
+
+      <div class="healers-list">
+        <span class="healer-tag">Therapists</span>
+        <span class="healer-tag">Bodyworkers</span>
+        <span class="healer-tag">Acupuncturists</span>
+        <span class="healer-tag">Massage Therapists</span>
+        <span class="healer-tag">Energy Healers</span>
+        <span class="healer-tag">Teachers</span>
+        <span class="healer-tag">Social Workers</span>
+        <span class="healer-tag">Nurses & Caregivers</span>
+        <span class="healer-tag">Movement Practitioners</span>
+        <span class="healer-tag">Activists</span>
+        <span class="healer-tag">Mothers</span>
+        <span class="healer-tag">Executives & Leaders</span>
+      </div>
+
+      <div class="healers-body">
+        <p>The executive who holds the room together all day and has nowhere to put what that costs.</p>
+        <p>Healers are often the last to receive healing. You know the language. You understand the body. You believe in this work. And yet — precisely because you give so much — your own system accumulates what your clients release. You carry what others couldn't.</p>
+        <p>You don't need me to explain what qi is. You don't need convincing that the body holds memory. What you may need is someone who can reach the places you can't reach in yourself — because we cannot always do our own deepest work alone.</p>
+        <p><em>You deserve the same quality of care you offer everyone else. Let someone tend to you for a change.</em></p>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <a href="#contact" class="btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">Reach Out</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO I WORK WITH -->
+  <section id="who">
+    <div class="section-inner">
+      <p class="section-label">Who Finds Me</p>
+      <h2 class="section-title">The people who find <em>their way here</em></h2>
+
+      <div class="who-grid">
+        <div class="who-item">
+          <div class="who-number">01</div>
+          <div class="who-title">You know what's stuck</div>
+          <div class="who-body">You're reflective. You've done some work on yourself. You have a sense of what your patterns are — you just haven't found the right tools to move through them. You're not looking for someone to diagnose you. You're looking for someone to work with you.</div>
+        </div>
+        <div class="who-item">
+          <div class="who-number">02</div>
+          <div class="who-title">You say yes to change</div>
+          <div class="who-body">When I ask if you want to release something that's been living in your body — an old grief, a shock you never processed, an energy that was never yours to carry — your answer is "heck yeah." You're ready. Not everyone is, and that's okay. But if you are, something remarkable becomes possible.</div>
+        </div>
+        <div class="who-item">
+          <div class="who-number">03</div>
+          <div class="who-title">You're open to what you don't know</div>
+          <div class="who-body">Most people don't know that sixty years of nightmares can end in fifteen minutes. That a scar can soften when the story beneath it is finally witnessed. That the body keeps a record — and that record can be gently, lovingly revised. If you're curious about what's possible, you're in the right place.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN / ABOUT -->
+  <section id="origin">
+    <div class="section-inner">
+      <p class="section-label">About Gwen</p>
+      <h2 class="section-title"><em>Origin</em></h2>
+
+      <div class="origin-grid">
+        <div class="origin-body">
+          <p>I came to this work because it's what I needed for myself.</p>
+          <p>This world is overwhelming. It can shake you to your core. There is so much to feel, so much to absorb, so much to become — and nobody warns you how much of what you're carrying might not even be yours.</p>
+          <p>I felt a great deal from the time I was young. The world came in loud and I didn't always know where to put it. I lived for years with anxiety, with depression, with a feeling of impending doom that followed me like a shadow. I didn't have a name for what I was. I just knew something was wrong — or that something was <em>a lot</em>.</p>
+          <p>What I didn't know yet was that I came from a long line of people who felt deeply and had no container for it. The fracture went back generations. Unmet need passing quietly from one person to the next, each one doing their best with what they had, none of them knowing they were extraordinary.</p>
+          <p>I am a wilder. I inherited the gifts, not the tradition. I have spent my life finding the name of what I already was — and learning how to work with what I carry. The language I speak now took years to build. It is entirely my own.</p>
+          <p>What I found changed everything.</p>
+          <p>And now I work with people who know what it feels like to carry too much — people who feel deeply, give generously, and are ready to finally put down what was never theirs to hold.</p>
+        </div>
+
+        <div class="origin-aside">
+          <div class="origin-aside-quote">The people who shaped me were not perfect. Neither were the relationships. But what they passed down — often without knowing — was real and worth keeping.</div>
+          <div class="origin-aside-body">
+            <p>My father's mother was Irish and magical in ways the family whispered about but never quite named. She had a particular relationship with grace — knowing when it would come, never asking for more than she needed. That restraint was its own kind of wisdom, and it passed down through the line.</p>
+            <p>My father never called himself a healer. But he grew a garden every year of my childhood, turning the soil by hand, tending what he planted with steady daily care. When I had a splinter, he heated a needle over a flame and coaxed it out with a precision and tenderness I now recognize as clinical — the same quality of attention I bring to my work with bodies. He taught me that hands are instruments of care. He just didn't call it that.</p>
+            <p>My mother was a sensitive. She had no language for what she felt and not enough confidence to trust it. I recognized her gifts long after I had found words for my own. I carry her too.</p>
+            <p>My brother placed books in my hands that became my foundation — herbalism, homeopathy, Chinese medicine. When I was lost in my early twenties, he wrote me a letter about how to find my way back through food and plants. I still have that letter.</p>
+            <p><strong>None of them knew they were extraordinary. I know now. And knowing is its own kind of calling.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSIONS -->
+  <section id="sessions">
+    <div class="section-inner">
+      <p class="section-label">Sessions</p>
+      <h2 class="section-title">How we <em>work together</em></h2>
+
+      <p style="max-width: 580px; color: var(--mid); margin-bottom: 3rem; line-height: 1.9; font-size: 0.98rem;">My sessions draw from multiple lineages — not because I collected modalities, but because each one found me when I needed it and proved itself in practice. I use what works, in the combination that's right for you.</p>
+
+      <p style="max-width: 580px; color: var(--mid); margin-bottom: 3rem; line-height: 1.9; font-size: 0.95rem; font-style: italic;">Before every session I center myself and set intention — for your highest good and the highest good of everyone connected to you. You arrive into a space that has already been prepared for you.</p>
+
+      <div class="sessions-grid">
+        <div class="session-card">
+          <div class="session-icon">🌿</div>
+          <div class="session-title">Body-Centered Healing</div>
+          <div class="session-body">Drawing from Chinese medicine, Zen Shiatsu, Chi Nei Tsang, and acupressure — we work with the body as an intelligent system that holds memory, story, and unfinished business. The body knows what happened. We help it complete the cycle.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">✨</div>
+          <div class="session-title">Theta Healing & Energy Work</div>
+          <div class="session-body">A meditation-based healing modality that works at the level of belief and energetic memory. Old shocks, inherited patterns, energy that was never yours to carry — with your permission, these can be released. The results often surprise people.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">🌸</div>
+          <div class="session-title">Trauma-Informed Care</div>
+          <div class="session-body">Every session is held with an understanding that the body protects itself — and that those protections made sense once. We work with your nervous system, not against it. Nothing is forced. Everything requires your yes.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">💧</div>
+          <div class="session-title">Flower Essence Therapy</div>
+          <div class="session-body">Gentle vibrational medicine that supports emotional and energetic shifts between sessions. Often the quiet thread that holds everything else together.</div>
+        </div>
+      </div>
+
+      <div class="sessions-cta">
+        <a href="https://form.typeform.com/to/B8EsqM61" class="btn-primary">Book a Free 15-Minute Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING WIDGET -->
+  <section id="booking" style="background: var(--warm-white); padding: 5rem 3rem; text-align: center;">
+    <div class="section-inner">
+      <p class="section-label">Book a Session</p>
+      <h2 class="section-title">Ready to <em>begin</em></h2>
+      <p style="color: var(--mid); max-width: 480px; margin: 0 auto 3rem; line-height: 1.9; font-size: 0.98rem;">Schedule directly below — or reach out through the contact form if you'd like to talk first.</p>
+      <!-- Start Square Appointments Embed Code -->
+      <script src='https://app.squareup.com/appointments/buyer/widget/uhmi2bqxwlk9v3/L0Q1556BA4J25.js'></script>
+      <!-- End Square Appointments Embed Code -->
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Something <em>stirred</em> in you</h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-intro">If you've read this far, something resonated. Maybe you recognized yourself in one of these stories. Maybe you've been carrying something for a long time and didn't know there was another way.</p>
+          <p class="contact-intro">Reach out. Tell me what's going on. We'll figure out together whether my work is right for what you're carrying.</p>
+          <div class="contact-quote">"Saying yes to releasing something that no longer serves us is a very powerful step. It doesn't require certainty — just willingness."</div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-field">
+            <label>Your Name</label>
+            <input type="text" placeholder="" />
+          </div>
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="" />
+          </div>
+          <div class="form-field">
+            <label>What's Bringing You Here</label>
+            <textarea></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <p class="contact-alt">Or <a href="https://form.typeform.com/to/B8EsqM61">book a free 15-minute consultation directly →</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-logo">Magic Healing Garden</a>
+    <ul class="footer-links">
+      <li><a href="#story">The Work</a></li>
+      <li><a href="#who">Who I Work With</a></li>
+      <li><a href="#origin">Origin</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Gwen Joseph — Magic Healing Garden. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
