@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <title>The Path — Magic Healing Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f9f5ef;
+      --warm-white: #fdfaf6;
+      --sage: #7a8c72;
+      --deep-sage: #4a5e42;
+      --earth: #8c7355;
+      --dark: #1e1e1a;
+      --mid: #4a4a42;
+      --light-mid: #7a7a6e;
+      --border: #e0d8cc;
+      --accent: #b5956a;
+    }
+
+    html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: #f9f5ef !important;
+      color: #1e1e1a !important;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(249, 245, 239, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--deep-sage); }
+    .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.25rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .page-header h1 em {
+      font-style: italic;
+      color: var(--deep-sage);
+    }
+
+    .page-header-sub {
+      max-width: 580px;
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+
+    /* INTRO THREAD */
+    .intro-thread {
+      padding: 5rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .thread-body {
+      font-size: 0.98rem;
+      color: var(--mid);
+      line-height: 2;
+    }
+
+    .thread-body p { margin-bottom: 1.25rem; }
+    .thread-body p:last-child { margin-bottom: 0; }
+
+    .thread-body em {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--dark);
+    }
+
+    .thread-aside {
+      padding: 2rem;
+      background: var(--warm-white);
+      border-left: 2px solid var(--accent);
+    }
+
+    .thread-aside-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.25rem;
+    }
+
+    .credential-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .credential-list li {
+      font-size: 0.88rem;
+      color: var(--mid);
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .credential-list li strong {
+      display: block;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* MODALITIES */
+    .modalities-section {
+      background: var(--warm-white);
+      padding: 6rem 3rem;
+    }
+
+    .modalities-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--dark);
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--deep-sage);
+    }
+
+    .modalities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .modality-item {
+      padding: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+
+    .modality-item:hover { background: var(--cream); }
+
+    .modality-item:nth-child(even) { border-right: none; }
+    .modality-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .modality-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .modality-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .modality-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .modality-body {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.9;
+    }
+
+    /* LEARNING THREAD */
+    .learning-section {
+      padding: 6rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .learning-timeline {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .learning-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      padding: 0 0 3rem 2.5rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-body {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.9;
+      max-width: 560px;
+    }
+
+    /* PHILOSOPHY */
+    .philosophy-section {
+      background: var(--deep-sage);
+      padding: 6rem 3rem;
+      color: white;
+    }
+
+    .philosophy-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .philosophy-section .section-label { color: rgba(255,255,255,0.45); }
+    .philosophy-section .section-title { color: white; margin-bottom: 1.5rem; }
+    .philosophy-section .section-title em { color: #c8d9c0; }
+
+    .philosophy-body {
+      font-size: 0.98rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 2;
+    }
+
+    .philosophy-body p { margin-bottom: 1.25rem; }
+    .philosophy-body p:last-child { margin-bottom: 0; }
+
+    .philosophy-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+    }
+
+    .philosophy-quote cite {
+      display: block;
+      font-style: normal;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1.5rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 6rem 3rem;
+      text-align: center;
+      background: var(--cream);
+    }
+
+    .cta-inner {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+
+    .cta-title em { font-style: italic; color: var(--deep-sage); }
+
+    .cta-body {
+      font-size: 0.98rem;
+      color: var(--mid);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.25rem;
+      background: var(--deep-sage);
+      color: white;
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--sage); }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 0.9rem 2.25rem;
+      border: 1px solid var(--deep-sage);
+      color: var(--deep-sage);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      margin-left: 1rem;
+    }
+
+    .btn-ghost:hover { background: var(--deep-sage); color: white; }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 3rem;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header { padding: 7rem 1.5rem 3rem; }
+      .intro-thread { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+      .modalities-section { padding: 4rem 1.5rem; }
+      .modalities-grid { grid-template-columns: 1fr; }
+      .modality-item { border-right: none; }
+      .modality-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .modality-item:last-child { border-bottom: none; }
+      .learning-section { padding: 4rem 1.5rem; }
+      .philosophy-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .philosophy-section { padding: 4rem 1.5rem; }
+      .cta-section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="indexUpdatefortest.html" class="nav-logo">Magic Healing Garden</a>
+    <ul class="nav-links">
+      <li><a href="indexUpdatefortest.html">Home</a></li>
+      <li><a href="indexUpdatefortest.html#story">The Work</a></li>
+      <li><a href="indexUpdatefortest.html#who">Who I Work With</a></li>
+      <li><a href="studies.html" class="active">The Path</a></li>
+      <li><a href="indexUpdatefortest.html#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="page-header-eyebrow">The Path</p>
+    <h1><em>Training, Studies</em> & Lineage</h1>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-thread">
+    <div class="thread-body">
+      <p>I have two master's degrees, a bachelor's degree, and years of specialized continuing education in healing, trauma, and somatic work. But what shaped me most wasn't any single program — it was the commitment to keep going deeper, to follow what I didn't yet know how to do until I could do it.</p>
+      <p>I came to healing because I needed it. And because I needed it, I studied it seriously. Over time, with trauma as my primary interest, I built a practice of self-directed learning alongside formal training — reading, studying, taking courses, finding mentors, and most importantly, doing my own work. <em>You cannot take someone somewhere you haven't been yourself.</em></p>
+      <p>I was being called forward at every turn. I followed what called me, inspired by the Creative Forces of the universe, and trusted that each step was part of a larger path. I didn't arrive here despite the winding way. I arrived here because of it — and that path led somewhere real.</p>
+      <p>Before I ever started seeing clients with complex trauma, I spent years educating myself. That process has never stopped.</p>
+    </div>
+
+    <div class="thread-aside">
+      <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-style: italic; color: var(--deep-sage); line-height: 1.3; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);">I was being called forward.</div>
+      <p class="thread-aside-title">Formal Credentials</p>
+      <ul class="credential-list">
+        <li>
+          <strong>NCCAOM Diplomate in Oriental Medicine (Dipl. O.M.) — 2004</strong>
+          Passed all five National Board exams: Foundations of Oriental Medicine Theory, Acupuncture Theory, Chinese Herbal Medicine, Point Location, and Western Bio-Medical
+        </li>
+        <li>
+          <strong>Master of Acupuncture and Oriental Medicine (MAOM) — 2004</strong>
+          Academy of Oriental Medicine at Austin (AOMA) — 3,000 hour program
+        </li>
+        <li>
+          <strong>Master of Arts — Communication — 1995</strong>
+          Second graduate degree
+        </li>
+        <li>
+          <strong>Bachelor of Arts — 1993</strong>
+          Undergraduate foundation
+        </li>
+        <li>
+          <strong>Formerly Certified Practitioner — Zen Shiatsu, AOBTA — 2001–02</strong>
+          American Organization for Bodywork Therapies of Asia — 500-hour program, guided by Pam Ferguson
+        </li>
+        <li>
+          <strong>Qigong — Master Li Junfeng, AOMA</strong>
+          Multiple courses in Sheng Zhen Gong at the Academy of Oriental Medicine at Austin
+        </li>
+        <li>
+          <strong>Theta Healing — Levels 1, 2, 3 & 4</strong>
+          Beginning, Advanced, Dig Deeper, You and the Creator — plus a 16-week medical intuitive course (2021)
+        </li>
+        <li>
+          <strong>Pranic Healing — Levels 1 & 2</strong>
+        </li>
+        <li>
+          <strong>Shamanic Healing — Sandra Ingerman & Lineage, 2013–16</strong>
+          Online coursework with Sandra Ingerman, and additional classes with an Austin-based teacher trained in her methods
+        </li>
+        <li>
+          <strong>Spirit Weavers Toltec Apprenticeship</strong>
+          6-month apprenticeship with Diana Adkins, 2012
+        </li>
+        <li>
+          <strong>Chakra Study Apprenticeship</strong>
+          6-month apprenticeship with Diana Adkins, 2012
+        </li>
+        <li>
+          <strong>Ashtanga Yoga — 200-Hour Teacher Training</strong>
+          It's Yoga, San Francisco
+        </li>
+        <li>
+          <strong>Functional Blood Chemistry & Functional Endocrinology</strong>
+          2008–09
+        </li>
+        <li>
+          <strong>1-Year Mentorship — Lorie Dechar</strong>
+          2024–25
+        </li>
+        <li>
+          <strong>Ongoing Study — Lonnie Jarrett</strong>
+          2025–26
+        </li>
+        <li>
+          <strong>Homeopathy — Immersive Clinical Study, 2025</strong>
+          One year working alongside an experienced homeopath in clinical practice — observing cases and learning the craft from the inside
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODALITIES -->
+  <div class="modalities-section">
+    <div class="modalities-inner">
+      <p class="section-label">What I Work With</p>
+      <h2 class="section-title">The <em>modalities</em></h2>
+
+      <div class="modalities-grid">
+
+        <div class="modality-item">
+          <div class="modality-number">01</div>
+          <div class="modality-name">Manual Chinese Medicine</div>
+          <div class="modality-sub">Acupressure · Zen Shiatsu · Chi Nei Tsang</div>
+          <div class="modality-body">Body-centered work rooted in TCM theory — moving qi and blood, addressing stagnation, supporting the organ systems. I work with my hands rather than needles, which allows for a different quality of presence and responsiveness.</div>
+          <div class="modality-body" style="margin-top: 0.75rem;">My foundation began at the Berkeley Acupressure Institute, followed by a 500-hour Zen Shiatsu certification program with Pam Ferguson — a genuine lineage holder in this work, and the author of the forthcoming <em>From Hell to Health: Journey Through PTSD/PTSI</em> (Do More Good Publishing) in which I am interviewed as a practitioner. I held my AOBTA certification for years. This training is not supplementary to my practice. It is its bedrock.</div>
+          <div class="modality-body" style="margin-top: 0.75rem;">Chi Nei Tsang — abdominal work that addresses the organs as centers of held emotion and physical memory — first called me into this field. I was a patient of Allison Post, author of <em>Unwinding the Belly</em> and the Gut Wellness Guide, for years, and took a couple of classes with her. Her work on my own body directly influenced my decision to go to acupuncture school. I am now returning to CNT — studying within the lineage of Gilles Marin, whose work first reached me through Allison Post.</div>
+        </div>
+
+        <div class="modality-item">
+          <div class="modality-number">02</div>
+          <div class="modality-name">Theta Healing</div>
+          <div class="modality-sub">Energetic Release · Belief Work · Soul Fragment Clearing</div>
+          <div class="modality-body">A meditation-based healing modality that works at the level of belief and energetic memory. The two things I use most: releasing shock and trauma held in the system, and clearing soul fragments — the energetic residue of difficult relationships that can linger in the biofield long after the event. All work is done with clear verbal permission. Always.</div>
+        </div>
+
+        <div class="modality-item">
+          <div class="modality-number">03</div>
+          <div class="modality-name">Trauma-Informed Care</div>
+          <div class="modality-sub">Somatic Awareness · Nervous System Support · Pacing</div>
+          <div class="modality-body">Every session is held with an understanding that the body protects itself — and those protections were intelligent once. We work with the nervous system, not against it. Going slow is not a limitation; it is the work. Calming the nervous system is always the first priority. Nothing is forced. Everything requires your yes.</div>
+        </div>
+
+        <div class="modality-item">
+          <div class="modality-number">04</div>
+          <div class="modality-name">Flower Essence Therapy</div>
+          <div class="modality-sub">Vibrational Medicine · Emotional Support</div>
+          <div class="modality-body">Gentle vibrational medicine that supports the emotional and energetic shifts that happen between sessions. Often the quiet thread that holds everything else together — working subtly and continuously in the background of a healing process.</div>
+        </div>
+
+        <div class="modality-item">
+          <div class="modality-number">05</div>
+          <div class="modality-name">Homeopathy</div>
+          <div class="modality-sub">Constitutional · Classical · In Formal Study</div>
+          <div class="modality-body">Homeopathy works at the level of constitutional pattern, addressing the whole person rather than isolated symptoms. I have been a homeopathy patient for many years and in 2025 spent a year working alongside an experienced homeopath in clinical practice — observing cases and learning the craft from the inside. I am currently exploring formal training in homeopathy and this work continues to deepen.</div>
+        </div>
+
+        <div class="modality-item">
+          <div class="modality-number">06</div>
+          <div class="modality-name">Energy Healing & Archetypal Work</div>
+          <div class="modality-sub">Five Element Theory · Jungian Archetypes · Ancestral Healing</div>
+          <div class="modality-body">Drawing from Five Element theory, Jungian psychology, and archetypal frameworks — this work addresses the deeper patterns beneath the presenting issue. Ancestral healing, the archetypal mother and father, the inner child — sometimes what needs healing isn't personal. It's inherited. And it can still be released.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LEARNING TIMELINE -->
+  <div class="learning-section">
+    <p class="section-label">Continuing Education</p>
+    <h2 class="section-title">The ongoing <em>study</em></h2>
+
+    <div class="learning-timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-label">Formal Degree — 2004</p>
+        <p class="timeline-title">Master of Acupuncture and Oriental Medicine — AOMA</p>
+        <p class="timeline-body">A 3,000-hour graduate program at the Academy of Oriental Medicine at Austin (AOMA), graduating in 2004. That same year I passed all five NCCAOM National Board exams — Foundations of Oriental Medicine Theory, Acupuncture Theory, Chinese Herbal Medicine, Point Location, and Western Bio-Medical — earning the Diplomate in Oriental Medicine. My first master's degree (Communication) was completed in 1995, undergraduate in 1993. During my time at AOMA I also studied Sheng Zhen Gong qigong with Master Li Junfeng, taking multiple classes with him directly.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Shamanic Healing — 2013–16</p>
+        <p class="timeline-title">Sandra Ingerman & Lineage</p>
+        <p class="timeline-body">Online coursework with Sandra Ingerman — one of the most respected teachers of shamanic healing — alongside classes with an Austin-based teacher trained in her methods. This work deepened my understanding of the energetic and spiritual dimensions of healing that run alongside the somatic.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Shamanic & Energy Work</p>
+        <p class="timeline-title">Toltec Apprenticeships with Diana Adkins — 2012</p>
+        <p class="timeline-body">Two consecutive six-month apprenticeships with Diana Adkins: the Spirit Weavers Toltec Apprenticeship and a Chakra Study Apprenticeship. This work brought a shamanic and energetic dimension to my practice that has informed everything since.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Biomedical Foundation</p>
+        <p class="timeline-title">Functional Blood Chemistry & Functional Endocrinology</p>
+        <p class="timeline-body">Coursework in functional blood chemistry analysis and functional endocrinology (2008–09), deepening my understanding of the biomedical landscape alongside the energetic and somatic frameworks I was developing.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Movement & Body</p>
+        <p class="timeline-title">200-Hour Ashtanga Yoga Teacher Training — It's Yoga, San Francisco</p>
+        <p class="timeline-body">Completed a 200-hour Ashtanga Yoga teacher training to deepen my understanding of the body in movement — and to be able to weave yoga-based practices into the healing work when appropriate.</p>
+      </div>
+
+
+      <div class="timeline-item">
+        <p class="timeline-label">The Beginning</p>
+        <p class="timeline-title">Berkeley Acupressure Institute & Allison Post</p>
+        <p class="timeline-body">My first hands-on training was at the Berkeley Acupressure Institute. Alongside this, I was a patient of Allison Post — author of <em>Unwinding the Belly</em> and the Gut Wellness Guide — for years, and took a couple of classes with her. Her work on my own body was so profound it directly influenced my decision to go to acupuncture school.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Foundational Training — 2001–02</p>
+        <p class="timeline-title">Zen Shiatsu — Under the Tutelage of Pam Ferguson, AOMA</p>
+        <p class="timeline-body">Beginning in 2001, I studied Zen Shiatsu under the tutelage of Pam Ferguson at the Academy of Oriental Medicine in Austin (AOMA) for a year and a half — study that laid my real foundation in bodywork. Pam is a true lineage holder in this work and the author of the forthcoming <em>From Hell to Health: Journey Through PTSD/PTSI</em> (Do More Good Publishing) in which I am interviewed as a practitioner.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Certification — 2001–02</p>
+        <p class="timeline-title">Formerly Certified Practitioner of Zen Shiatsu — AOBTA</p>
+        <p class="timeline-body">It was Pam who recognized my commitment and guided me toward formal certification through the American Organization for Bodywork Therapies of Asia (AOBTA) — a 500-hour program. I was able to practice while still completing the certification and held my AOBTA credentials for years.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Current Study</p>
+        <p class="timeline-title">Chi Nei Tsang — Returning to the Lineage</p>
+        <p class="timeline-body">I am currently returning to Chi Nei Tsang — studying within the lineage of Gilles Marin, whose work first reached me through Allison Post. The work that started everything is deepening still.</p>
+      </div>
+
+
+      <div class="timeline-item">
+        <p class="timeline-label">Theta Healing</p>
+        <p class="timeline-title">Practitioner & Advanced Certifications</p>
+        <p class="timeline-body">Multiple levels of Theta Healing certification, including a 16-week medical intuitive course focused on the intersection of energetic work and clinical practice. This training gave me the foundational tools I use most: releasing shock and trauma, and working with energetic imprints from difficult relationships.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Trauma Studies</p>
+        <p class="timeline-title">Self-Directed & Formal Trauma Education</p>
+        <p class="timeline-body">Pranic Healing, a Trauma Master Class, a course on race-based trauma at the National Institute for the Clinical Application of Behavioral Medicine (NICABM), and acupressure and craniosacral classes. Alongside these, years of reading in the literature of trauma, somatic work, and body-centered healing.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Mentorship</p>
+        <p class="timeline-title">Lorie Dechar — Five Element Acupuncture & Alchemical Healing</p>
+        <p class="timeline-body">A year-long mentorship with Lorie Dechar, whose work weaves Five Element theory with Jungian psychology, alchemy, and depth healing. Dechar is one of the most respected voices in the evolution of classical Chinese medicine in the West.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Mentorship</p>
+        <p class="timeline-title">Lonnie Jarrett — Classical Chinese Medicine</p>
+        <p class="timeline-body">Study with Lonnie Jarrett, whose approach to Chinese medicine draws deeply from classical texts and the cultivation of spirit alongside the treatment of body and mind.</p>
+      </div>
+
+
+        <p class="timeline-body">An ongoing mentorship with an experienced acupuncturist whose work combines Five Element theory, the study of archetypes, essential oils, and flower essences with a deep knowledge of the classical acupuncture points. Our studies weave Chinese medicine with Jungian psychology, with regular case discussion and feedback.</p>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-label">Homeopathy — 2025</p>
+        <p class="timeline-title">Immersive Clinical Study alongside an Experienced Homeopath</p>
+        <p class="timeline-body">A year of working alongside an experienced homeopath in clinical practice — observing cases, learning the methodology, and deepening my understanding of constitutional treatment from the inside. I am currently exploring formal training programs and consider homeopathy an important part of where my practice is heading.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHILOSOPHY -->
+  <div class="philosophy-section">
+    <div class="philosophy-inner">
+      <div>
+        <p class="section-label">How I Work</p>
+        <h2 class="section-title">The <em>philosophy</em> behind the practice</h2>
+        <div class="philosophy-body">
+          <p>I don't want to keep people dependent on my helping them. My end goal is always to help you develop your own capacity — to eventually be able to do much of this work for yourself. In the beginning, you may not be able to, and that's what I'm here for. But healing is not a subscription. It's a process with a direction.</p>
+          <p>The most important thing I do is also the simplest: I make sure I am doing my own work. Dealing with my own history so that I know what it feels like to go through the process. You cannot take someone somewhere you haven't been.</p>
+          <p>Before every session I center myself and set intention — for your highest good and the highest good of everyone connected to you. You arrive into a space that has already been prepared.</p>
+        </div>
+      </div>
+
+      <div class="philosophy-quote">
+        "I've been hard-pressed to find anyone who doesn't have issues with at least one other person. That's where so much of the work lives — in the space between people, in what we absorbed and never put down."
+        <cite>— Gwen Joseph</cite>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to <em>begin</em>?</h2>
+      <p class="cta-body">If something in this page resonated — a modality, a philosophy, a way of working — reach out. We'll talk about what you're carrying and whether my approach is right for you.</p>
+      <a href="indexUpdatefortest.html#contact" class="btn-primary">Get In Touch</a>
+      <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="indexUpdatefortest.html" class="footer-logo">Magic Healing Garden</a>
+    <p class="footer-copy">© 2026 Gwen Joseph — Magic Healing Garden. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
