@@ -10,453 +10,86 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #f9f5ef;
-      --warm-white: #fdfaf6;
-      --sage: #7a8c72;
-      --deep-sage: #4a5e42;
-      --earth: #8c7355;
-      --dark: #1e1e1a;
-      --mid: #4a4a42;
-      --light-mid: #7a7a6e;
-      --border: #e0d8cc;
-      --accent: #b5956a;
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #7a8c72; --deep-sage: #4a5e42;
+      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #7a7a6e;
+      --border: #e0d8cc; --accent: #b5956a;
     }
-
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background-color: #f9f5ef !important;
-      color: #1e1e1a !important;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 3rem;
-      background: rgba(249, 245, 239, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--deep-sage); }
     .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
-
-    /* PAGE HEADER */
-    .page-header {
-      padding: 10rem 3rem 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-    }
-
-    .page-header-left {}
-
-    .page-header-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1.25rem;
-    }
-
-    .page-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--dark);
-      margin-bottom: 1.5rem;
-    }
-
-    .page-header h1 em {
-      font-style: italic;
-      color: var(--deep-sage);
-    }
-
-    .page-header-right {
-      padding-bottom: 0.5rem;
-    }
-
-    .page-header-definition {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--light-mid);
-      line-height: 1.5;
-      padding-left: 2rem;
-      border-left: 2px solid var(--accent);
-    }
-
-    /* INTRO */
-    .intro-section {
-      padding: 5rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .intro-body {
-      font-size: 1.02rem;
-      color: var(--mid);
-      line-height: 2;
-    }
-
+    .page-header { padding: 10rem 3rem 5rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
+    .page-header-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--deep-sage); }
+    .page-header-right { padding-bottom: 0.5rem; }
+    .page-header-definition { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--light-mid); line-height: 1.5; padding-left: 2rem; border-left: 2px solid var(--accent); }
+    .intro-section { padding: 5rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6rem; align-items: start; }
+    .intro-body { font-size: 1.02rem; color: var(--mid); line-height: 2; }
     .intro-body p { margin-bottom: 1.25rem; }
     .intro-body p:last-child { margin-bottom: 0; }
-
-    .intro-aside {
-      position: sticky;
-      top: 6rem;
-    }
-
-    .aside-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1rem;
-    }
-
-    .aside-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--dark);
-      line-height: 1.5;
-      margin-bottom: 2rem;
-    }
-
-    .aside-note {
-      font-size: 0.88rem;
-      color: var(--light-mid);
-      line-height: 1.8;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* HOW IT WORKS */
-    .how-section {
-      background: var(--warm-white);
-      padding: 6rem 3rem;
-    }
-
-    .how-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      line-height: 1.25;
-      color: var(--dark);
-      margin-bottom: 3rem;
-    }
-
+    .intro-aside { position: sticky; top: 6rem; }
+    .aside-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--dark); line-height: 1.5; margin-bottom: 2rem; }
+    .aside-note { font-size: 0.88rem; color: var(--light-mid); line-height: 1.8; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .how-section { background: var(--warm-white); padding: 6rem 3rem; }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.25; color: var(--dark); margin-bottom: 3rem; }
     .section-title em { font-style: italic; color: var(--deep-sage); }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .how-card {
-      padding: 2rem;
-      background: var(--cream);
-      border-top: 2px solid var(--accent);
-    }
-
-    .how-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: var(--border);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .how-title {
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--dark);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-    }
-
-    .how-body {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.85;
-    }
-
-    /* SESSION */
-    .session-section {
-      padding: 6rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .session-body {
-      font-size: 0.98rem;
-      color: var(--mid);
-      line-height: 2;
-    }
-
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-bottom: 3rem; }
+    .how-card { padding: 2rem; background: var(--cream); border-top: 2px solid var(--accent); }
+    .how-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--border); line-height: 1; margin-bottom: 1rem; }
+    .how-title { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; color: var(--dark); margin-bottom: 0.75rem; text-transform: uppercase; }
+    .how-body { font-size: 0.9rem; color: var(--mid); line-height: 1.85; }
+    .session-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .session-body { font-size: 0.98rem; color: var(--mid); line-height: 2; }
     .session-body p { margin-bottom: 1.25rem; }
     .session-body p:last-child { margin-bottom: 0; }
-
-    .session-body em {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--dark);
-    }
-
-    .session-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .session-detail-item {
-      padding: 1.5rem;
-      background: var(--warm-white);
-      border-left: 2px solid var(--border);
-    }
-
-    .session-detail-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 0.5rem;
-    }
-
-    .session-detail-body {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.8;
-    }
-
-    /* CONDITIONS */
-    .conditions-section {
-      background: var(--deep-sage);
-      padding: 6rem 3rem;
-      color: white;
-    }
-
-    .conditions-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    .session-body em { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--dark); }
+    .session-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .session-detail-item { padding: 1.5rem; background: var(--warm-white); border-left: 2px solid var(--border); }
+    .session-detail-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
+    .session-detail-body { font-size: 0.9rem; color: var(--mid); line-height: 1.8; }
+    .conditions-section { background: var(--deep-sage); padding: 6rem 3rem; color: white; }
+    .conditions-inner { max-width: 1100px; margin: 0 auto; }
     .conditions-section .section-label { color: rgba(255,255,255,0.45); }
     .conditions-section .section-title { color: white; }
     .conditions-section .section-title em { color: #c8d9c0; }
-
-    .conditions-intro {
-      font-size: 0.98rem;
-      color: rgba(255,255,255,0.7);
-      max-width: 580px;
-      margin-bottom: 3rem;
-      line-height: 1.9;
-    }
-
-    .conditions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .condition-item {
-      padding: 1rem 1.25rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.5;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .condition-item:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.3);
-    }
-
-    /* AFTER */
-    .after-section {
-      padding: 6rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .after-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-style: italic;
-      color: var(--deep-sage);
-      line-height: 1.4;
-    }
-
-    .after-body {
-      font-size: 0.98rem;
-      color: var(--mid);
-      line-height: 2;
-    }
-
+    .conditions-intro { font-size: 0.98rem; color: rgba(255,255,255,0.7); max-width: 580px; margin-bottom: 3rem; line-height: 1.9; }
+    .conditions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .condition-item { padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.5; transition: background 0.2s, border-color 0.2s; }
+    .condition-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+    .after-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .after-quote { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: var(--deep-sage); line-height: 1.4; }
+    .after-body { font-size: 0.98rem; color: var(--mid); line-height: 2; }
     .after-body p { margin-bottom: 1.25rem; }
     .after-body p:last-child { margin-bottom: 0; }
-
-    /* CTA */
-    .cta-section {
-      background: var(--warm-white);
-      padding: 6rem 3rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-    }
-
+    .cta-section { background: var(--warm-white); padding: 6rem 3rem; text-align: center; border-top: 1px solid var(--border); }
     .cta-inner { max-width: 540px; margin: 0 auto; }
-
-    .cta-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--dark);
-      margin-bottom: 1.25rem;
-      line-height: 1.3;
-    }
-
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--dark); margin-bottom: 1.25rem; line-height: 1.3; }
     .cta-title em { font-style: italic; color: var(--deep-sage); }
-
-    .cta-body {
-      font-size: 0.98rem;
-      color: var(--mid);
-      line-height: 1.9;
-      margin-bottom: 2.5rem;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.9rem 2.25rem;
-      background: var(--deep-sage);
-      color: white;
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
+    .cta-body { font-size: 0.98rem; color: var(--mid); line-height: 1.9; margin-bottom: 2.5rem; }
+    .btn-primary { display: inline-block; padding: 0.9rem 2.25rem; background: var(--deep-sage); color: white; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
     .btn-primary:hover { background: var(--sage); }
-
-    .btn-ghost {
-      display: inline-block;
-      padding: 0.9rem 2.25rem;
-      border: 1px solid var(--deep-sage);
-      color: var(--deep-sage);
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: all 0.2s;
-      margin-left: 1rem;
-    }
-
+    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid var(--deep-sage); color: var(--deep-sage); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; margin-left: 1rem; }
     .btn-ghost:hover { background: var(--deep-sage); color: white; }
-
-    /* FOOTER */
-    footer {
-      padding: 2rem 3rem;
-      background: var(--dark);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-
-    .footer-copy {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
-    }
-
+    footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .page-header { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 3rem; }
       .intro-section { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .intro-aside { position: static; }
-      .how-section { padding: 4rem 1.5rem; }
+      .intro-aside { position: static; } .how-section { padding: 4rem 1.5rem; }
       .how-grid { grid-template-columns: 1fr; }
       .session-section { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
-      .conditions-section { padding: 4rem 1.5rem; }
-      .conditions-grid { grid-template-columns: 1fr 1fr; }
+      .conditions-section { padding: 4rem 1.5rem; } .conditions-grid { grid-template-columns: 1fr 1fr; }
       .after-section { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -467,17 +100,16 @@
 
   <nav>
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
-        <ul class="nav-links">
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#story">My Work</a></li>
-      <li><a href="zen-shiatsu.html">The Sessions</a></li>
+      <li><a href="the-sessions.html" class="active">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="index.html#contact">Connect</a></li>
     </ul>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <div class="page-header-left">
       <p class="page-header-eyebrow">Manual Chinese Medicine</p>
@@ -488,7 +120,6 @@
     </div>
   </div>
 
-  <!-- INTRO -->
   <div class="intro-section">
     <div class="intro-body">
       <p>Zen Shiatsu is a modernized form of an ancient art — acupuncture without needles. Using pressure, stretching, and holding techniques, it stimulates the body's own healing mechanisms rather than imposing change from the outside.</p>
@@ -496,7 +127,6 @@
       <p>What draws me to this work, and what drew me to it when I first encountered it, is its quality of listening. Zen Shiatsu doesn't override the body. It enters into conversation with it. The practitioner follows what is present rather than imposing a predetermined protocol.</p>
       <p>This is the foundation of everything I do — whether I am working with the meridians directly, or bringing that same quality of attention to other dimensions of the work.</p>
     </div>
-
     <div class="intro-aside">
       <p class="aside-label">From the practice</p>
       <p class="aside-quote">"The body knows what happened. Our work is simply to help it complete the cycle."</p>
@@ -504,25 +134,21 @@
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
   <div class="how-section">
     <div class="how-inner">
       <p class="section-label">The Principles</p>
       <h2 class="section-title">How does it <em>work?</em></h2>
-
       <div class="how-grid">
         <div class="how-card">
           <div class="how-number">01</div>
           <div class="how-title">Energy Flows Like Water</div>
           <div class="how-body">Zen Shiatsu is based on the principle that energy flows through the body in a series of pathways called meridians — similar to rivers and canals. When these pathways flow freely, the body is in balance. When they are disrupted, imbalance follows.</div>
         </div>
-
         <div class="how-card">
           <div class="how-number">02</div>
           <div class="how-title">Blockages Show Up in the Body</div>
           <div class="how-body">Stress, injury, or illness can cause these pathways to become blocked — showing up as tightness or muscle stiffness, weakness, loss of strength, or an area that simply needs holding. Zen Shiatsu uses pressure, stretching, and joint rotation to sedate, unblock, and rebalance this energy.</div>
         </div>
-
         <div class="how-card">
           <div class="how-number">03</div>
           <div class="how-title">The Whole System Responds</div>
@@ -532,7 +158,6 @@
     </div>
   </div>
 
-  <!-- THE SESSION -->
   <div class="session-section">
     <div class="session-body">
       <p class="section-label" style="margin-bottom: 1rem;">What to Expect</p>
@@ -542,7 +167,6 @@
       <p>Sessions are typically given on a massage table or massage chair, although I also work on a futon on the floor. If working at your home, a bed or hospital bed can be used depending on your needs and comfort. <em>You remain fully clothed throughout — loose, comfortable clothing in natural fibers is ideal, with socks. No oils are used.</em></p>
       <p>The first session is two hours to allow time for a thorough intake. Subsequent treatments are usually once a week and last approximately one hour. We will discuss an appropriate treatment plan together.</p>
     </div>
-
     <div class="session-details">
       <div class="session-detail-item">
         <p class="session-detail-label">Duration</p>
@@ -567,13 +191,11 @@
     </div>
   </div>
 
-  <!-- CONDITIONS -->
   <div class="conditions-section">
     <div class="conditions-inner">
       <p class="section-label">What It Addresses</p>
       <h2 class="section-title">Common conditions that <em>respond well</em></h2>
       <p class="conditions-intro">Zen Shiatsu works with the whole person — which means the range of conditions that respond to it is broad. These are some of the most common presenting issues.</p>
-
       <div class="conditions-grid">
         <div class="condition-item">Anxiety, Depression & Stress</div>
         <div class="condition-item">Headaches & Migraines</div>
@@ -591,7 +213,6 @@
     </div>
   </div>
 
-  <!-- AFTER -->
   <div class="after-section">
     <div class="after-quote">"Many people experience a calm mood, a clear mind, and relief from what they came in carrying."</div>
     <div class="after-body">
@@ -602,7 +223,6 @@
     </div>
   </div>
 
-  <!-- CTA -->
   <div class="cta-section">
     <div class="cta-inner">
       <h2 class="cta-title">Ready to <em>experience it?</em></h2>
