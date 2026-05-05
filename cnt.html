@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
-  <title>The Bodywork — Magic Healing Garden</title>
+  <title>Chi Nei Tsang — Magic Healing Garden</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -17,18 +17,21 @@
     }
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
+
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--deep-sage); }
     .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
     .page-header { padding: 10rem 3rem 5rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
     .page-header-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
     .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
     .page-header h1 em { font-style: italic; color: var(--deep-sage); }
     .page-header-right { padding-bottom: 0.5rem; }
     .page-header-definition { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--light-mid); line-height: 1.5; padding-left: 2rem; border-left: 2px solid var(--accent); }
+
     .intro-section { padding: 5rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 6rem; align-items: start; }
     .intro-body { font-size: 1.02rem; color: var(--mid); line-height: 2; }
     .intro-body p { margin-bottom: 1.25rem; }
@@ -37,6 +40,7 @@
     .aside-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
     .aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--dark); line-height: 1.5; margin-bottom: 2rem; }
     .aside-note { font-size: 0.88rem; color: var(--light-mid); line-height: 1.8; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+
     .how-section { background: var(--warm-white); padding: 6rem 3rem; }
     .how-inner { max-width: 1100px; margin: 0 auto; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
@@ -47,6 +51,7 @@
     .how-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--border); line-height: 1; margin-bottom: 1rem; }
     .how-title { font-size: 0.88rem; font-weight: 500; letter-spacing: 0.05em; color: var(--dark); margin-bottom: 0.75rem; text-transform: uppercase; }
     .how-body { font-size: 0.9rem; color: var(--mid); line-height: 1.85; }
+
     .session-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .session-body { font-size: 0.98rem; color: var(--mid); line-height: 2; }
     .session-body p { margin-bottom: 1.25rem; }
@@ -56,6 +61,7 @@
     .session-detail-item { padding: 1.5rem; background: var(--warm-white); border-left: 2px solid var(--border); }
     .session-detail-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
     .session-detail-body { font-size: 0.9rem; color: var(--mid); line-height: 1.8; }
+
     .conditions-section { background: var(--deep-sage); padding: 6rem 3rem; color: white; }
     .conditions-inner { max-width: 1100px; margin: 0 auto; }
     .conditions-section .section-label { color: rgba(255,255,255,0.45); }
@@ -65,11 +71,13 @@
     .conditions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .condition-item { padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.5; transition: background 0.2s, border-color 0.2s; }
     .condition-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+
     .after-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .after-quote { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: var(--deep-sage); line-height: 1.4; }
     .after-body { font-size: 0.98rem; color: var(--mid); line-height: 2; }
     .after-body p { margin-bottom: 1.25rem; }
     .after-body p:last-child { margin-bottom: 0; }
+
     .cta-section { background: var(--warm-white); padding: 6rem 3rem; text-align: center; border-top: 1px solid var(--border); }
     .cta-inner { max-width: 540px; margin: 0 auto; }
     .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--dark); margin-bottom: 1.25rem; line-height: 1.3; }
@@ -79,9 +87,11 @@
     .btn-primary:hover { background: var(--sage); }
     .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid var(--deep-sage); color: var(--deep-sage); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; margin-left: 1rem; }
     .btn-ghost:hover { background: var(--deep-sage); color: white; }
+
     footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .page-header { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 3rem; }
@@ -92,6 +102,7 @@
       .conditions-section { padding: 4rem 1.5rem; } .conditions-grid { grid-template-columns: 1fr 1fr; }
       .after-section { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
+      .btn-ghost { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
@@ -112,30 +123,33 @@
   </nav>
 
   <div class="page-header">
-    <div class="page-header-left">
+    <div>
       <p class="page-header-eyebrow"><a href="the-sessions.html" style="color: var(--sage); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;">← The Sessions</a></p>
-      <h1>The<br><em>Bodywork</em></h1>
+      <h1>Chi Nei<br><em>Tsang</em></h1>
     </div>
     <div class="page-header-right">
-      <p class="page-header-definition">Hands-on work rooted in Chinese medicine — working with the body's own intelligence to restore flow, release what's held, and support the whole system. My strongest lineage is Zen Shiatsu.</p>
+      <p class="page-header-definition">Abdominal work rooted in Chinese medicine and Taoist healing — gentle, intelligent, and capable of moving what has been held in the belly for a very long time.</p>
     </div>
   </div>
 
+  <!-- HOW I CAME TO THIS -->
   <div class="intro-section">
     <div class="intro-body">
-      <p>Zen Shiatsu is a modernized form of an ancient art — acupuncture without needles. Using pressure, stretching, and holding techniques, it stimulates the body's own healing mechanisms rather than imposing change from the outside.</p>
-      <p>It is a wonderful way to relax your energy and relieve stress, increase comfort, and support the promotion, maintenance, and restoration of health. People of all ages can benefit — infants, children, adults, and the elderly.</p>
-      <p>What draws me to this work, and what drew me to it when I first encountered it, is its quality of listening. Zen Shiatsu doesn't override the body. It enters into conversation with it. The practitioner follows what is present rather than imposing a predetermined protocol.</p>
-      <p>I trained in Zen Shiatsu at the Academy of Oriental Medicine in Austin under Pamela Ferguson, a lineage holder in the tradition of Shizuto Masunaga — completing 500 hours of training as part of my graduate studies, and beginning to see clients privately in 2002. I am a formerly Certified Practitioner with the American Organization for Bodywork Therapies of Asia (AOBTA).</p>
-      <p>This is the foundation of everything I do — whether I am working with the meridians directly, or bringing that same quality of attention to other dimensions of the work.</p>
+      <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
+      <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was my first real lesson in trusting practitioners who actually listen — and in the profound relationship between what we eat, what we feel, and what we carry.</p>
+      <p>That chiropractor referred me to Allison Post, a practitioner of Chi Nei Tsang and a student of Gilles Marin, one of the foremost teachers of this tradition in the West. I didn't know what CNT was. But I trusted the referral. And as soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me — through her hands and her presence — that the belly is not just a digestive organ. It is where we store our emotions, our unprocessed experiences, our grief and our fear and our unexpressed life.</p>
+      <p>I went on to study Oriental Medicine, deepening my understanding of the energetic systems, the meridians, and the intelligence of the organs that CNT works with directly. Allison's book, <em>Unwinding the Belly</em>, became a companion text — her writing sounds exactly like she does in person, and I practiced from it until her way of working was in my hands.</p>
+      <p>I continue to deepen this practice. I am currently in a study group with other practitioners, working through the lineage of Gilles Marin — whose teaching runs through Allison's work, and through mine.</p>
     </div>
     <div class="intro-aside">
-      <p class="aside-label">From the practice</p>
-      <p class="aside-quote">"The body knows what happened. Our work is simply to help it complete the cycle."</p>
-      <p class="aside-note">Zen Shiatsu is given fully clothed — loose, comfortable clothing of natural fibers is ideal, with socks. No oils are used. Sessions can be offered on a futon on the floor, a massage table, or a chair depending on your needs and comfort.</p>
+      <p class="aside-label">A lineage of listening</p>
+      <p class="aside-quote">"Allison taught me that the belly holds what the mind can't always reach. Working there — with gentleness and respect — changes things."</p>
+      <p class="aside-note">Chi Nei Tsang translates roughly as "working the energy of the internal organs." It is one of the few healing traditions that addresses the abdomen directly — understanding it not just as a site of digestion, but as a center of emotional intelligence, energetic processing, and deep holding.</p>
+      <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">I offer CNT as a standalone session and weave it into Zen Shiatsu sessions when the belly is ready to be worked. Some bodies need to be met there first. Others arrive there over time.</p>
     </div>
   </div>
 
+  <!-- HOW IT WORKS -->
   <div class="how-section">
     <div class="how-inner">
       <p class="section-label">The Principles</p>
@@ -143,92 +157,95 @@
       <div class="how-grid">
         <div class="how-card">
           <div class="how-number">01</div>
-          <div class="how-title">Energy Flows Like Water</div>
-          <div class="how-body">Zen Shiatsu is based on the principle that energy flows through the body in a series of pathways called meridians — similar to rivers and canals. When these pathways flow freely, the body is in balance. When they are disrupted, imbalance follows.</div>
+          <div class="how-title">The Belly as a Center</div>
+          <div class="how-body">In Chinese medicine and Taoist tradition, the abdomen is understood as the body's second brain — a center of intelligence, processing, and storage. Emotions that are not expressed or integrated find their way there. CNT works with this directly.</div>
         </div>
         <div class="how-card">
           <div class="how-number">02</div>
-          <div class="how-title">Blockages Show Up in the Body</div>
-          <div class="how-body">Stress, injury, or illness can cause these pathways to become blocked — showing up as tightness or muscle stiffness, weakness, loss of strength, or an area that simply needs holding. Zen Shiatsu uses pressure, stretching, and joint rotation to sedate, unblock, and rebalance this energy.</div>
+          <div class="how-title">The Organs Hold Memory</div>
+          <div class="how-body">Each organ in Chinese medicine is associated with specific emotions and energetic functions. Grief lives in the lungs. Fear in the kidneys. Anger in the liver. By working gently with the abdomen, we can begin to release what each organ has been holding — often for years.</div>
         </div>
         <div class="how-card">
           <div class="how-number">03</div>
-          <div class="how-title">The Whole System Responds</div>
-          <div class="how-body">Zen Shiatsu stimulates the circulatory, lymphatic, and nervous systems, and supports the respiratory, digestive, and autonomic nervous systems. It works with the whole person — not just the presenting complaint.</div>
+          <div class="how-title">Gentle, Intelligent Touch</div>
+          <div class="how-body">CNT uses slow, respectful pressure on the abdomen — following the body's own cues rather than imposing a protocol. The work is never forced. The belly will only release what it is ready to release. The practitioner's job is to create the conditions for that to happen.</div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- THE SESSION -->
   <div class="session-section">
     <div class="session-body">
       <p class="section-label" style="margin-bottom: 1rem;">What to Expect</p>
       <h2 class="section-title" style="margin-bottom: 1.5rem;">The Session</h2>
-      <p>Each Zen Shiatsu session is specifically tailored to your needs. We begin with your health history and your body's particular condition on the day — because no two sessions are the same, even for the same person.</p>
-      <p>I begin diagnosis through the Hara — the Japanese word for abdomen — which in Zen Shiatsu is understood as a map of the whole meridian system. By feeling the Hara, I can identify the most Jitsu area (excess, where energy is overactive or stuck) and the most Kyo area (deficient, where energy is depleted or withdrawn). The treatment then focuses on balancing these two areas — working with what the body is actually doing rather than what a protocol might prescribe.</p>
-      <p>Sessions are typically given on a massage table or massage chair, although I also work on a futon on the floor. If working at your home, a bed or hospital bed can be used depending on your needs and comfort. <em>You remain fully clothed throughout — loose, comfortable clothing in natural fibers is ideal, with socks. No oils are used.</em></p>
-      <p>The first session is two hours to allow time for a thorough intake. Subsequent treatments are usually once a week and last approximately one hour. We will discuss an appropriate treatment plan together.</p>
+      <p>We begin with a conversation — your health history, what's present for you, what brings you to the work. Some people come with a specific physical complaint. Others come knowing only that something feels lodged in their middle that they can't reach on their own. Both are a perfect place to begin.</p>
+      <p>The work itself is done lying on your back, fully clothed from the waist up, with the abdomen exposed or lightly draped depending on your comfort. I work with slow, gentle pressure on the abdomen — following the organs, the fascia, and the energy pathways beneath. I check in regularly. Your feedback guides the session as much as my training does.</p>
+      <p>CNT can be offered as a standalone session or woven into a Zen Shiatsu session. When combined, the two work beautifully together — the Shiatsu settling the meridian system, the CNT working the deeper interior. <em>Many clients find the combination more complete than either alone.</em></p>
+      <p>The first session is typically longer to allow time for a thorough intake. We will discuss what makes sense for your particular situation and what a series of sessions might look like.</p>
     </div>
     <div class="session-details">
       <div class="session-detail-item">
         <p class="session-detail-label">Duration</p>
-        <p class="session-detail-body">Approximately one hour. Initial sessions may run slightly longer to allow time for intake and health history.</p>
+        <p class="session-detail-body">Approximately one hour for a standalone CNT session. Longer when combined with Zen Shiatsu. Initial sessions include additional time for intake.</p>
       </div>
       <div class="session-detail-item">
         <p class="session-detail-label">What to Wear</p>
-        <p class="session-detail-body">Loose, comfortable clothing in natural fibers. Socks. You remain fully clothed throughout — no oils are used.</p>
+        <p class="session-detail-body">Comfortable clothing. The abdomen will need to be accessible — a shirt that can be lifted or loosened works well. You remain clothed throughout.</p>
       </div>
       <div class="session-detail-item">
         <p class="session-detail-label">Setting</p>
-        <p class="session-detail-body">Typically on a massage table or massage chair. I also work on a futon on the floor. If working at your home, a bed or hospital bed can be arranged based on your needs.</p>
+        <p class="session-detail-body">On a massage table, lying on your back. Can also be offered on a futon or bed depending on your needs and mobility.</p>
       </div>
       <div class="session-detail-item">
         <p class="session-detail-label">Frequency</p>
-        <p class="session-detail-body">The first session is two hours. Subsequent sessions are approximately one hour, typically once a week. We will discuss what makes sense for you.</p>
+        <p class="session-detail-body">For acute situations, weekly sessions are common. For ongoing support and deeper work, we'll discuss what rhythm makes sense for you.</p>
       </div>
       <div class="session-detail-item">
         <p class="session-detail-label">After the Session</p>
-        <p class="session-detail-body">Drink plenty of water. Many people experience a calm mood, mental clarity, and relief from discomfort. Occasionally there is a brief healing reaction as the body releases — this usually resolves within 12 hours and is supported by hydration.</p>
+        <p class="session-detail-body">Drink plenty of water. Give yourself time to rest if you can. Emotional material sometimes surfaces in the hours or days following a session — this is a normal and healthy part of the process.</p>
       </div>
     </div>
   </div>
 
+  <!-- CONDITIONS -->
   <div class="conditions-section">
     <div class="conditions-inner">
       <p class="section-label">What It Addresses</p>
-      <h2 class="section-title">Common conditions that <em>respond well</em></h2>
-      <p class="conditions-intro">Zen Shiatsu works with the whole person — which means the range of conditions that respond to it is broad. These are some of the most common presenting issues.</p>
+      <h2 class="section-title">What responds to <em>this work</em></h2>
+      <p class="conditions-intro">Because Chi Nei Tsang addresses both the physical and emotional dimensions of the abdomen, the range of conditions that respond to it is broader than many people expect.</p>
       <div class="conditions-grid">
-        <div class="condition-item">Anxiety, Depression & Stress</div>
-        <div class="condition-item">Headaches & Migraines</div>
-        <div class="condition-item">Neck & Shoulder Stiffness</div>
-        <div class="condition-item">Sciatic & Low Back Pain</div>
-        <div class="condition-item">Sprains, Strains & Foot Pain</div>
-        <div class="condition-item">Insomnia & Jet Lag</div>
-        <div class="condition-item">Digestive Disturbances</div>
-        <div class="condition-item">Menstrual Syndrome & PMS</div>
-        <div class="condition-item">Fibromyalgia & Fatigue</div>
-        <div class="condition-item">Joint Pain & Arthritis</div>
-        <div class="condition-item">Carpal Tunnel Syndrome</div>
-        <div class="condition-item">General Stress & Overwhelm</div>
+        <div class="condition-item">Digestive Issues & IBS</div>
+        <div class="condition-item">Bloating & Abdominal Tension</div>
+        <div class="condition-item">Chronic Stress & Anxiety</div>
+        <div class="condition-item">Grief & Emotional Processing</div>
+        <div class="condition-item">Fatigue & Low Energy</div>
+        <div class="condition-item">Menstrual Pain & Irregularity</div>
+        <div class="condition-item">Lower Back Pain</div>
+        <div class="condition-item">Post-Surgical Recovery</div>
+        <div class="condition-item">Hiatal Hernia Support</div>
+        <div class="condition-item">Constipation & Sluggish Digestion</div>
+        <div class="condition-item">Stored Emotional Tension</div>
+        <div class="condition-item">A Sense of Something Stuck</div>
       </div>
     </div>
   </div>
 
+  <!-- AFTER -->
   <div class="after-section">
-    <div class="after-quote">"Many people experience a calm mood, a clear mind, and relief from what they came in carrying."</div>
+    <div class="after-quote">"The belly will only release what it is ready to release. Our job is simply to create the conditions for that to happen."</div>
     <div class="after-body">
-      <p class="section-label" style="margin-bottom: 1rem;">After the Treatment</p>
-      <p>Drink plenty of water. Give yourself a little time before moving back into the pace of your day if you can.</p>
-      <p>Most people leave feeling noticeably different — quieter, lighter, more present in their bodies. Some describe it as the first real rest they've had in a long time.</p>
-      <p>Occasionally there is a brief healing reaction as the body releases what it has been holding. This is a normal part of the process and usually resolves within twelve hours. Water helps move it through.</p>
+      <p class="section-label" style="margin-bottom: 1rem;">What Shifts</p>
+      <p>People often leave a CNT session feeling lighter in a way they didn't expect — as though something they had been carrying in their middle has been set down, at least for a while.</p>
+      <p>Sometimes the shift is physical: digestion improves, tension releases, pain that had been present for months simply isn't there anymore. Sometimes it is emotional: a grief surfaces and moves through, a long-held pattern suddenly has less weight.</p>
+      <p>Occasionally, things continue to shift in the days following a session. Dreams may be more vivid. Emotions may be closer to the surface. This is the work continuing — the body completing what the session began. It is not cause for concern. It is evidence that something real happened.</p>
     </div>
   </div>
 
   <div class="cta-section">
     <div class="cta-inner">
-      <h2 class="cta-title">Ready to <em>experience it?</em></h2>
-      <p class="cta-body">If Zen Shiatsu feels like what your body has been waiting for, reach out. We'll talk about what you're carrying and whether this work is right for you.</p>
+      <h2 class="cta-title">Ready to work with<br>the <em>belly?</em></h2>
+      <p class="cta-body">If something here resonates — reach out. We'll talk about what you're carrying and whether Chi Nei Tsang feels like the right way in for you. A free 15-minute consultation is a good place to start.</p>
       <a href="index.html#contact" class="btn-primary">Get In Touch</a>
       <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
     </div>

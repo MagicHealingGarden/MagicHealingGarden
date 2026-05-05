@@ -4,511 +4,96 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
-  <title>Alchemical Healing — Magic Healing Garden</title>
+  <title>The Sessions — Magic Healing Garden</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #f9f5ef;
-      --warm-white: #fdfaf6;
-      --sage: #7a8c72;
-      --deep-sage: #4a5e42;
-      --earth: #8c7355;
-      --dark: #1e1e1a;
-      --mid: #4a4a42;
-      --light-mid: #7a7a6e;
-      --border: #e0d8cc;
-      --accent: #b5956a;
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #7a8c72; --deep-sage: #4a5e42;
+      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #7a7a6e;
+      --border: #e0d8cc; --accent: #b5956a;
     }
-
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
+    body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
 
-    body {
-      font-family: 'Jost', sans-serif;
-      background-color: #f9f5ef !important;
-      color: #1e1e1a !important;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 3rem;
-      background: rgba(249, 245, 239, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.78rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--deep-sage); }
     .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 
-    /* PAGE HEADER */
-    .page-header {
-      padding: 10rem 3rem 5rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-    }
+    .page-header { padding: 10rem 3rem 5rem; max-width: 1100px; margin: 0 auto; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; }
+    .page-header-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.25rem; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--deep-sage); }
+    .page-header-definition { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: var(--light-mid); line-height: 1.5; padding-left: 2rem; border-left: 2px solid var(--accent); }
 
-    .page-header-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1.25rem;
-    }
+    .intro-band { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 4rem 3rem; }
+    .intro-band-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .intro-band-body { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-style: italic; color: var(--mid); line-height: 1.7; }
+    .intro-band-note { margin-top: 1.5rem; font-size: 0.9rem; color: var(--light-mid); line-height: 1.9; }
 
-    .page-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--dark);
-      margin-bottom: 1.5rem;
-    }
+    .modality-section { padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
+    .modality-section-alt { padding: 6rem 3rem; border-bottom: 1px solid var(--border); background: var(--warm-white); }
+    .modality-section-dark { padding: 6rem 3rem; border-bottom: 1px solid var(--border); background: var(--deep-sage); }
 
-    .page-header h1 em {
-      font-style: italic;
-      color: var(--deep-sage);
-    }
+    .modality-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 6rem; align-items: start; }
 
-    .page-header-definition {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-style: italic;
-      color: var(--light-mid);
-      line-height: 1.5;
-      padding-left: 2rem;
-      border-left: 2px solid var(--accent);
-    }
+    .modality-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .modality-section-dark .modality-eyebrow { color: rgba(255,255,255,0.45); }
 
-    /* SECTION BASICS */
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1rem;
-    }
+    .modality-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.2; color: var(--dark); margin-bottom: 2rem; }
+    .modality-title em { font-style: italic; color: var(--deep-sage); }
+    .modality-section-dark .modality-title { color: white; }
+    .modality-section-dark .modality-title em { color: #c8d9c0; }
 
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      line-height: 1.25;
-      color: var(--dark);
-      margin-bottom: 3rem;
-    }
+    .modality-body { font-size: 1rem; color: var(--mid); line-height: 2; }
+    .modality-body p { margin-bottom: 1.25rem; }
+    .modality-body p:last-child { margin-bottom: 0; }
+    .modality-section-dark .modality-body { color: rgba(255,255,255,0.75); }
 
-    .section-title em { font-style: italic; color: var(--deep-sage); }
+    .modality-link { display: inline-block; margin-top: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--deep-sage); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
+    .modality-link:hover { color: var(--accent); }
+    .modality-section-dark .modality-link { color: #c8d9c0; border-bottom-color: rgba(200,217,192,0.5); }
+    .modality-section-dark .modality-link:hover { color: white; }
 
-    /* INTRO — WHAT THIS IS */
-    .intro-section {
-      padding: 6rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 6rem;
-      align-items: start;
-      border-bottom: 1px solid var(--border);
-    }
+    .modality-aside { position: sticky; top: 6rem; }
+    .aside-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .modality-section-dark .aside-label { color: rgba(255,255,255,0.4); }
+    .aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--dark); line-height: 1.55; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .modality-section-dark .aside-quote { color: white; border-bottom-color: rgba(255,255,255,0.15); }
+    .aside-details { display: flex; flex-direction: column; gap: 1rem; }
+    .aside-detail { padding: 1.25rem; background: var(--cream); border-left: 2px solid var(--border); }
+    .modality-section-dark .aside-detail { background: rgba(255,255,255,0.07); border-left-color: rgba(255,255,255,0.2); }
+    .aside-detail-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
+    .modality-section-dark .aside-detail-label { color: rgba(255,255,255,0.45); }
+    .aside-detail-body { font-size: 0.88rem; color: var(--mid); line-height: 1.8; }
+    .modality-section-dark .aside-detail-body { color: rgba(255,255,255,0.7); }
 
-    .intro-body {
-      font-size: 1.02rem;
-      color: var(--mid);
-      line-height: 2;
-    }
-
-    .intro-body p { margin-bottom: 1.5rem; }
-    .intro-body p:last-child { margin-bottom: 0; }
-
-    .intro-aside {
-      position: sticky;
-      top: 6rem;
-    }
-
-    .aside-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1rem;
-    }
-
-    .aside-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--dark);
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-
-    .aside-note {
-      font-size: 0.88rem;
-      color: var(--light-mid);
-      line-height: 1.8;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* DRAGON SECTION */
-    .dragon-section {
-      background: var(--deep-sage);
-      padding: 7rem 3rem;
-      color: white;
-    }
-
-    .dragon-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .dragon-section .section-label { color: rgba(255,255,255,0.45); }
-
-    .dragon-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      line-height: 1.25;
-      color: white;
-      margin-bottom: 2rem;
-    }
-
-    .dragon-title em {
-      font-style: italic;
-      color: #c8d9c0;
-    }
-
-    .dragon-body {
-      font-size: 0.98rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 2;
-    }
-
-    .dragon-body p { margin-bottom: 1.25rem; }
-    .dragon-body p:last-child { margin-bottom: 0; }
-
-    .dragon-pullquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-style: italic;
-      color: white;
-      line-height: 1.45;
-      padding-left: 2rem;
-      border-left: 2px solid rgba(255,255,255,0.3);
-    }
-
-    /* HOW WE WORK */
-    .how-section {
-      background: var(--warm-white);
-      padding: 6rem 3rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .how-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .how-card {
-      padding: 2rem;
-      background: var(--cream);
-      border-top: 2px solid var(--accent);
-    }
-
-    .how-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      color: var(--border);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-
-    .how-title {
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: var(--dark);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-    }
-
-    .how-body {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.85;
-    }
-
-    .how-link {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--deep-sage);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: color 0.2s;
-    }
-
-    .how-link:hover { color: var(--accent); }
-
-    /* WHAT BECOMES POSSIBLE */
-    .possible-section {
-      padding: 6rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .possible-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-    }
-
-    .possible-story {
-      padding: 2.5rem;
-      background: var(--warm-white);
-      border-top: 2px solid var(--border);
-    }
-
-    .possible-story-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-style: italic;
-      color: var(--deep-sage);
-      line-height: 1.55;
-      margin-bottom: 1.25rem;
-    }
-
-    .possible-story-body {
-      font-size: 0.88rem;
-      color: var(--light-mid);
-      line-height: 1.85;
-    }
-
-    .possible-link {
-      display: inline-block;
-      margin-top: 3rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--mid);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .possible-link:hover { color: var(--deep-sage); border-color: var(--accent); }
-
-    /* WHO THIS IS FOR */
-    .who-section {
-      background: var(--cream);
-      padding: 6rem 3rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .who-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .who-body {
-      font-size: 1rem;
-      color: var(--mid);
-      line-height: 2;
-    }
-
-    .who-body p { margin-bottom: 1.25rem; }
-    .who-body p:last-child { margin-bottom: 0; }
-
-    .who-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .who-item {
-      padding: 1.5rem;
-      background: var(--warm-white);
-      border-left: 2px solid var(--accent);
-    }
-
-    .who-item-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      color: var(--border);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .who-item-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .who-item-body {
-      font-size: 0.88rem;
-      color: var(--mid);
-      line-height: 1.8;
-    }
-
-    /* CTA */
-    .cta-section {
-      background: var(--warm-white);
-      padding: 7rem 3rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-    }
-
+    .cta-section { background: var(--warm-white); padding: 7rem 3rem; text-align: center; border-top: 1px solid var(--border); }
     .cta-inner { max-width: 560px; margin: 0 auto; }
-
-    .cta-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 300;
-      color: var(--dark);
-      margin-bottom: 1.25rem;
-      line-height: 1.25;
-    }
-
+    .cta-title { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--dark); margin-bottom: 1.25rem; line-height: 1.25; }
     .cta-title em { font-style: italic; color: var(--deep-sage); }
-
-    .cta-body {
-      font-size: 0.98rem;
-      color: var(--mid);
-      line-height: 1.9;
-      margin-bottom: 2.5rem;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 0.9rem 2.25rem;
-      background: var(--deep-sage);
-      color: white;
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
+    .cta-body { font-size: 0.98rem; color: var(--mid); line-height: 1.9; margin-bottom: 2.5rem; }
+    .btn-primary { display: inline-block; padding: 0.9rem 2.25rem; background: var(--deep-sage); color: white; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
     .btn-primary:hover { background: var(--sage); }
-
-    .btn-ghost {
-      display: inline-block;
-      padding: 0.9rem 2.25rem;
-      border: 1px solid var(--deep-sage);
-      color: var(--deep-sage);
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: all 0.2s;
-      margin-left: 1rem;
-    }
-
+    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid var(--deep-sage); color: var(--deep-sage); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; margin-left: 1rem; }
     .btn-ghost:hover { background: var(--deep-sage); color: white; }
 
-    /* FOOTER */
-    footer {
-      padding: 2rem 3rem;
-      background: var(--dark);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-
-    .footer-copy {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.25);
-    }
+    footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .page-header { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 3rem; }
-      .intro-section { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .intro-aside { position: static; }
-      .dragon-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .dragon-section { padding: 4rem 1.5rem; }
-      .how-section { padding: 4rem 1.5rem; }
-      .how-grid { grid-template-columns: 1fr; }
-      .possible-section { padding: 4rem 1.5rem; }
-      .possible-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .who-section { padding: 4rem 1.5rem; }
-      .who-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .intro-band { padding: 3rem 1.5rem; }
+      .modality-section, .modality-section-alt, .modality-section-dark { padding: 4rem 1.5rem; }
+      .modality-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .modality-aside { position: static; }
       .cta-section { padding: 4rem 1.5rem; }
       .btn-ghost { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -530,150 +115,150 @@
     </ul>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <div class="page-header-left">
+    <div>
       <p class="page-header-eyebrow">The Sessions</p>
-      <h1>Alchemical<br><em>Healing</em></h1>
+      <h1>The <em>Work</em></h1>
     </div>
-    <div class="page-header-right">
-      <p class="page-header-definition">This work is not about getting back to who you were before. It's about integrating what happened — and emerging with a stronger, more complete version of yourself than existed before.</p>
-    </div>
-  </div>
-
-  <!-- WHAT THIS IS -->
-  <div class="intro-section">
-    <div class="intro-body">
-      <p class="section-label">What this is</p>
-      <p>I don't approach people as problems to fix. I see them as whole — even when they don't feel that way. Not as a goal to reach, but as the truth I'm already working from. The body, the emotions, the patterns that keep repeating — they're not evidence of something gone wrong. They're expressions of something trying to come into fuller coherence.</p>
-      <p>People often come to me saying: <em>I just want to feel the way I did before.</em> I understand that. Of course you want to feel strong again. At peace. Relaxed. Like yourself.</p>
-      <p>But the truth is, we may never be exactly that same person — and that's not a loss. What happened is part of you now. The work isn't about erasing it. It's about integration: weaving what you've been through into something stronger, richer, and more complete than what existed before.</p>
-      <p>What I work toward — for myself and for the people I work with — is peace in the heart. A body that feels safe. A mind that can rest. Happiness, even. That's the bar I hold. Not a return to before, but an arrival somewhere better.</p>
-      <p>As Gilles Marin teaches: healing is pure grace. You don't have to earn it. Wholeness is not the destination — it is the ground you have been standing on all along.</p>
-      <p>Sometimes this looks like working with the body — gently, through touch and presence — helping the system settle enough to remember itself. Sometimes it's a shift in perception: learning to see yourself, your past, or a relationship through a lens that allows for wholeness instead of reinforcing brokenness. I follow what's present. There is no fixed protocol — only attention, and what it reveals.</p>
-      <p>I was taught to always work with the strong part of a person. When the wounded stories surface — and they do — I don't treat them as the truth of who you are. I work with your attachment to those stories, not the stories themselves. Because beneath every story a person has told themselves about their pain, something has always been intact.</p>
-    </div>
-    <div class="intro-aside">
-      <p class="aside-label">At the heart of it</p>
-      <p class="aside-quote">"Not a return to before — but an arrival somewhere better."</p>
-      <p class="aside-note">People sometimes worry when something difficult surfaces just as they're feeling more at peace. I've come to understand it differently. What arrives in those moments — in dreams, in the body, in a memory that suddenly has weight — comes because you are finally strong enough to meet it. It isn't evidence that something is wrong. It's your system pointing and saying: here, this part too. Let's work on that.</p>
-      <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">Each session is shaped by what you bring into the room that day. Some people come with a clear presenting issue. Others come knowing only that something is stuck. Both are a perfect place to begin.</p>
+    <div>
+      <p class="page-header-definition">There is no wrong door. Whatever brings you here — your body, your patterns, something you've been carrying — we will find the right way in together.</p>
     </div>
   </div>
 
-  <!-- THE DRAGON -->
-  <div class="dragon-section">
-    <div class="dragon-inner">
+  <div class="intro-band">
+    <div class="intro-band-inner">
+      <p class="intro-band-body">"I offer two distinct kinds of work — bodywork that speaks directly to the body's intelligence, and alchemical healing that works at the level of belief, energy, and pattern. They can be experienced separately or together. Most often, they find their way into the same session."</p>
+      <p class="intro-band-note">Below you'll find each of the modalities I work with — what they are, how I came to them, and what they might offer you. If you're not sure where to start, reach out. We'll figure it out together.</p>
+    </div>
+  </div>
+
+  <!-- MODALITY 1: ZEN SHIATSU -->
+  <div class="modality-section">
+    <div class="modality-inner">
       <div>
-        <p class="section-label">When something has taken on a life of its own</p>
-        <h2 class="dragon-title">We don't cut off<br>the <em>dragon's head.</em></h2>
-        <div class="dragon-body">
-          <p>Sometimes what someone is facing isn't just a thought — but an image that has taken on weight. It loops. It startles the body awake at night. It begins to feel bigger than the person themselves.</p>
-          <p>Sometimes it's like a movie screen in front of your eyes — a memory, a fear, playing on a loop and feeling absolutely real, even when it has no bearing on what's actually happening right now. That's the dragon. Not something solid or ultimate — but a projection that has gathered intensity, but not truth.</p>
-          <p>We don't argue with it. We quiet the system around it.</p>
-          <p>As the body settles and the mind softens, the image begins to lose its scale. The fire goes out. What once felt overwhelming becomes workable — and often dissolves entirely, revealing something much simpler underneath.</p>
-          <p>This is one way I help clear the "fuzz" — not by force, but by restoring clarity. And when clarity returns, people often recognize: the self beneath it was never disturbed.</p>
-          <p>In my experience, the people who move through this most fully are the ones willing to let go — not to assign blame, not to be right about their story, but simply to put down what they've been carrying. That willingness is enough. You don't need anything else.</p>
+        <p class="modality-eyebrow">Bodywork</p>
+        <h2 class="modality-title">Manual Therapies &<br><em>Zen Shiatsu</em></h2>
+        <div class="modality-body">
+          <p>I came to bodywork the way most people come to healing — because I needed it. What began as my own experience of receiving Zen Shiatsu became a deep curiosity about how the body holds what the mind can't process, and how skilled touch can begin to move what has been stuck for years.</p>
+          <p>My strongest lineage is Zen Shiatsu — acupuncture without needles. Rooted in Chinese medicine, it works with the body's meridian system to restore flow, release what's held, and support the whole person. I trained at the Academy of Oriental Medicine in Austin under Pamela Ferguson, a lineage holder in the tradition of Shizuto Masunaga — completing 500 hours of Shiatsu training as part of my graduate studies, and beginning to see clients privately in 2002. I am a formerly Certified Practitioner with the American Organization for Bodywork Therapies of Asia (AOBTA).</p>
+          <p>What I want you to know about how I work: I always respect your space. I check in regularly. I expect you to communicate with me if something is uncomfortable — and I will always meet you there. I have worked with people who couldn't tolerate touch at all, and we figured out a way together. I am flexible, amenable, and yet principled. The session is yours.</p>
+          <a href="zen-shiatsu.html" class="modality-link">Learn more about Zen Shiatsu →</a>
         </div>
       </div>
+      <div class="modality-aside">
+        <p class="aside-label">What this feels like</p>
+        <p class="aside-quote">"Not a technique imposed on the body — but a conversation with it. I follow what is present rather than what a protocol prescribes."</p>
+        <div class="aside-details">
+          <div class="aside-detail">
+            <p class="aside-detail-label">What to expect</p>
+            <p class="aside-detail-body">Sessions are given fully clothed on a massage table, futon, or chair. No oils. Loose, comfortable clothing in natural fibers is ideal.</p>
+          </div>
+          <div class="aside-detail">
+            <p class="aside-detail-label">Who it's for</p>
+            <p class="aside-detail-body">Anyone carrying stress, pain, tension, or a sense that something is stuck — in the body, the emotions, or both. People of all ages benefit, including infants and the elderly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALITY 2: CHI NEI TSANG -->
+  <div class="modality-section-alt">
+    <div class="modality-inner">
       <div>
-        <p class="dragon-pullquote">"We soften the system around it, quiet the intensity — and allow the dragon to lose its grip, revealing that it was never what it seemed to be."</p>
+        <p class="modality-eyebrow">Abdominal Work</p>
+        <h2 class="modality-title">Chi Nei<br><em>Tsang</em></h2>
+        <div class="modality-body">
+          <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
+          <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was the beginning of trusting practitioners who actually listen.</p>
+          <p>That chiropractor referred me to Allison Post — a practitioner of Chi Nei Tsang, abdominal massage rooted in Chinese medicine and Taoist healing traditions. I didn't know what it was. But I trusted the referral. As soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me that the belly is not just a digestive organ — it is where we store our emotions, our unprocessed experiences, our grief and our fear.</p>
+          <p>I went on to study Oriental Medicine — deepening my understanding of the body's energetic systems, the meridians, and the intelligence of the organs. That framework runs through everything I do. And I have woven what I learned from Allison into my work ever since. I continue to deepen this practice — currently in a study group working through the lineage of Gilles Marin, whose teaching runs through Allison's work and through mine.</p>
+          <p>I offer CNT as a standalone session and weave it into bodywork sessions when the belly is ready to be worked. When it's willing to release, things shift that haven't moved in years.</p>
+          <a href="cnt.html" class="modality-link">Learn more about Chi Nei Tsang →</a>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <!-- HOW WE WORK -->
-  <div class="how-section">
-    <div class="how-inner">
-      <p class="section-label">The Modalities</p>
-      <h2 class="section-title">What I draw <em>from</em></h2>
-      <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9;">I don't use modalities as frameworks to fit people into. I use them as languages — reaching for the one the body is already speaking. These are the primary ones.</p>
-
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-number">01</div>
-          <div class="how-title">Body-Centered Work</div>
-          <div class="how-body">Manual Chinese Medicine, Zen Shiatsu, Chi Nei Tsang, and acupressure — working with the body as an intelligent system that holds memory, story, and unfinished business. The body knows what happened. We help it complete the cycle.</div>
-          <a href="zen-shiatsu.html" class="how-link">Learn more about the bodywork — including Zen Shiatsu →</a>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">02</div>
-          <div class="how-title">Energetic & Belief Work</div>
-          <div class="how-body">A meditative healing process that works at the level of belief and energetic memory. Old shocks, inherited patterns, energy that was never yours to carry — with your permission, these can be released. The results often surprise people.</div>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">03</div>
-          <div class="how-title">Flower Essences & Homeopathy</div>
-          <div class="how-body">Gentle vibrational medicine that supports the emotional and energetic shifts that happen between sessions. Often the quiet thread that holds everything else together — working subtly and continuously in the background of a healing process.</div>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">04</div>
-          <div class="how-title">Guided Breathwork</div>
-          <div class="how-body">Sometimes the body can't tolerate touch — or isn't ready for it. Breathwork offers a way in through the breath itself: calming the nervous system, moving stagnant energy, and restoring a sense of ease and strength. Sessions are gentle, guided, and entirely non-invasive.</div>
+      <div class="modality-aside">
+        <p class="aside-label">At the center of it</p>
+        <p class="aside-quote">"The belly is where we store what we haven't yet processed. Working there — gently and with respect — can move things that have been held for a very long time."</p>
+        <div class="aside-details">
+          <div class="aside-detail">
+            <p class="aside-detail-label">What it involves</p>
+            <p class="aside-detail-body">Gentle abdominal massage working with the organs, fascia, and energy pathways of the belly. Can be offered alongside Zen Shiatsu or as its own session.</p>
+          </div>
+          <div class="aside-detail">
+            <p class="aside-detail-label">Who it's for</p>
+            <p class="aside-detail-body">Those with digestive issues, stored emotional tension, chronic stress held in the belly, or a sense that something is lodged where they can't quite reach it.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- WHAT BECOMES POSSIBLE -->
-  <div class="possible-section">
-    <p class="section-label">From the Practice</p>
-    <h2 class="section-title">What becomes <em>possible</em></h2>
-    <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9; margin-bottom: 0;">The work speaks for itself. Two moments from sessions that still stay with me.</p>
-
-    <div class="possible-grid">
-      <div class="possible-story">
-        <p class="possible-story-quote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</p>
-        <p class="possible-story-body">Christina came to me while her husband was in the final stages of a chronic illness — a mother and a professional holding a lot on her own. She had started using sugar to cope. As we worked, something older surfaced: her relationship with a very "critical" mother, and the emotional imprint of growing up in that dynamic. We stayed with it gently, working with the patterns she was holding and creating a different internal experience of support and safety. Days later she wrote to say the cravings had simply gone quiet. Weeks after that, she placed one small piece of candy in a bowl on her counter — not to eat it, but as a reminder of how things had shifted.</p>
-      </div>
-      <div class="possible-story">
-        <p class="possible-story-quote">"That sounds like forgiveness."</p>
-        <p class="possible-story-body">Elena came months after an injury that had left her system shaken — migraines, tension, low mood. After one session her migraines eased significantly. A few weeks later, something she hadn't shared surfaced: years ago, during a medical procedure, there had been a moment where she hadn't felt safe. That experience had stayed in her body long after the event. When I explained that we could release what was still held there, she paused and said: "That sounds like forgiveness." A month later — the scar that had always brought the memory back with it was fading.</p>
-      </div>
-    </div>
-
-    <a href="index.html#story" class="possible-link">Read the full stories on the home page →</a>
-  </div>
-
-  <!-- WHO THIS IS FOR -->
-  <div class="who-section">
-    <div class="who-inner">
-      <div class="who-body">
-        <p class="section-label">Who Finds Me</p>
-        <p>If you spend your days holding space for others' healing — this work is for you. Not as a specialty I chose, but as a pattern I noticed. The people I do my deepest work with are almost always people who give generously and have nowhere to put what that costs.</p>
-        <p>Healers are often the last to receive healing. You know the language. You understand the body. You believe in this work. And yet — precisely because you give so much — your own system accumulates what your clients release.</p>
-        <p>You don't need me to explain what qi is. What you may need is someone who can reach the places you can't reach in yourself. We cannot always do our own deepest work alone.</p>
-        <p><em style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--dark);">You deserve the same quality of care you offer everyone else.</em></p>
-      </div>
-
-      <div class="who-list">
-        <div class="who-item">
-          <div class="who-item-number">01</div>
-          <div class="who-item-title">You know what's stuck</div>
-          <div class="who-item-body">You're reflective. You've done some work on yourself. You have a sense of your patterns — you just haven't found the right tools to move through them. You're not looking for someone to diagnose you. You're looking for someone to work with you.</div>
+  <!-- MODALITY 3: ALCHEMICAL HEALING -->
+  <div class="modality-section-dark">
+    <div class="modality-inner">
+      <div>
+        <p class="modality-eyebrow">Energy & Belief Work</p>
+        <h2 class="modality-title">Alchemical<br><em>Healing</em></h2>
+        <div class="modality-body">
+          <p>Long before I had a name for it, I was doing this work. A combination of Theta Healing, shamanic healing, and pranic healing — working with people's energetic fields to clear what had accumulated there. Debris from arguments, from witnessing something violent, from grief that never had anywhere to go. This work reaches things that talk therapy alone cannot, because it doesn't operate at the level of the story — it works at the level of what the story left behind.</p>
+          <p>I wanted to find a way to bridge this energetic work with my bodywork — to stop keeping them in separate rooms. That search led me to Lorie Dechar and her work in Alchemical Acupuncture and the Five Spirits of Chinese medicine. I had first encountered her through an online class on trauma and the five elements. I tried to get into her mentorship that year and it was full. I waited. The following year I heard her speak live — and that was the moment I committed. Something in me recognized that this was the bridge I had been looking for.</p>
+          <p>In her mentorship I learned to work with flower essences on specific acupuncture points, to use meditation and dream work as healing tools, to understand the Five Spirits not as theory but as living energies that can be engaged. And I brought all of that into what I was already doing.</p>
+          <p>When the bodywork and the energetic work happen together, the sessions are often quite profound. This is the work that lights me up most. And it is available to anyone who is ready for it.</p>
+          <a href="alchemical-healing.html" class="modality-link">Learn more about Alchemical Healing →</a>
         </div>
-        <div class="who-item">
-          <div class="who-item-number">02</div>
-          <div class="who-item-title">You say yes to change</div>
-          <div class="who-item-body">When I ask if you want to release something that's been living in your body — an old grief, a shock you never processed, an energy that was never yours to carry — your answer is "heck yeah." You're ready. And when you are, something remarkable becomes possible.</div>
-        </div>
-        <div class="who-item">
-          <div class="who-item-number">03</div>
-          <div class="who-item-title">You're open to what you don't know</div>
-          <div class="who-item-body">Most people don't know that sixty years of nightmares can end in fifteen minutes. That a scar can soften when the story beneath it is finally witnessed. If you're curious about what's possible, you're in the right place.</div>
+      </div>
+      <div class="modality-aside">
+        <p class="aside-label">What makes it alchemical</p>
+        <p class="aside-quote">"I came into this work already practicing something that didn't have a name — but was quite alchemical in nature. Lorie's mentorship gave me the bridge I had been looking for."</p>
+        <div class="aside-details">
+          <div class="aside-detail">
+            <p class="aside-detail-label">What it works with</p>
+            <p class="aside-detail-body">Inherited patterns, old shocks, energetic debris, limiting beliefs, and the stories the body has been holding as truth. Works with your permission, at the level of root cause.</p>
+          </div>
+          <div class="aside-detail">
+            <p class="aside-detail-label">How it feels</p>
+            <p class="aside-detail-body">Often quiet and interior. Sometimes surprising. People frequently describe a shift they can't fully explain — a lightness, a clarity, a sense that something that felt permanent has simply gone.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- CTA -->
+  <!-- MODALITY 4: BREATHWORK -->
+  <div class="modality-section">
+    <div class="modality-inner">
+      <div>
+        <p class="modality-eyebrow">Breathwork</p>
+        <h2 class="modality-title">Guided<br><em>Breathwork</em></h2>
+        <div class="modality-body">
+          <p>Breath is the one thing the body does both automatically and consciously. Which makes it one of the most direct ways in.</p>
+          <p>I offer breathwork as its own complete modality — not as a warm-up or add-on, but as a full session in its own right. Some of the people I work with come specifically for breathwork and nothing else. They may not want touch, may not be ready for it, or simply find that this is what their system responds to most. That is a completely valid place to begin — or to stay.</p>
+          <p>I also weave breathwork into sessions when the body needs a different entry point. Sometimes the system isn't ready for hands-on work. Sometimes we've done energetic work and the breath is what integrates it. The breath is flexible in a way that touch sometimes isn't — it can go where hands can't, working with the nervous system directly to calm what has been activated and move what has been stuck.</p>
+          <p>Sessions are gentle, guided, and entirely non-invasive. You don't need any prior experience. You just need to be willing to breathe a little more intentionally than usual.</p>
+        </div>
+      </div>
+      <div class="modality-aside">
+        <p class="aside-label">Why breath</p>
+        <p class="aside-quote">"The breath is always available. It is the body's own built-in tool for regulation — and sometimes it just needs someone to guide it."</p>
+        <div class="aside-details">
+          <div class="aside-detail">
+            <p class="aside-detail-label">What to expect</p>
+            <p class="aside-detail-body">Gentle, guided breathwork in a supported position. No prior experience needed. Can be offered as a standalone session or woven into a broader session.</p>
+          </div>
+          <div class="aside-detail">
+            <p class="aside-detail-label">Who it's for</p>
+            <p class="aside-detail-body">Anyone who prefers not to be touched, whose nervous system needs a gentler entry point, or who simply wants to explore what breath alone can open.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="cta-section">
     <div class="cta-inner">
-      <h2 class="cta-title">Ready to <em>begin?</em></h2>
-      <p class="cta-body">If something here resonated — reach out. Tell me what's going on. We'll figure out together whether this work is right for what you're carrying. A free 15-minute consultation is a good place to start.</p>
+      <h2 class="cta-title">Not sure where<br>to <em>begin?</em></h2>
+      <p class="cta-body">There is no wrong door. Reach out and tell me what's going on — we'll figure out together which of these feels like the right starting place for you. A free 15-minute consultation is always a good place to start.</p>
       <a href="index.html#contact" class="btn-primary">Get In Touch</a>
       <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
     </div>
