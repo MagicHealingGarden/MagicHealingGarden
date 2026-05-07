@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
   <title>Alchemical Healing — Magic Healing Garden</title>
-  <!-- Alchemical Healing deep-dive page -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -33,6 +32,16 @@
       color: #1e1e1a !important;
       font-weight: 300;
       line-height: 1.7;
+    }
+
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
 
     /* NAV */
@@ -141,7 +150,7 @@
 
     .section-title em { font-style: italic; color: var(--deep-sage); }
 
-    /* INTRO — WHAT THIS IS */
+    /* INTRO */
     .intro-section {
       padding: 6rem 3rem;
       max-width: 1100px;
@@ -386,6 +395,7 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+      list-style: none;
     }
 
     .who-item {
@@ -400,6 +410,7 @@
       color: var(--border);
       line-height: 1;
       margin-bottom: 0.5rem;
+      aria-hidden: true;
     }
 
     .who-item-title {
@@ -517,13 +528,14 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#story">My Work</a></li>
-      <li><a href="the-sessions.html" class="active">The Sessions</a></li>
+      <li><a href="the-sessions.html" class="active" aria-current="page">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="field-notes.html">Writing</a></li>
@@ -531,156 +543,160 @@
     </ul>
   </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <div class="page-header-left">
-      <p class="page-header-eyebrow"><a href="the-sessions.html" style="color: var(--sage); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;">← The Sessions</a></p>
-      <h1>Alchemical<br><em>Healing</em></h1>
-    </div>
-    <div class="page-header-right">
-      <p class="page-header-definition">This work is not about getting back to who you were before. It's about integrating what happened — and emerging with a stronger, more complete version of yourself than existed before.</p>
-    </div>
-  </div>
+  <main id="main-content">
 
-  <!-- WHAT THIS IS -->
-  <div class="intro-section">
-    <div class="intro-body">
-      <p class="section-label">What this is</p>
-      <p>I don't approach people as problems to fix. I see them as whole — even when they don't feel that way. Not as a goal to reach, but as the truth I'm already working from. The body, the emotions, the patterns that keep repeating — they're not evidence of something gone wrong. They're expressions of something trying to come into fuller coherence.</p>
-      <p>People often come to me saying: <em>I just want to feel the way I did before.</em> I understand that. Of course you want to feel strong again. At peace. Relaxed. Like yourself.</p>
-      <p>But the truth is, we may never be exactly that same person — and that's not a loss. What happened is part of you now. The work isn't about erasing it. It's about integration: weaving what you've been through into something stronger, richer, and more complete than what existed before.</p>
-      <p>What I work toward — for myself and for the people I work with — is peace in the heart. A body that feels safe. A mind that can rest. Happiness, even. That's the bar I hold. Not a return to before, but an arrival somewhere better.</p>
-      <p>As Gilles Marin teaches: healing is pure grace. You don't have to earn it. Wholeness is not the destination — it is the ground you have been standing on all along.</p>
-      <p>Sometimes this looks like working with the body — gently, through touch and presence — helping the system settle enough to remember itself. Sometimes it's a shift in perception: learning to see yourself, your past, or a relationship through a lens that allows for wholeness instead of reinforcing brokenness. I follow what's present. There is no fixed protocol — only attention, and what it reveals.</p>
-      <p>I was taught to always work with the strong part of a person — an approach rooted in the tradition of Intensive Short-Term Dynamic Psychotherapy, brought to me by a gifted therapist early in my own healing journey. When the wounded stories surface — and they do — I don't treat them as the truth of who you are. I work with your attachment to those stories, not the stories themselves. Because beneath every story a person has told themselves about their pain, something has always been intact.</p>
-    </div>
-    <div class="intro-aside">
-      <p class="aside-label">At the heart of it</p>
-      <p class="aside-quote">"Not a return to before — but an arrival somewhere better."</p>
-      <p class="aside-note">People sometimes worry when something difficult surfaces just as they're feeling more at peace. I've come to understand it differently. What arrives in those moments — in dreams, in the body, in a memory that suddenly has weight — comes because you are finally strong enough to meet it. It isn't evidence that something is wrong. It's your system pointing and saying: here, this part too. Let's work on that.</p>
-      <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">Each session is shaped by what you bring into the room that day. Some people come with a clear presenting issue. Others come knowing only that something is stuck. Both are a perfect place to begin.</p>
-    </div>
-  </div>
+    <!-- PAGE HEADER -->
+    <header class="page-header" aria-label="Page header">
+      <div class="page-header-left">
+        <p class="page-header-eyebrow"><a href="the-sessions.html">← The Sessions</a></p>
+        <h1>Alchemical<br><em>Healing</em></h1>
+      </div>
+      <div class="page-header-right">
+        <p class="page-header-definition">This work is not about getting back to who you were before. It's about integrating what happened — and emerging with a stronger, more complete version of yourself than existed before.</p>
+      </div>
+    </header>
 
-  <!-- THE DRAGON -->
-  <div class="dragon-section">
-    <div class="dragon-inner">
-      <div>
-        <p class="section-label">When something has taken on a life of its own</p>
-        <h2 class="dragon-title">We don't cut off<br>the <em>dragon's head.</em></h2>
-        <div class="dragon-body">
-          <p>Sometimes what someone is facing isn't just a thought — but an image that has taken on weight. It loops. It startles the body awake at night. It begins to feel bigger than the person themselves.</p>
-          <p>Sometimes it's like a movie screen in front of your eyes — a memory, a fear, playing on a loop and feeling absolutely real, even when it has no bearing on what's actually happening right now. That's the dragon. Not something solid or ultimate — but a projection that has gathered intensity, but not truth.</p>
-          <p>We don't argue with it. We quiet the system around it.</p>
-          <p>As the body settles and the mind softens, the image begins to lose its scale. The fire goes out. What once felt overwhelming becomes workable — and often dissolves entirely, revealing something much simpler underneath.</p>
-          <p>This is one way I help clear the "fuzz" — not by force, but by restoring clarity. And when clarity returns, people often recognize: the self beneath it was never disturbed.</p>
-          <p>In my experience, the people who move through this most fully are the ones willing to let go — not to assign blame, not to be right about their story, but simply to put down what they've been carrying. That willingness is enough. You don't need anything else.</p>
+    <!-- WHAT THIS IS -->
+    <section class="intro-section" aria-label="What this work is">
+      <div class="intro-body">
+        <p class="section-label">What this is</p>
+        <p>I don't approach people as problems to fix. I see them as whole — even when they don't feel that way. Not as a goal to reach, but as the truth I'm already working from. The body, the emotions, the patterns that keep repeating — they're not evidence of something gone wrong. They're expressions of something trying to come into fuller coherence.</p>
+        <p>People often come to me saying: <em>I just want to feel the way I did before.</em> I understand that. Of course you want to feel strong again. At peace. Relaxed. Like yourself.</p>
+        <p>But the truth is, we may never be exactly that same person — and that's not a loss. What happened is part of you now. The work isn't about erasing it. It's about integration: weaving what you've been through into something stronger, richer, and more complete than what existed before.</p>
+        <p>What I work toward — for myself and for the people I work with — is peace in the heart. A body that feels safe. A mind that can rest. Happiness, even. That's the bar I hold. Not a return to before, but an arrival somewhere better.</p>
+        <p>As Gilles Marin teaches: healing is pure grace. You don't have to earn it. Wholeness is not the destination — it is the ground you have been standing on all along.</p>
+        <p>Sometimes this looks like working with the body — gently, through touch and presence — helping the system settle enough to remember itself. Sometimes it's a shift in perception: learning to see yourself, your past, or a relationship through a lens that allows for wholeness instead of reinforcing brokenness. I follow what's present. There is no fixed protocol — only attention, and what it reveals.</p>
+        <p>I was taught to always work with the strong part of a person — an approach rooted in the tradition of Intensive Short-Term Dynamic Psychotherapy, brought to me by a gifted therapist early in my own healing journey. When the wounded stories surface — and they do — I don't treat them as the truth of who you are. I work with your attachment to those stories, not the stories themselves. Because beneath every story a person has told themselves about their pain, something has always been intact.</p>
+      </div>
+      <aside class="intro-aside" aria-label="Guiding principle">
+        <p class="aside-label">At the heart of it</p>
+        <p class="aside-quote">"Not a return to before — but an arrival somewhere better."</p>
+        <p class="aside-note">People sometimes worry when something difficult surfaces just as they're feeling more at peace. I've come to understand it differently. What arrives in those moments — in dreams, in the body, in a memory that suddenly has weight — comes because you are finally strong enough to meet it. It isn't evidence that something is wrong. It's your system pointing and saying: here, this part too. Let's work on that.</p>
+        <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">Each session is shaped by what you bring into the room that day. Some people come with a clear presenting issue. Others come knowing only that something is stuck. Both are a perfect place to begin.</p>
+      </aside>
+    </section>
+
+    <!-- THE DRAGON -->
+    <section class="dragon-section" aria-label="Working with what has taken on a life of its own">
+      <div class="dragon-inner">
+        <div>
+          <p class="section-label">When something has taken on a life of its own</p>
+          <h2 class="dragon-title">We don't cut off<br>the <em>dragon's head.</em></h2>
+          <div class="dragon-body">
+            <p>Sometimes what someone is facing isn't just a thought — but an image that has taken on weight. It loops. It startles the body awake at night. It begins to feel bigger than the person themselves.</p>
+            <p>Sometimes it's like a movie screen in front of your eyes — a memory, a fear, playing on a loop and feeling absolutely real, even when it has no bearing on what's actually happening right now. That's the dragon. Not something solid or ultimate — but a projection that has gathered intensity, but not truth.</p>
+            <p>We don't argue with it. We quiet the system around it.</p>
+            <p>As the body settles and the mind softens, the image begins to lose its scale. The fire goes out. What once felt overwhelming becomes workable — and often dissolves entirely, revealing something much simpler underneath.</p>
+            <p>This is one way I help clear the "fuzz" — not by force, but by restoring clarity. And when clarity returns, people often recognize: the self beneath it was never disturbed.</p>
+            <p>In my experience, the people who move through this most fully are the ones willing to let go — not to assign blame, not to be right about their story, but simply to put down what they've been carrying. That willingness is enough. You don't need anything else.</p>
+          </div>
+        </div>
+        <blockquote class="dragon-pullquote">
+          "We soften the system around it, quiet the intensity — and allow the dragon to lose its grip, revealing that it was never what it seemed to be."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="how-section" aria-label="Modalities I draw from">
+      <div class="how-inner">
+        <p class="section-label">The Modalities</p>
+        <h2 class="section-title">What I draw <em>from</em></h2>
+        <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9;">I don't use modalities as frameworks to fit people into. I use them as languages — reaching for the one the body is already speaking. These are the primary ones.</p>
+
+        <div class="how-grid" role="list">
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">01</div>
+            <h3 class="how-title">Body-Centered Work</h3>
+            <p class="how-body">Manual Chinese Medicine, Zen Shiatsu, Chi Nei Tsang, and acupressure — working with the body as an intelligent system that holds memory, story, and unfinished business. The body knows what happened. We help it complete the cycle.</p>
+            <a href="zen-shiatsu.html" class="how-link">Learn more about the bodywork — including Zen Shiatsu →</a>
+          </article>
+
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">02</div>
+            <h3 class="how-title">Energetic &amp; Belief Work</h3>
+            <p class="how-body">A meditative healing process that works at the level of belief and energetic memory. Old shocks, inherited patterns, energy that was never yours to carry — with your permission, these can be released. The results often surprise people.</p>
+          </article>
+
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">03</div>
+            <h3 class="how-title">Flower Essences &amp; Homeopathy</h3>
+            <p class="how-body">Gentle vibrational medicine that supports the emotional and energetic shifts that happen between sessions. Often the quiet thread that holds everything else together — working subtly and continuously in the background of a healing process.</p>
+          </article>
+
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">04</div>
+            <h3 class="how-title">Guided Breathwork</h3>
+            <p class="how-body">Sometimes the body can't tolerate touch — or isn't ready for it. Breathwork offers a way in through the breath itself: calming the nervous system, moving stagnant energy, and restoring a sense of ease and strength. Sessions are gentle, guided, and entirely non-invasive.</p>
+          </article>
         </div>
       </div>
-      <div>
-        <p class="dragon-pullquote">"We soften the system around it, quiet the intensity — and allow the dragon to lose its grip, revealing that it was never what it seemed to be."</p>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- HOW WE WORK -->
-  <div class="how-section">
-    <div class="how-inner">
-      <p class="section-label">The Modalities</p>
-      <h2 class="section-title">What I draw <em>from</em></h2>
-      <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9;">I don't use modalities as frameworks to fit people into. I use them as languages — reaching for the one the body is already speaking. These are the primary ones.</p>
+    <!-- WHAT BECOMES POSSIBLE -->
+    <section class="possible-section" aria-label="Stories from the practice">
+      <p class="section-label">From the Practice</p>
+      <h2 class="section-title">What becomes <em>possible</em></h2>
+      <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9; margin-bottom: 0;">The work speaks for itself. Two moments from sessions that still stay with me.</p>
 
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-number">01</div>
-          <div class="how-title">Body-Centered Work</div>
-          <div class="how-body">Manual Chinese Medicine, Zen Shiatsu, Chi Nei Tsang, and acupressure — working with the body as an intelligent system that holds memory, story, and unfinished business. The body knows what happened. We help it complete the cycle.</div>
-          <a href="zen-shiatsu.html" class="how-link">Learn more about the bodywork — including Zen Shiatsu →</a>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">02</div>
-          <div class="how-title">Energetic & Belief Work</div>
-          <div class="how-body">A meditative healing process that works at the level of belief and energetic memory. Old shocks, inherited patterns, energy that was never yours to carry — with your permission, these can be released. The results often surprise people.</div>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">03</div>
-          <div class="how-title">Flower Essences & Homeopathy</div>
-          <div class="how-body">Gentle vibrational medicine that supports the emotional and energetic shifts that happen between sessions. Often the quiet thread that holds everything else together — working subtly and continuously in the background of a healing process.</div>
-        </div>
-
-        <div class="how-card">
-          <div class="how-number">04</div>
-          <div class="how-title">Guided Breathwork</div>
-          <div class="how-body">Sometimes the body can't tolerate touch — or isn't ready for it. Breathwork offers a way in through the breath itself: calming the nervous system, moving stagnant energy, and restoring a sense of ease and strength. Sessions are gentle, guided, and entirely non-invasive.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WHAT BECOMES POSSIBLE -->
-  <div class="possible-section">
-    <p class="section-label">From the Practice</p>
-    <h2 class="section-title">What becomes <em>possible</em></h2>
-    <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9; margin-bottom: 0;">The work speaks for itself. Two moments from sessions that still stay with me.</p>
-
-    <div class="possible-grid">
-      <div class="possible-story">
-        <p class="possible-story-quote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</p>
-        <p class="possible-story-body">Christina came to me while her husband was in the final stages of a chronic illness — a mother and a professional holding a lot on her own. She had started using sugar to cope. As we worked, something older surfaced: her relationship with a very "critical" mother, and the emotional imprint of growing up in that dynamic. We stayed with it gently, working with the patterns she was holding and creating a different internal experience of support and safety. Days later she wrote to say the cravings had simply gone quiet. Weeks after that, she placed one small piece of candy in a bowl on her counter — not to eat it, but as a reminder of how things had shifted.</p>
-      </div>
-      <div class="possible-story">
-        <p class="possible-story-quote">"That sounds like forgiveness."</p>
-        <p class="possible-story-body">Elena came months after an injury that had left her system shaken — migraines, tension, low mood. After one session her migraines eased significantly. A few weeks later, something she hadn't shared surfaced: years ago, during a medical procedure, there had been a moment where she hadn't felt safe. That experience had stayed in her body long after the event. When I explained that we could release what was still held there, she paused and said: "That sounds like forgiveness." A month later — the scar that had always brought the memory back with it was fading.</p>
-      </div>
-    </div>
-
-    <a href="index.html#story" class="possible-link">Read the full stories on the home page →</a>
-  </div>
-
-  <!-- WHO THIS IS FOR -->
-  <div class="who-section">
-    <div class="who-inner">
-      <div class="who-body">
-        <p class="section-label">Who Finds Me</p>
-        <p>If you spend your days holding space for others' healing — this work is for you. Not as a specialty I chose, but as a pattern I noticed. The people I do my deepest work with are almost always people who give generously and have nowhere to put what that costs.</p>
-        <p>Healers are often the last to receive healing. You know the language. You understand the body. You believe in this work. And yet — precisely because you give so much — your own system accumulates what your clients release.</p>
-        <p>You don't need me to explain what qi is. What you may need is someone who can reach the places you can't reach in yourself. We cannot always do our own deepest work alone.</p>
-        <p><em style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--dark);">You deserve the same quality of care you offer everyone else.</em></p>
+      <div class="possible-grid" role="list">
+        <article class="possible-story" role="listitem">
+          <p class="possible-story-quote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</p>
+          <p class="possible-story-body">Christina came to me while her husband was in the final stages of a chronic illness — a mother and a professional holding a lot on her own. She had started using sugar to cope. As we worked, something older surfaced: her relationship with a very "critical" mother, and the emotional imprint of growing up in that dynamic. We stayed with it gently, working with the patterns she was holding and creating a different internal experience of support and safety. Days later she wrote to say the cravings had simply gone quiet. Weeks after that, she placed one small piece of candy in a bowl on her counter — not to eat it, but as a reminder of how things had shifted.</p>
+        </article>
+        <article class="possible-story" role="listitem">
+          <p class="possible-story-quote">"That sounds like forgiveness."</p>
+          <p class="possible-story-body">Elena came months after an injury that had left her system shaken — migraines, tension, low mood. After one session her migraines eased significantly. A few weeks later, something she hadn't shared surfaced: years ago, during a medical procedure, there had been a moment where she hadn't felt safe. That experience had stayed in her body long after the event. When I explained that we could release what was still held there, she paused and said: "That sounds like forgiveness." A month later — the scar that had always brought the memory back with it was fading.</p>
+        </article>
       </div>
 
-      <div class="who-list">
-        <div class="who-item">
-          <div class="who-item-number">01</div>
-          <div class="who-item-title">You know what's stuck</div>
-          <div class="who-item-body">You're reflective. You've done some work on yourself. You have a sense of your patterns — you just haven't found the right tools to move through them. You're not looking for someone to diagnose you. You're looking for someone to work with you.</div>
+      <a href="index.html#story" class="possible-link">Read the full stories on the home page →</a>
+    </section>
+
+    <!-- WHO THIS IS FOR -->
+    <section class="who-section" aria-label="Who this work is for">
+      <div class="who-inner">
+        <div class="who-body">
+          <p class="section-label">Who Finds Me</p>
+          <p>If you spend your days holding space for others' healing — this work is for you. Not as a specialty I chose, but as a pattern I noticed. The people I do my deepest work with are almost always people who give generously and have nowhere to put what that costs.</p>
+          <p>Healers are often the last to receive healing. You know the language. You understand the body. You believe in this work. And yet — precisely because you give so much — your own system accumulates what your clients release.</p>
+          <p>You don't need me to explain what qi is. What you may need is someone who can reach the places you can't reach in yourself. We cannot always do our own deepest work alone.</p>
+          <p><em style="font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--dark);">You deserve the same quality of care you offer everyone else.</em></p>
         </div>
-        <div class="who-item">
-          <div class="who-item-number">02</div>
-          <div class="who-item-title">You say yes to change</div>
-          <div class="who-item-body">When I ask if you want to release something that's been living in your body — an old grief, a shock you never processed, an energy that was never yours to carry — your answer is "heck yeah." You're ready. And when you are, something remarkable becomes possible.</div>
-        </div>
-        <div class="who-item">
-          <div class="who-item-number">03</div>
-          <div class="who-item-title">You're open to what you don't know</div>
-          <div class="who-item-body">Most people don't know that sixty years of nightmares can end in fifteen minutes. That a scar can soften when the story beneath it is finally witnessed. If you're curious about what's possible, you're in the right place.</div>
-        </div>
+
+        <ul class="who-list" aria-label="Who I work best with">
+          <li class="who-item">
+            <div class="who-item-number" aria-hidden="true">01</div>
+            <h3 class="who-item-title">You know what's stuck</h3>
+            <p class="who-item-body">You're reflective. You've done some work on yourself. You have a sense of your patterns — you just haven't found the right tools to move through them. You're not looking for someone to diagnose you. You're looking for someone to work with you.</p>
+          </li>
+          <li class="who-item">
+            <div class="who-item-number" aria-hidden="true">02</div>
+            <h3 class="who-item-title">You say yes to change</h3>
+            <p class="who-item-body">When I ask if you want to release something that's been living in your body — an old grief, a shock you never processed, an energy that was never yours to carry — your answer is "heck yeah." You're ready. And when you are, something remarkable becomes possible.</p>
+          </li>
+          <li class="who-item">
+            <div class="who-item-number" aria-hidden="true">03</div>
+            <h3 class="who-item-title">You're open to what you don't know</h3>
+            <p class="who-item-body">Most people don't know that sixty years of nightmares can end in fifteen minutes. That a scar can soften when the story beneath it is finally witnessed. If you're curious about what's possible, you're in the right place.</p>
+          </li>
+        </ul>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- CTA -->
-  <div class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title">Ready to <em>begin?</em></h2>
-      <p class="cta-body">If something here resonated — reach out. Tell me what's going on. We'll figure out together whether this work is right for what you're carrying. A free 15-minute consultation is a good place to start.</p>
-      <a href="index.html#contact" class="btn-primary">Get In Touch</a>
-      <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
-    </div>
-  </div>
+    <!-- CTA -->
+    <section class="cta-section" aria-label="Get in touch">
+      <div class="cta-inner">
+        <h2 class="cta-title">Ready to <em>begin?</em></h2>
+        <p class="cta-body">If something here resonated — reach out. Tell me what's going on. We'll figure out together whether this work is right for what you're carrying. A free 15-minute consultation is a good place to start.</p>
+        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+        <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
+      </div>
+    </section>
 
-  <footer>
+  </main>
+
+  <footer role="contentinfo">
     <a href="index.html" class="footer-logo">Magic Healing Garden</a>
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>

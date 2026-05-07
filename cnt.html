@@ -18,6 +18,16 @@
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
 
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -57,7 +67,7 @@
     .session-body p { margin-bottom: 1.25rem; }
     .session-body p:last-child { margin-bottom: 0; }
     .session-body em { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--dark); }
-    .session-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .session-details { display: flex; flex-direction: column; gap: 1.5rem; list-style: none; }
     .session-detail-item { padding: 1.5rem; background: var(--warm-white); border-left: 2px solid var(--border); }
     .session-detail-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
     .session-detail-body { font-size: 0.9rem; color: var(--mid); line-height: 1.8; }
@@ -68,9 +78,8 @@
     .conditions-section .section-title { color: white; }
     .conditions-section .section-title em { color: #c8d9c0; }
     .conditions-intro { font-size: 0.98rem; color: rgba(255,255,255,0.7); max-width: 580px; margin-bottom: 3rem; line-height: 1.9; }
-    .conditions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .condition-item { padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.5; transition: background 0.2s, border-color 0.2s; }
-    .condition-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+    .conditions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; list-style: none; }
+    .condition-item { padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
 
     .after-section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .after-quote { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: var(--deep-sage); line-height: 1.4; }
@@ -108,13 +117,14 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#story">My Work</a></li>
-      <li><a href="the-sessions.html" class="active">The Sessions</a></li>
+      <li><a href="the-sessions.html" class="active" aria-current="page">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="field-notes.html">Writing</a></li>
@@ -122,136 +132,140 @@
     </ul>
   </nav>
 
-  <div class="page-header">
-    <div>
-      <p class="page-header-eyebrow"><a href="the-sessions.html" style="color: var(--sage); text-decoration: none; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;">← The Sessions</a></p>
-      <h1>Chi Nei<br><em>Tsang</em></h1>
-    </div>
-    <div class="page-header-right">
-      <p class="page-header-definition">Abdominal work rooted in Chinese medicine and Taoist healing — gentle, intelligent, and capable of moving what has been held in the belly for a very long time.</p>
-    </div>
-  </div>
+  <main id="main-content">
 
-  <!-- HOW I CAME TO THIS -->
-  <div class="intro-section">
-    <div class="intro-body">
-      <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
-      <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was my first real lesson in trusting practitioners who actually listen — and in the profound relationship between what we eat, what we feel, and what we carry.</p>
-      <p>That chiropractor referred me to Allison Post, a practitioner of Chi Nei Tsang and a student of Gilles Marin, one of the foremost teachers of this tradition in the West. I didn't know what CNT was. But I trusted the referral. And as soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me — through her hands and her presence — that the belly is not just a digestive organ. It is where we store our emotions, our unprocessed experiences, our grief and our fear and our unexpressed life.</p>
-      <p>I went on to study Oriental Medicine, deepening my understanding of the energetic systems, the meridians, and the intelligence of the organs that CNT works with directly. Allison's book, <em>Unwinding the Belly</em>, became a companion text — her writing sounds exactly like she does in person, and I practiced from it until her way of working was in my hands.</p>
-      <p>I continue to deepen this practice. I am currently in a study group with other practitioners, working through the lineage of Gilles Marin — whose teaching runs through Allison's work, and through mine.</p>
-    </div>
-    <div class="intro-aside">
-      <p class="aside-label">A lineage of listening</p>
-      <p class="aside-quote">"Allison taught me that the belly holds what the mind can't always reach. Working there — with gentleness and respect — changes things."</p>
-      <p class="aside-note">Chi Nei Tsang translates roughly as "working the energy of the internal organs." It is one of the few healing traditions that addresses the abdomen directly — understanding it not just as a site of digestion, but as a center of emotional intelligence, energetic processing, and deep holding.</p>
-      <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">I offer CNT as a standalone session and weave it into Zen Shiatsu sessions when the belly is ready to be worked. Some bodies need to be met there first. Others arrive there over time.</p>
-    </div>
-  </div>
+    <header class="page-header" aria-label="Page header">
+      <div>
+        <p class="page-header-eyebrow"><a href="the-sessions.html">← The Sessions</a></p>
+        <h1>Chi Nei<br><em>Tsang</em></h1>
+      </div>
+      <div class="page-header-right">
+        <p class="page-header-definition">Abdominal work rooted in Chinese medicine and Taoist healing — gentle, intelligent, and capable of moving what has been held in the belly for a very long time.</p>
+      </div>
+    </header>
 
-  <!-- HOW IT WORKS -->
-  <div class="how-section">
-    <div class="how-inner">
-      <p class="section-label">The Principles</p>
-      <h2 class="section-title">How does it <em>work?</em></h2>
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-number">01</div>
-          <div class="how-title">The Belly as a Center</div>
-          <div class="how-body">In Chinese medicine and Taoist tradition, the abdomen is understood as the body's second brain — a center of intelligence, processing, and storage. Emotions that are not expressed or integrated find their way there. CNT works with this directly.</div>
+    <!-- HOW I CAME TO THIS -->
+    <section class="intro-section" aria-label="How I came to Chi Nei Tsang">
+      <div class="intro-body">
+        <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
+        <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was my first real lesson in trusting practitioners who actually listen — and in the profound relationship between what we eat, what we feel, and what we carry.</p>
+        <p>That chiropractor referred me to Allison Post, a practitioner of Chi Nei Tsang and a student of Gilles Marin, one of the foremost teachers of this tradition in the West. I didn't know what CNT was. But I trusted the referral. And as soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me — through her hands and her presence — that the belly is not just a digestive organ. It is where we store our emotions, our unprocessed experiences, our grief and our fear and our unexpressed life.</p>
+        <p>I went on to study Oriental Medicine, deepening my understanding of the energetic systems, the meridians, and the intelligence of the organs that CNT works with directly. Allison's book, <em>Unwinding the Belly</em>, became a companion text — her writing sounds exactly like she does in person, and I practiced from it until her way of working was in my hands.</p>
+        <p>I continue to deepen this practice. I am currently in a study group with other practitioners, working through the lineage of Gilles Marin — whose teaching runs through Allison's work, and through mine.</p>
+      </div>
+      <aside class="intro-aside" aria-label="A lineage of listening">
+        <p class="aside-label">A lineage of listening</p>
+        <p class="aside-quote">"Allison taught me that the belly holds what the mind can't always reach. Working there — with gentleness and respect — changes things."</p>
+        <p class="aside-note">Chi Nei Tsang translates roughly as "working the energy of the internal organs." It is one of the few healing traditions that addresses the abdomen directly — understanding it not just as a site of digestion, but as a center of emotional intelligence, energetic processing, and deep holding.</p>
+        <p class="aside-note" style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border);">I offer CNT as a standalone session and weave it into Zen Shiatsu sessions when the belly is ready to be worked. Some bodies need to be met there first. Others arrive there over time.</p>
+      </aside>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" aria-label="How Chi Nei Tsang works">
+      <div class="how-inner">
+        <p class="section-label">The Principles</p>
+        <h2 class="section-title">How does it <em>work?</em></h2>
+        <div class="how-grid" role="list">
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">01</div>
+            <h3 class="how-title">The Belly as a Center</h3>
+            <p class="how-body">In Chinese medicine and Taoist tradition, the abdomen is understood as the body's second brain — a center of intelligence, processing, and storage. Emotions that are not expressed or integrated find their way there. CNT works with this directly.</p>
+          </article>
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">02</div>
+            <h3 class="how-title">The Organs Hold Memory</h3>
+            <p class="how-body">Each organ in Chinese medicine is associated with specific emotions and energetic functions. Grief lives in the lungs. Fear in the kidneys. Anger in the liver. By working gently with the abdomen, we can begin to release what each organ has been holding — often for years.</p>
+          </article>
+          <article class="how-card" role="listitem">
+            <div class="how-number" aria-hidden="true">03</div>
+            <h3 class="how-title">Gentle, Intelligent Touch</h3>
+            <p class="how-body">CNT uses slow, respectful pressure on the abdomen — following the body's own cues rather than imposing a protocol. The work is never forced. The belly will only release what it is ready to release. The practitioner's job is to create the conditions for that to happen.</p>
+          </article>
         </div>
-        <div class="how-card">
-          <div class="how-number">02</div>
-          <div class="how-title">The Organs Hold Memory</div>
-          <div class="how-body">Each organ in Chinese medicine is associated with specific emotions and energetic functions. Grief lives in the lungs. Fear in the kidneys. Anger in the liver. By working gently with the abdomen, we can begin to release what each organ has been holding — often for years.</div>
-        </div>
-        <div class="how-card">
-          <div class="how-number">03</div>
-          <div class="how-title">Gentle, Intelligent Touch</div>
-          <div class="how-body">CNT uses slow, respectful pressure on the abdomen — following the body's own cues rather than imposing a protocol. The work is never forced. The belly will only release what it is ready to release. The practitioner's job is to create the conditions for that to happen.</div>
-        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- THE SESSION -->
-  <div class="session-section">
-    <div class="session-body">
-      <p class="section-label" style="margin-bottom: 1rem;">What to Expect</p>
-      <h2 class="section-title" style="margin-bottom: 1.5rem;">The Session</h2>
-      <p>We begin with a conversation — your health history, what's present for you, what brings you to the work. Some people come with a specific physical complaint. Others come knowing only that something feels lodged in their middle that they can't reach on their own. Both are a perfect place to begin.</p>
-      <p>The work itself is done lying on your back, fully clothed from the waist up, with the abdomen exposed or lightly draped depending on your comfort. I work with slow, gentle pressure on the abdomen — following the organs, the fascia, and the energy pathways beneath. I check in regularly. Your feedback guides the session as much as my training does.</p>
-      <p>CNT can be offered as a standalone session or woven into a Zen Shiatsu session. When combined, the two work beautifully together — the Shiatsu settling the meridian system, the CNT working the deeper interior. <em>Many clients find the combination more complete than either alone.</em></p>
-      <p>The first session is typically longer to allow time for a thorough intake. We will discuss what makes sense for your particular situation and what a series of sessions might look like.</p>
-    </div>
-    <div class="session-details">
-      <div class="session-detail-item">
-        <p class="session-detail-label">Duration</p>
-        <p class="session-detail-body">Approximately one hour for a standalone CNT session. Longer when combined with Zen Shiatsu. Initial sessions include additional time for intake.</p>
+    <!-- THE SESSION -->
+    <section class="session-section" aria-label="What to expect in a session">
+      <div class="session-body">
+        <p class="section-label" style="margin-bottom: 1rem;">What to Expect</p>
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">The Session</h2>
+        <p>We begin with a conversation — your health history, what's present for you, what brings you to the work. Some people come with a specific physical complaint. Others come knowing only that something feels lodged in their middle that they can't reach on their own. Both are a perfect place to begin.</p>
+        <p>The work itself is done lying on your back, fully clothed from the waist up, with the abdomen exposed or lightly draped depending on your comfort. I work with slow, gentle pressure on the abdomen — following the organs, the fascia, and the energy pathways beneath. I check in regularly. Your feedback guides the session as much as my training does.</p>
+        <p>CNT can be offered as a standalone session or woven into a Zen Shiatsu session. When combined, the two work beautifully together — the Shiatsu settling the meridian system, the CNT working the deeper interior. <em>Many clients find the combination more complete than either alone.</em></p>
+        <p>The first session is typically longer to allow time for a thorough intake. We will discuss what makes sense for your particular situation and what a series of sessions might look like.</p>
       </div>
-      <div class="session-detail-item">
-        <p class="session-detail-label">What to Wear</p>
-        <p class="session-detail-body">Comfortable clothing. The abdomen will need to be accessible — a shirt that can be lifted or loosened works well. You remain clothed throughout.</p>
-      </div>
-      <div class="session-detail-item">
-        <p class="session-detail-label">Setting</p>
-        <p class="session-detail-body">On a massage table, lying on your back. Can also be offered on a futon or bed depending on your needs and mobility.</p>
-      </div>
-      <div class="session-detail-item">
-        <p class="session-detail-label">Frequency</p>
-        <p class="session-detail-body">For acute situations, weekly sessions are common. For ongoing support and deeper work, we'll discuss what rhythm makes sense for you.</p>
-      </div>
-      <div class="session-detail-item">
-        <p class="session-detail-label">After the Session</p>
-        <p class="session-detail-body">Drink plenty of water. Give yourself time to rest if you can. Emotional material sometimes surfaces in the hours or days following a session — this is a normal and healthy part of the process.</p>
-      </div>
-    </div>
-  </div>
+      <ul class="session-details" aria-label="Session details">
+        <li class="session-detail-item">
+          <p class="session-detail-label">Duration</p>
+          <p class="session-detail-body">Approximately one hour for a standalone CNT session. Longer when combined with Zen Shiatsu. Initial sessions include additional time for intake.</p>
+        </li>
+        <li class="session-detail-item">
+          <p class="session-detail-label">What to Wear</p>
+          <p class="session-detail-body">Comfortable clothing. The abdomen will need to be accessible — a shirt that can be lifted or loosened works well. You remain clothed throughout.</p>
+        </li>
+        <li class="session-detail-item">
+          <p class="session-detail-label">Setting</p>
+          <p class="session-detail-body">On a massage table, lying on your back. Can also be offered on a futon or bed depending on your needs and mobility.</p>
+        </li>
+        <li class="session-detail-item">
+          <p class="session-detail-label">Frequency</p>
+          <p class="session-detail-body">For acute situations, weekly sessions are common. For ongoing support and deeper work, we'll discuss what rhythm makes sense for you.</p>
+        </li>
+        <li class="session-detail-item">
+          <p class="session-detail-label">After the Session</p>
+          <p class="session-detail-body">Drink plenty of water. Give yourself time to rest if you can. Emotional material sometimes surfaces in the hours or days following a session — this is a normal and healthy part of the process.</p>
+        </li>
+      </ul>
+    </section>
 
-  <!-- CONDITIONS -->
-  <div class="conditions-section">
-    <div class="conditions-inner">
-      <p class="section-label">What It Addresses</p>
-      <h2 class="section-title">What responds to <em>this work</em></h2>
-      <p class="conditions-intro">Because Chi Nei Tsang addresses both the physical and emotional dimensions of the abdomen, the range of conditions that respond to it is broader than many people expect.</p>
-      <div class="conditions-grid">
-        <div class="condition-item">Digestive Issues & IBS</div>
-        <div class="condition-item">Bloating & Abdominal Tension</div>
-        <div class="condition-item">Chronic Stress & Anxiety</div>
-        <div class="condition-item">Grief & Emotional Processing</div>
-        <div class="condition-item">Fatigue & Low Energy</div>
-        <div class="condition-item">Menstrual Pain & Irregularity</div>
-        <div class="condition-item">Lower Back Pain</div>
-        <div class="condition-item">Post-Surgical Recovery</div>
-        <div class="condition-item">Hiatal Hernia Support</div>
-        <div class="condition-item">Constipation & Sluggish Digestion</div>
-        <div class="condition-item">Stored Emotional Tension</div>
-        <div class="condition-item">A Sense of Something Stuck</div>
+    <!-- CONDITIONS -->
+    <section class="conditions-section" aria-label="What Chi Nei Tsang addresses">
+      <div class="conditions-inner">
+        <p class="section-label">What It Addresses</p>
+        <h2 class="section-title">What responds to <em>this work</em></h2>
+        <p class="conditions-intro">Because Chi Nei Tsang addresses both the physical and emotional dimensions of the abdomen, the range of conditions that respond to it is broader than many people expect.</p>
+        <ul class="conditions-grid" aria-label="Conditions that respond to Chi Nei Tsang">
+          <li class="condition-item">Digestive Issues &amp; IBS</li>
+          <li class="condition-item">Bloating &amp; Abdominal Tension</li>
+          <li class="condition-item">Chronic Stress &amp; Anxiety</li>
+          <li class="condition-item">Grief &amp; Emotional Processing</li>
+          <li class="condition-item">Fatigue &amp; Low Energy</li>
+          <li class="condition-item">Menstrual Pain &amp; Irregularity</li>
+          <li class="condition-item">Lower Back Pain</li>
+          <li class="condition-item">Post-Surgical Recovery</li>
+          <li class="condition-item">Hiatal Hernia Support</li>
+          <li class="condition-item">Constipation &amp; Sluggish Digestion</li>
+          <li class="condition-item">Stored Emotional Tension</li>
+          <li class="condition-item">A Sense of Something Stuck</li>
+        </ul>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- AFTER -->
-  <div class="after-section">
-    <div class="after-quote">"The belly will only release what it is ready to release. Our job is simply to create the conditions for that to happen."</div>
-    <div class="after-body">
-      <p class="section-label" style="margin-bottom: 1rem;">What Shifts</p>
-      <p>People often leave a CNT session feeling lighter in a way they didn't expect — as though something they had been carrying in their middle has been set down, at least for a while.</p>
-      <p>Sometimes the shift is physical: digestion improves, tension releases, pain that had been present for months simply isn't there anymore. Sometimes it is emotional: a grief surfaces and moves through, a long-held pattern suddenly has less weight.</p>
-      <p>Occasionally, things continue to shift in the days following a session. Dreams may be more vivid. Emotions may be closer to the surface. This is the work continuing — the body completing what the session began. It is not cause for concern. It is evidence that something real happened.</p>
-    </div>
-  </div>
+    <!-- AFTER -->
+    <section class="after-section" aria-label="What shifts after a session">
+      <blockquote class="after-quote">"The belly will only release what it is ready to release. Our job is simply to create the conditions for that to happen."</blockquote>
+      <div class="after-body">
+        <p class="section-label" style="margin-bottom: 1rem;">What Shifts</p>
+        <p>People often leave a CNT session feeling lighter in a way they didn't expect — as though something they had been carrying in their middle has been set down, at least for a while.</p>
+        <p>Sometimes the shift is physical: digestion improves, tension releases, pain that had been present for months simply isn't there anymore. Sometimes it is emotional: a grief surfaces and moves through, a long-held pattern suddenly has less weight.</p>
+        <p>Occasionally, things continue to shift in the days following a session. Dreams may be more vivid. Emotions may be closer to the surface. This is the work continuing — the body completing what the session began. It is not cause for concern. It is evidence that something real happened.</p>
+      </div>
+    </section>
 
-  <div class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title">Ready to work with<br>the <em>belly?</em></h2>
-      <p class="cta-body">If something here resonates — reach out. We'll talk about what you're carrying and whether Chi Nei Tsang feels like the right way in for you. A free 15-minute consultation is a good place to start.</p>
-      <a href="index.html#contact" class="btn-primary">Get In Touch</a>
-      <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
-    </div>
-  </div>
+    <section class="cta-section" aria-label="Get in touch">
+      <div class="cta-inner">
+        <h2 class="cta-title">Ready to work with<br>the <em>belly?</em></h2>
+        <p class="cta-body">If something here resonates — reach out. We'll talk about what you're carrying and whether Chi Nei Tsang feels like the right way in for you. A free 15-minute consultation is a good place to start.</p>
+        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+        <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
+      </div>
+    </section>
 
-  <footer>
+  </main>
+
+  <footer role="contentinfo">
     <a href="index.html" class="footer-logo">Magic Healing Garden</a>
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>

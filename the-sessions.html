@@ -18,6 +18,16 @@
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
 
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -65,7 +75,7 @@
     .modality-section-dark .aside-label { color: rgba(255,255,255,0.4); }
     .aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--dark); line-height: 1.55; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
     .modality-section-dark .aside-quote { color: white; border-bottom-color: rgba(255,255,255,0.15); }
-    .aside-details { display: flex; flex-direction: column; gap: 1rem; }
+    .aside-details { display: flex; flex-direction: column; gap: 1rem; list-style: none; }
     .aside-detail { padding: 1.25rem; background: var(--cream); border-left: 2px solid var(--border); }
     .modality-section-dark .aside-detail { background: rgba(255,255,255,0.07); border-left-color: rgba(255,255,255,0.2); }
     .aside-detail-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
@@ -101,13 +111,14 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#story">My Work</a></li>
-      <li><a href="the-sessions.html" class="active">The Sessions</a></li>
+      <li><a href="the-sessions.html" class="active" aria-current="page">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="field-notes.html">Writing</a></li>
@@ -115,156 +126,160 @@
     </ul>
   </nav>
 
-  <div class="page-header">
-    <div>
-      <p class="page-header-eyebrow">The Sessions</p>
-      <h1>The <em>Work</em></h1>
-    </div>
-    <div>
-      <p class="page-header-definition">There is no wrong door. Whatever brings you here — your body, your patterns, something you've been carrying — we will find the right way in together.</p>
-    </div>
-  </div>
+  <main id="main-content">
 
-  <div class="intro-band">
-    <div class="intro-band-inner">
-      <p class="intro-band-body">"I offer two distinct kinds of work — bodywork that speaks directly to the body's intelligence, and alchemical healing that works at the level of belief, energy, and pattern. They can be experienced separately or together. Most often, they find their way into the same session."</p>
-      <p class="intro-band-note">Below you'll find each of the modalities I work with — what they are, how I came to them, and what they might offer you. If you're not sure where to start, reach out. We'll figure it out together.</p>
-    </div>
-  </div>
-
-  <!-- MODALITY 1: ZEN SHIATSU -->
-  <div class="modality-section">
-    <div class="modality-inner">
+    <header class="page-header" aria-label="Page header">
       <div>
-        <p class="modality-eyebrow">Bodywork</p>
-        <h2 class="modality-title">Manual Therapies &<br><em>Zen Shiatsu</em></h2>
-        <div class="modality-body">
-          <p>I came to bodywork the way most people come to healing — because I needed it. What began as my own experience of receiving Zen Shiatsu became a deep curiosity about how the body holds what the mind can't process, and how skilled touch can begin to move what has been stuck for years.</p>
-          <p>My strongest lineage is Zen Shiatsu — acupuncture without needles. Rooted in Chinese medicine, it works with the body's meridian system to restore flow, release what's held, and support the whole person. I trained at the Academy of Oriental Medicine in Austin under Pamela Ferguson, a lineage holder in the tradition of Shizuto Masunaga — completing 500 hours of Shiatsu training as part of my graduate studies, and beginning to see clients privately in 2002. I am a formerly Certified Practitioner with the American Organization for Bodywork Therapies of Asia (AOBTA).</p>
-          <p>What I want you to know about how I work: I always respect your space. I check in regularly. I expect you to communicate with me if something is uncomfortable — and I will always meet you there. I have worked with people who couldn't tolerate touch at all, and we figured out a way together. I am flexible, amenable, and yet principled. The session is yours.</p>
-          <a href="zen-shiatsu.html" class="modality-link">Learn more about Zen Shiatsu →</a>
-        </div>
+        <p class="page-header-eyebrow">The Sessions</p>
+        <h1>The <em>Work</em></h1>
       </div>
-      <div class="modality-aside">
-        <p class="aside-label">What this feels like</p>
-        <p class="aside-quote">"Not a technique imposed on the body — but a conversation with it. I follow what is present rather than what a protocol prescribes."</p>
-        <div class="aside-details">
-          <div class="aside-detail">
-            <p class="aside-detail-label">What to expect</p>
-            <p class="aside-detail-body">Sessions are given fully clothed on a massage table, futon, or chair. No oils. Loose, comfortable clothing in natural fibers is ideal.</p>
-          </div>
-          <div class="aside-detail">
-            <p class="aside-detail-label">Who it's for</p>
-            <p class="aside-detail-body">Anyone carrying stress, pain, tension, or a sense that something is stuck — in the body, the emotions, or both. People of all ages benefit, including infants and the elderly.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODALITY 2: CHI NEI TSANG -->
-  <div class="modality-section-alt">
-    <div class="modality-inner">
       <div>
-        <p class="modality-eyebrow">Abdominal Work</p>
-        <h2 class="modality-title">Chi Nei<br><em>Tsang</em></h2>
-        <div class="modality-body">
-          <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
-          <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was the beginning of trusting practitioners who actually listen.</p>
-          <p>That chiropractor referred me to Allison Post — a practitioner of Chi Nei Tsang, abdominal massage rooted in Chinese medicine and Taoist healing traditions. I didn't know what it was. But I trusted the referral. As soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me that the belly is not just a digestive organ — it is where we store our emotions, our unprocessed experiences, our grief and our fear.</p>
-          <p>I went on to study Oriental Medicine — deepening my understanding of the body's energetic systems, the meridians, and the intelligence of the organs. That framework runs through everything I do. And I have woven what I learned from Allison into my work ever since. I continue to deepen this practice — currently in a study group working through the lineage of Gilles Marin, whose teaching runs through Allison's work and through mine.</p>
-          <p>I offer CNT as a standalone session and weave it into bodywork sessions when the belly is ready to be worked. When it's willing to release, things shift that haven't moved in years.</p>
-          <a href="cnt.html" class="modality-link">Learn more about Chi Nei Tsang →</a>
-        </div>
+        <p class="page-header-definition">There is no wrong door. Whatever brings you here — your body, your patterns, something you've been carrying — we will find the right way in together.</p>
       </div>
-      <div class="modality-aside">
-        <p class="aside-label">At the center of it</p>
-        <p class="aside-quote">"The belly is where we store what we haven't yet processed. Working there — gently and with respect — can move things that have been held for a very long time."</p>
-        <div class="aside-details">
-          <div class="aside-detail">
-            <p class="aside-detail-label">What it involves</p>
-            <p class="aside-detail-body">Gentle abdominal massage working with the organs, fascia, and energy pathways of the belly. Can be offered alongside Zen Shiatsu or as its own session.</p>
-          </div>
-          <div class="aside-detail">
-            <p class="aside-detail-label">Who it's for</p>
-            <p class="aside-detail-body">Those with digestive issues, stored emotional tension, chronic stress held in the belly, or a sense that something is lodged where they can't quite reach it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </header>
 
-  <!-- MODALITY 3: ALCHEMICAL HEALING -->
-  <div class="modality-section-dark">
-    <div class="modality-inner">
-      <div>
-        <p class="modality-eyebrow">Energy & Belief Work</p>
-        <h2 class="modality-title">Alchemical<br><em>Healing</em></h2>
-        <div class="modality-body">
-          <p>Long before I had a name for it, I was doing this work. A combination of Theta Healing, shamanic healing, and pranic healing — working with people's energetic fields to clear what had accumulated there. Debris from arguments, from witnessing something violent, from grief that never had anywhere to go. This work reaches things that talk therapy alone cannot, because it doesn't operate at the level of the story — it works at the level of what the story left behind.</p>
-          <p>I wanted to find a way to bridge this energetic work with my bodywork — to stop keeping them in separate rooms. That search led me to Lorie Dechar and her work in Alchemical Acupuncture and the Five Spirits of Chinese medicine. I had first encountered her through an online class on trauma and the five elements. I tried to get into her mentorship that year and it was full. I waited. The following year I heard her speak live — and that was the moment I committed. Something in me recognized that this was the bridge I had been looking for.</p>
-          <p>In her mentorship I learned to work with flower essences on specific acupuncture points, to use meditation and dream work as healing tools, to understand the Five Spirits not as theory but as living energies that can be engaged. And I brought all of that into what I was already doing.</p>
-          <p>When the bodywork and the energetic work happen together, the sessions are often quite profound. This is the work that lights me up most. And it is available to anyone who is ready for it.</p>
-          <a href="alchemical-healing.html" class="modality-link">Learn more about Alchemical Healing →</a>
-        </div>
+    <section class="intro-band" aria-label="Overview of the work">
+      <div class="intro-band-inner">
+        <p class="intro-band-body">"I offer two distinct kinds of work — bodywork that speaks directly to the body's intelligence, and alchemical healing that works at the level of belief, energy, and pattern. They can be experienced separately or together. Most often, they find their way into the same session."</p>
+        <p class="intro-band-note">Below you'll find each of the modalities I work with — what they are, how I came to them, and what they might offer you. If you're not sure where to start, reach out. We'll figure it out together.</p>
       </div>
-      <div class="modality-aside">
-        <p class="aside-label">What makes it alchemical</p>
-        <p class="aside-quote">"I came into this work already practicing something that didn't have a name — but was quite alchemical in nature. Lorie's mentorship gave me the bridge I had been looking for."</p>
-        <div class="aside-details">
-          <div class="aside-detail">
-            <p class="aside-detail-label">What it works with</p>
-            <p class="aside-detail-body">Inherited patterns, old shocks, energetic debris, limiting beliefs, and the stories the body has been holding as truth. Works with your permission, at the level of root cause.</p>
-          </div>
-          <div class="aside-detail">
-            <p class="aside-detail-label">How it feels</p>
-            <p class="aside-detail-body">Often quiet and interior. Sometimes surprising. People frequently describe a shift they can't fully explain — a lightness, a clarity, a sense that something that felt permanent has simply gone.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- MODALITY 4: BREATHWORK -->
-  <div class="modality-section">
-    <div class="modality-inner">
-      <div>
-        <p class="modality-eyebrow">Breathwork</p>
-        <h2 class="modality-title">Guided<br><em>Breathwork</em></h2>
-        <div class="modality-body">
-          <p>Breath is the one thing the body does both automatically and consciously. Which makes it one of the most direct ways in.</p>
-          <p>I offer breathwork as its own complete modality — not as a warm-up or add-on, but as a full session in its own right. Some of the people I work with come specifically for breathwork and nothing else. They may not want touch, may not be ready for it, or simply find that this is what their system responds to most. That is a completely valid place to begin — or to stay.</p>
-          <p>I also weave breathwork into sessions when the body needs a different entry point. Sometimes the system isn't ready for hands-on work. Sometimes we've done energetic work and the breath is what integrates it. The breath is flexible in a way that touch sometimes isn't — it can go where hands can't, working with the nervous system directly to calm what has been activated and move what has been stuck.</p>
-          <p>Sessions are gentle, guided, and entirely non-invasive. You don't need any prior experience. You just need to be willing to breathe a little more intentionally than usual.</p>
-        </div>
-      </div>
-      <div class="modality-aside">
-        <p class="aside-label">Why breath</p>
-        <p class="aside-quote">"The breath is always available. It is the body's own built-in tool for regulation — and sometimes it just needs someone to guide it."</p>
-        <div class="aside-details">
-          <div class="aside-detail">
-            <p class="aside-detail-label">What to expect</p>
-            <p class="aside-detail-body">Gentle, guided breathwork in a supported position. No prior experience needed. Can be offered as a standalone session or woven into a broader session.</p>
-          </div>
-          <div class="aside-detail">
-            <p class="aside-detail-label">Who it's for</p>
-            <p class="aside-detail-body">Anyone who prefers not to be touched, whose nervous system needs a gentler entry point, or who simply wants to explore what breath alone can open.</p>
+    <!-- MODALITY 1: ZEN SHIATSU -->
+    <section class="modality-section" aria-label="Manual Therapies and Zen Shiatsu">
+      <div class="modality-inner">
+        <div>
+          <p class="modality-eyebrow">Bodywork</p>
+          <h2 class="modality-title">Manual Therapies &amp;<br><em>Zen Shiatsu</em></h2>
+          <div class="modality-body">
+            <p>I came to bodywork the way most people come to healing — because I needed it. What began as my own experience of receiving Zen Shiatsu became a deep curiosity about how the body holds what the mind can't process, and how skilled touch can begin to move what has been stuck for years.</p>
+            <p>My strongest lineage is Zen Shiatsu — acupuncture without needles. Rooted in Chinese medicine, it works with the body's meridian system to restore flow, release what's held, and support the whole person. I trained at the Academy of Oriental Medicine in Austin under Pamela Ferguson, a lineage holder in the tradition of Shizuto Masunaga — completing 500 hours of Shiatsu training as part of my graduate studies, and beginning to see clients privately in 2002. I am a formerly Certified Practitioner with the American Organization for Bodywork Therapies of Asia (AOBTA).</p>
+            <p>What I want you to know about how I work: I always respect your space. I check in regularly. I expect you to communicate with me if something is uncomfortable — and I will always meet you there. I have worked with people who couldn't tolerate touch at all, and we figured out a way together. I am flexible, amenable, and yet principled. The session is yours.</p>
+            <a href="zen-shiatsu.html" class="modality-link">Learn more about Zen Shiatsu →</a>
           </div>
         </div>
+        <aside class="modality-aside" aria-label="What Zen Shiatsu feels like">
+          <p class="aside-label">What this feels like</p>
+          <p class="aside-quote">"Not a technique imposed on the body — but a conversation with it. I follow what is present rather than what a protocol prescribes."</p>
+          <ul class="aside-details">
+            <li class="aside-detail">
+              <p class="aside-detail-label">What to expect</p>
+              <p class="aside-detail-body">Sessions are given fully clothed on a massage table, futon, or chair. No oils. Loose, comfortable clothing in natural fibers is ideal.</p>
+            </li>
+            <li class="aside-detail">
+              <p class="aside-detail-label">Who it's for</p>
+              <p class="aside-detail-body">Anyone carrying stress, pain, tension, or a sense that something is stuck — in the body, the emotions, or both. People of all ages benefit, including infants and the elderly.</p>
+            </li>
+          </ul>
+        </aside>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title">Not sure where<br>to <em>begin?</em></h2>
-      <p class="cta-body">There is no wrong door. Reach out and tell me what's going on — we'll figure out together which of these feels like the right starting place for you. A free 15-minute consultation is always a good place to start.</p>
-      <a href="index.html#contact" class="btn-primary">Get In Touch</a>
-      <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
-    </div>
-  </div>
+    <!-- MODALITY 2: CHI NEI TSANG -->
+    <section class="modality-section-alt" aria-label="Chi Nei Tsang abdominal work">
+      <div class="modality-inner">
+        <div>
+          <p class="modality-eyebrow">Abdominal Work</p>
+          <h2 class="modality-title">Chi Nei<br><em>Tsang</em></h2>
+          <div class="modality-body">
+            <p>I was in my late twenties when I first experienced Chi Nei Tsang — and I didn't go looking for it. I had been having mysterious GI symptoms for months after a trip to India: weight gain, increased appetite, a foggy feeling, irritability. I would eat dinner and an hour later need to eat again. My doctors ran tests and told me I was healthy. I didn't feel healthy.</p>
+            <p>A friend guided me to a chiropractor who did nutrition work. She had me keep a food journal, and what emerged was a clear pattern — bread and cheese, over and over. She asked me to stop eating gluten and dairy for three days. I did. Every mysterious symptom disappeared. That was the beginning of trusting practitioners who actually listen.</p>
+            <p>That chiropractor referred me to Allison Post — a practitioner of Chi Nei Tsang, abdominal massage rooted in Chinese medicine and Taoist healing traditions. I didn't know what it was. But I trusted the referral. As soon as I met Allison, I was completely smitten with her as a practitioner. I worked with her for the next two years as her client. She taught me that the belly is not just a digestive organ — it is where we store our emotions, our unprocessed experiences, our grief and our fear.</p>
+            <p>I went on to study Oriental Medicine — deepening my understanding of the body's energetic systems, the meridians, and the intelligence of the organs. That framework runs through everything I do. And I have woven what I learned from Allison into my work ever since. I continue to deepen this practice — currently in a study group working through the lineage of Gilles Marin, whose teaching runs through Allison's work and through mine.</p>
+            <p>I offer CNT as a standalone session and weave it into bodywork sessions when the belly is ready to be worked. When it's willing to release, things shift that haven't moved in years.</p>
+            <a href="cnt.html" class="modality-link">Learn more about Chi Nei Tsang →</a>
+          </div>
+        </div>
+        <aside class="modality-aside" aria-label="About Chi Nei Tsang">
+          <p class="aside-label">At the center of it</p>
+          <p class="aside-quote">"The belly is where we store what we haven't yet processed. Working there — gently and with respect — can move things that have been held for a very long time."</p>
+          <ul class="aside-details">
+            <li class="aside-detail">
+              <p class="aside-detail-label">What it involves</p>
+              <p class="aside-detail-body">Gentle abdominal massage working with the organs, fascia, and energy pathways of the belly. Can be offered alongside Zen Shiatsu or as its own session.</p>
+            </li>
+            <li class="aside-detail">
+              <p class="aside-detail-label">Who it's for</p>
+              <p class="aside-detail-body">Those with digestive issues, stored emotional tension, chronic stress held in the belly, or a sense that something is lodged where they can't quite reach it.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-  <footer>
+    <!-- MODALITY 3: ALCHEMICAL HEALING -->
+    <section class="modality-section-dark" aria-label="Alchemical Healing energy and belief work">
+      <div class="modality-inner">
+        <div>
+          <p class="modality-eyebrow">Energy &amp; Belief Work</p>
+          <h2 class="modality-title">Alchemical<br><em>Healing</em></h2>
+          <div class="modality-body">
+            <p>Long before I had a name for it, I was doing this work. A combination of Theta Healing, shamanic healing, and pranic healing — working with people's energetic fields to clear what had accumulated there. Debris from arguments, from witnessing something violent, from grief that never had anywhere to go. This work reaches things that talk therapy alone cannot, because it doesn't operate at the level of the story — it works at the level of what the story left behind.</p>
+            <p>I wanted to find a way to bridge this energetic work with my bodywork — to stop keeping them in separate rooms. That search led me to Lorie Dechar and her work in Alchemical Acupuncture and the Five Spirits of Chinese medicine. I had first encountered her through an online class on trauma and the five elements. I tried to get into her mentorship that year and it was full. I waited. The following year I heard her speak live — and that was the moment I committed. Something in me recognized that this was the bridge I had been looking for.</p>
+            <p>In her mentorship I learned to work with flower essences on specific acupuncture points, to use meditation and dream work as healing tools, to understand the Five Spirits not as theory but as living energies that can be engaged. And I brought all of that into what I was already doing.</p>
+            <p>When the bodywork and the energetic work happen together, the sessions are often quite profound. This is the work that lights me up most. And it is available to anyone who is ready for it.</p>
+            <a href="alchemical-healing.html" class="modality-link">Learn more about Alchemical Healing →</a>
+          </div>
+        </div>
+        <aside class="modality-aside" aria-label="What makes it alchemical">
+          <p class="aside-label">What makes it alchemical</p>
+          <p class="aside-quote">"I came into this work already practicing something that didn't have a name — but was quite alchemical in nature. Lorie's mentorship gave me the bridge I had been looking for."</p>
+          <ul class="aside-details">
+            <li class="aside-detail">
+              <p class="aside-detail-label">What it works with</p>
+              <p class="aside-detail-body">Inherited patterns, old shocks, energetic debris, limiting beliefs, and the stories the body has been holding as truth. Works with your permission, at the level of root cause.</p>
+            </li>
+            <li class="aside-detail">
+              <p class="aside-detail-label">How it feels</p>
+              <p class="aside-detail-body">Often quiet and interior. Sometimes surprising. People frequently describe a shift they can't fully explain — a lightness, a clarity, a sense that something that felt permanent has simply gone.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MODALITY 4: BREATHWORK -->
+    <section class="modality-section" aria-label="Guided breathwork">
+      <div class="modality-inner">
+        <div>
+          <p class="modality-eyebrow">Breathwork</p>
+          <h2 class="modality-title">Guided<br><em>Breathwork</em></h2>
+          <div class="modality-body">
+            <p>Breath is the one thing the body does both automatically and consciously. Which makes it one of the most direct ways in.</p>
+            <p>I offer breathwork as its own complete modality — not as a warm-up or add-on, but as a full session in its own right. Some of the people I work with come specifically for breathwork and nothing else. They may not want touch, may not be ready for it, or simply find that this is what their system responds to most. That is a completely valid place to begin — or to stay.</p>
+            <p>I also weave breathwork into sessions when the body needs a different entry point. Sometimes the system isn't ready for hands-on work. Sometimes we've done energetic work and the breath is what integrates it. The breath is flexible in a way that touch sometimes isn't — it can go where hands can't, working with the nervous system directly to calm what has been activated and move what has been stuck.</p>
+            <p>Sessions are gentle, guided, and entirely non-invasive. You don't need any prior experience. You just need to be willing to breathe a little more intentionally than usual.</p>
+          </div>
+        </div>
+        <aside class="modality-aside" aria-label="Why breathwork">
+          <p class="aside-label">Why breath</p>
+          <p class="aside-quote">"The breath is always available. It is the body's own built-in tool for regulation — and sometimes it just needs someone to guide it."</p>
+          <ul class="aside-details">
+            <li class="aside-detail">
+              <p class="aside-detail-label">What to expect</p>
+              <p class="aside-detail-body">Gentle, guided breathwork in a supported position. No prior experience needed. Can be offered as a standalone session or woven into a broader session.</p>
+            </li>
+            <li class="aside-detail">
+              <p class="aside-detail-label">Who it's for</p>
+              <p class="aside-detail-body">Anyone who prefers not to be touched, whose nervous system needs a gentler entry point, or who simply wants to explore what breath alone can open.</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-section" aria-label="Not sure where to begin">
+      <div class="cta-inner">
+        <h2 class="cta-title">Not sure where<br>to <em>begin?</em></h2>
+        <p class="cta-body">There is no wrong door. Reach out and tell me what's going on — we'll figure out together which of these feels like the right starting place for you. A free 15-minute consultation is always a good place to start.</p>
+        <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+        <a href="https://form.typeform.com/to/B8EsqM61" class="btn-ghost">Book a Free Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
     <a href="index.html" class="footer-logo">Magic Healing Garden</a>
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>

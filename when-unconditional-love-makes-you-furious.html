@@ -18,7 +18,16 @@
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
 
-    /* NAV */
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -26,226 +35,56 @@
     .nav-links a:hover { color: var(--deep-sage); }
     .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 
-    /* ARTICLE HEADER */
-    .article-header {
-      padding: 10rem 3rem 5rem;
-      max-width: 780px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--border);
-    }
+    .article-header { padding: 10rem 3rem 5rem; max-width: 780px; margin: 0 auto; border-bottom: 1px solid var(--border); }
 
-    .article-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .article-eyebrow a {
-      color: var(--sage);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .article-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .article-eyebrow a { color: var(--sage); text-decoration: none; transition: color 0.2s; }
     .article-eyebrow a:hover { color: var(--deep-sage); }
     .article-eyebrow span { color: var(--border); }
 
-    .article-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-
+    .article-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1rem; }
     .article-header h1 em { font-style: italic; color: var(--deep-sage); }
 
-    .article-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-style: italic;
-      color: var(--light-mid);
-      line-height: 1.5;
-      margin-bottom: 2.5rem;
-    }
+    .article-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--light-mid); line-height: 1.5; margin-bottom: 2.5rem; }
+    .article-meta { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); }
 
-    .article-meta {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--light-mid);
-    }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 5rem 3rem 7rem; }
 
-    /* ARTICLE BODY */
-    .article-body {
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 5rem 3rem 7rem;
-    }
-
-    /* Opening scene */
-    .opening-scene {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      line-height: 1.75;
-      color: var(--mid);
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .opening-scene { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; line-height: 1.75; color: var(--mid); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
     .opening-scene p { margin-bottom: 1rem; }
     .opening-scene p:last-child { margin-bottom: 0; }
 
-    /* Framing note */
-    .framing-note {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--light-mid);
-      line-height: 1.7;
-      padding: 2rem 2.5rem;
-      border-left: 2px solid var(--accent);
-      margin-bottom: 4rem;
-      background: var(--warm-white);
-    }
-
+    .framing-note { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--light-mid); line-height: 1.7; padding: 2rem 2.5rem; border-left: 2px solid var(--accent); margin-bottom: 4rem; background: var(--warm-white); }
     .framing-note p { margin-bottom: 0.75rem; }
     .framing-note p:last-child { margin-bottom: 0; }
+    .framing-byline { font-style: normal; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 1.25rem; display: block; }
 
-    .framing-byline {
-      font-style: normal;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 1.25rem;
-      display: block;
-    }
+    /* Q&A blocks — using article + dl semantics */
+    .qa-block { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+    .qa-block:last-of-type { border-bottom: none; padding-bottom: 0; }
 
-    /* Q&A blocks */
-    .qa-block {
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .qa-block:last-of-type {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .qa-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
+    .qa-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.6rem; }
     .qa-label.student { color: var(--earth); }
     .qa-label.teacher { color: var(--deep-sage); }
 
-    .qa-question {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--dark);
-      line-height: 1.35;
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-    }
+    .qa-question { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; font-style: italic; color: var(--dark); line-height: 1.35; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
 
-    .qa-answer {
-      font-size: 0.97rem;
-      color: var(--mid);
-      line-height: 1.9;
-    }
-
+    .qa-answer { font-size: 0.97rem; color: var(--mid); line-height: 1.9; }
     .qa-answer p { margin-bottom: 1.25rem; }
     .qa-answer p:last-child { margin-bottom: 0; }
+    .qa-answer em { font-family: 'Cormorant Garamond', serif; font-size: 1.05em; font-style: italic; color: var(--dark); }
 
-    .qa-answer em {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05em;
-      font-style: italic;
-      color: var(--dark);
-    }
+    .section-divider { display: flex; align-items: center; gap: 1.5rem; margin: 4rem 0; color: var(--accent); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* Divider */
-    .section-divider {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin: 4rem 0;
-      color: var(--accent);
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .section-divider::before,
-    .section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* Closing CTA */
-    .closing-cta {
-      margin-top: 5rem;
-      padding: 3rem;
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .closing-cta p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--mid);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .closing-cta a {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--deep-sage);
-      text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 2px;
-      transition: color 0.2s;
-    }
-
+    .closing-cta { margin-top: 5rem; padding: 3rem; background: var(--warm-white); border: 1px solid var(--border); text-align: center; }
+    .closing-cta p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--mid); line-height: 1.6; margin-bottom: 1.5rem; }
+    .closing-cta a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--deep-sage); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
     .closing-cta a:hover { color: var(--accent); }
 
-    /* Back link */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--light-mid);
-      text-decoration: none;
-      margin-bottom: 4rem;
-      transition: color 0.2s;
-    }
-
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); text-decoration: none; margin-bottom: 4rem; transition: color 0.2s; }
     .back-link:hover { color: var(--deep-sage); }
 
-    /* FOOTER */
     footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
@@ -260,8 +99,9 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -269,140 +109,151 @@
       <li><a href="the-sessions.html">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="field-notes.html" class="active">Writing</a></li>
+      <li><a href="field-notes.html" class="active" aria-current="page">Writing</a></li>
       <li><a href="index.html#contact">Connect</a></li>
     </ul>
   </nav>
 
-  <div class="article-header">
-    <div class="article-eyebrow">
-      <a href="field-notes.html">Field Notes</a>
-      <span>/</span>
-      <span>Essay — Energy Work</span>
-    </div>
-    <h1>When Unconditional Love<br>Makes You <em>Furious</em></h1>
-    <p class="article-subtitle">A Q&A for people who have felt the wrong thing in the right place</p>
-    <p class="article-meta">Magic Healing Garden</p>
-  </div>
+  <main id="main-content">
 
-  <div class="article-body">
-
-    <a href="field-notes.html" class="back-link">← Back to Field Notes</a>
-
-    <div class="opening-scene">
-      <p>It was a nighttime class. The dojo was lit up, dark outside. We were practicing Shen Zhen Healing Qigong — a form built around the spirit of unconditional love.</p>
-      <p>And I was furious. Sweaty, shaky, and angry in a way I couldn't explain. Nothing like unconditional love.</p>
-      <p>I wanted to run from that class screaming. But that didn't seem appropriate.</p>
-      <p>So I stayed. Managing a social performance on the outside while something was erupting on the inside. And I left that night more confused and more angry than when I arrived — with no idea what had just happened to me.</p>
-      <p>It took years to understand it. This is what I know now.</p>
-    </div>
-
-    <div class="framing-note">
-      <p>These are the questions I wish someone had been able to answer for me. I was that student once — standing in the back of a healing class, feeling everything I wasn't supposed to feel, with no one to turn to afterward.</p>
-      <p>It took years to find the answers. I'm writing this so it doesn't take you that long.</p>
-      <span class="framing-byline">— The Student is who I was. The Teacher is who I became.</span>
-    </div>
-
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">I was in a class focused on unconditional love and I felt angry, sweaty, shaky — like I wanted to run out screaming. Is something wrong with me?</p>
-      <div class="qa-answer">
-        <p>Nothing is wrong with you. Something was actually <em>right</em> — your body was doing exactly what it's supposed to do when energy starts to move. The anger wasn't a sign you were failing the practice. It was the practice working on the exact place that needed it most.</p>
+    <header class="article-header" aria-label="Article header">
+      <div class="article-eyebrow">
+        <a href="field-notes.html">Field Notes</a>
+        <span aria-hidden="true">/</span>
+        <span>Essay — Energy Work</span>
       </div>
+      <h1>When Unconditional Love<br>Makes You <em>Furious</em></h1>
+      <p class="article-subtitle">A Q&amp;A for people who have felt the wrong thing in the right place</p>
+      <p class="article-meta">Magic Healing Garden</p>
+    </header>
+
+    <div class="article-body">
+
+      <a href="field-notes.html" class="back-link">← Back to Field Notes</a>
+
+      <section aria-label="Opening scene">
+        <div class="opening-scene">
+          <p>It was a nighttime class. The dojo was lit up, dark outside. We were practicing Shen Zhen Healing Qigong — a form built around the spirit of unconditional love.</p>
+          <p>And I was furious. Sweaty, shaky, and angry in a way I couldn't explain. Nothing like unconditional love.</p>
+          <p>I wanted to run from that class screaming. But that didn't seem appropriate.</p>
+          <p>So I stayed. Managing a social performance on the outside while something was erupting on the inside. And I left that night more confused and more angry than when I arrived — with no idea what had just happened to me.</p>
+          <p>It took years to understand it. This is what I know now.</p>
+        </div>
+
+        <div class="framing-note" role="note">
+          <p>These are the questions I wish someone had been able to answer for me. I was that student once — standing in the back of a healing class, feeling everything I wasn't supposed to feel, with no one to turn to afterward.</p>
+          <p>It took years to find the answers. I'm writing this so it doesn't take you that long.</p>
+          <span class="framing-byline">— The Student is who I was. The Teacher is who I became.</span>
+        </div>
+      </section>
+
+      <!-- Q&A section — each block is a question + answer pair -->
+      <section aria-label="Questions and answers">
+
+        <article class="qa-block" aria-label="Question: Something wrong with me?">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">I was in a class focused on unconditional love and I felt angry, sweaty, shaky — like I wanted to run out screaming. Is something wrong with me?</h2>
+          <div class="qa-answer">
+            <p>Nothing is wrong with you. Something was actually <em>right</em> — your body was doing exactly what it's supposed to do when energy starts to move. The anger wasn't a sign you were failing the practice. It was the practice working on the exact place that needed it most.</p>
+          </div>
+        </article>
+
+        <article class="qa-block" aria-label="Question: Why anger in a love practice?">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">But why anger? This was supposed to be about opening the heart. How does a practice about love produce rage?</h2>
+          <div class="qa-answer">
+            <p>Because anger is often what's sitting right on top of the heart, guarding it.</p>
+            <p>Think of it like a door that's been stuck shut for a long time. When something finally starts to push it open from the other side — and unconditional love is a powerful force — whatever's been leaning against that door comes flying toward you first.</p>
+            <p>In Chinese medicine there's a concept: stuck liver qi manifests as anger. When you start moving energy that hasn't moved in a long time, it doesn't leave quietly. It announces itself. What was frozen starts to thaw, and the thawing can feel sharp and hot before it feels like anything resembling love.</p>
+            <p><em>The anger wasn't blocking the love. It was what the love was moving through.</em></p>
+          </div>
+        </article>
+
+        <article class="qa-block" aria-label="Question: I had already done the work">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">What if I thought I had already done the work? I wasn't ignoring my healing. I was actively pursuing it.</h2>
+          <div class="qa-answer">
+            <p>That's actually the most common place to be when something like this happens. Doing the work and being full are not mutually exclusive.</p>
+            <p>When I walked into that class I was in acupuncture school. I was studying to be a healing practitioner. I had already done significant bodywork. I thought I had it together.</p>
+            <p>But I was also carrying my father's recent death. Months of being on for other people. A new marriage. A new field of study. I had lived a full and hard life and hadn't yet had a container for any of it. I walked into that dojo already full — and then someone pointed a firehose of unconditional love at all of it.</p>
+            <p>Of course my body said <em>too much.</em></p>
+            <p>You can be actively healing and still be carrying more than you know. The body keeps its own timeline. It doesn't release just because you showed up to class. Sometimes the practice finds you exactly when you have the most to move — not because the timing is cruel, but because something in you was finally ready to start.</p>
+          </div>
+        </article>
+
+        <article class="qa-block" aria-label="Question: Teacher couldn't help me">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">I tried to talk to my teacher about what I was experiencing and he couldn't help me. I left thinking there was something wrong with me — like I was too much, or doing it wrong. How do I make sense of that?</h2>
+          <div class="qa-answer">
+            <p>That thought — <em>there's something wrong with me</em> — is one of the most automatic responses a Western mind reaches for when something unexpected happens in a healing space.</p>
+            <p>Tara Brach calls it the trance of unworthiness. The Dalai Lama reportedly didn't even have a framework for it when she described it to him. It wasn't part of his worldview. In the Eastern mind, you have everything you need already within you. The idea that your difficult experience is evidence of your brokenness — that's a Western inheritance.</p>
+            <p>Nothing was wrong with you. Something was very right with you. Your body was responding honestly to an enormous amount of life.</p>
+            <p>As for the teacher — I understand the anger. I felt it too. But I've come to see his limitation as partly a cultural and pedagogical gap. In many Eastern teaching traditions, the transmission lives in the practice itself. In the doing, the repetition, the form. Sitting with a student's difficult experience and walking them through it verbally — that's a Western therapeutic model. He may have genuinely had no container for what I was asking.</p>
+            <p>That doesn't make it okay. You needed what you needed. But it makes him incomplete rather than fraudulent. A person who could transmit a practice beautifully and deliver it with skill — but couldn't do the real deep work underneath.</p>
+          </div>
+        </article>
+
+        <article class="qa-block" aria-label="Question: What do I do with the anger at the gap?">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">I left angrier than when I arrived — at him, at the gap between what was promised and what was delivered. What do I do with that?</h2>
+          <div class="qa-answer">
+            <p>First — let the anger be valid. You saw something real.</p>
+            <p>And then let it point you somewhere. The most useful thing anger can do is make you into the person who can have the conversation that didn't happen. The big sibling who finds you in the hallway afterward and says — <em>I know what just happened to you. Let me tell you what I figured out.</em></p>
+            <p>That's what this is. That's why I'm writing it.</p>
+          </div>
+        </article>
+
+        <div class="section-divider" aria-hidden="true">And then there is this</div>
+
+        <article class="qa-block" aria-label="Question: What if some of it wasn't mine?">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">What if some of what I was feeling wasn't even mine?</h2>
+          <div class="qa-answer">
+            <p>That question took me years to even know how to ask.</p>
+            <p>When I was standing in that dojo — sweaty, shaking, furious — I had no framework for what was happening. I just knew something felt wrong. I knew I wanted to run. What I didn't know was that I was feeling the room. Decades of other people's stuck energy, grief, anger, longing — all of it moving at once through a body that had no idea it was even picking it up.</p>
+            <p>The first time I heard a word for it I was in a shamanic healing class. Small room, maybe forty or fifty people packed in together. Someone mentioned being an empath. I had never heard the word. I asked what it meant. Someone said: <em>people who can feel what other people feel.</em> My jaw dropped open. Because that was me. That had always been me. I just didn't have language for it.</p>
+            <p>I'll be honest — the word empath gets a bad rap now. It has become almost a trendy self-identification, and that flattens something that is actually a serious energetic reality with real consequences for the person living it. But the experience itself is real.</p>
+            <p>The first time I recognized it as something clearly separate from my own experience I was sitting in my son's classroom with a group of parents, watching a video. I was fine. Not thinking anything in particular. And then suddenly — sweaty, heart racing, overwhelmed by anxiety that came from nowhere. I got up and left. Stood in the bright hallway. And as I moved away from the room, it lifted.</p>
+            <p><em>Something clicked: that wasn't mine.</em></p>
+            <p>A similar thing happened in a movement class I was taking around the same time. We were given the task of dancing our emotions — everyone in a big room moving whatever they were carrying. I started moving and then suddenly became completely frozen. Shaking. Flooded with anxiety and fear. There was one woman across the room emoting her anger and I became rooted to my spot, hands trembling, doing what looked like fast furious shaking qigong but was actually just my body trying to process something overwhelming. I wanted to leave. I probably should have.</p>
+            <p>That experience taught me something about teachers and containers. When you open a room full of people to their rawest emotions — you have a responsibility to prepare that space first. To ground it. In my own practice, before I work with anyone, I call in the four directions, the five elements, the archangels. I build the energetic architecture before I open the windows. That class didn't have walls. And I paid for it.</p>
+            <p>As I developed my practice as a healer I got sharper at catching it. I remember once finishing a session with a client and walking out of the room to give him a few minutes. In the hallway I suddenly felt this heaviness settle over my whole body. Exhaustion so complete I wanted to lie down. And then — the thought: <em>I didn't feel like this two minutes ago.</em></p>
+            <p>That wasn't mine either.</p>
+            <p>After he left I went outside and sat under my favorite tree. I did that often after sessions — just released whatever I'd picked up back to the earth. It sounds simple. It took years to develop the discernment to know when I needed it.</p>
+            <p>And even then — even after all of that — it can still sneak up on you.</p>
+            <p>A couple of years ago my family spent three days camping in the forest. I came home feeling so clean and clear it was almost startling — like I'd forgotten what my own baseline felt like. I went to the park to meet a friend. Asked him how he was doing. He said <em>hmph</em> — shoulders drooping, energy flat.</p>
+            <p>About five minutes later I started to feel depressed.</p>
+            <p>I didn't connect the two. Not for three days. Three days of feeling <em>hmph</em> before I tracked it back to that moment in the park and realized — I had picked it up in an instant, from one word, from one gesture, in an ordinary conversation on an ordinary afternoon.</p>
+            <p>I used a clearing practice I'd developed over years — drawing from Theta Healing, shamanic practice, and Pranic Healing. I released what wasn't mine and cut the energetic cord to that moment.</p>
+            <p>Within hours I was myself again.</p>
+            <p>That practice is something I now teach.</p>
+          </div>
+        </article>
+
+        <article class="qa-block" aria-label="Question: What do I do now?">
+          <p class="qa-label student">Student</p>
+          <h2 class="qa-question">So what do I do now?</h2>
+          <div class="qa-answer">
+            <p>First — know that there is nothing wrong with you. There may actually be more than one thing happening at once. Something from your own life that's ready to move. And something you're picking up from the people around you.</p>
+            <p>Our culture doesn't really have a framework for the second part. It recognizes that people affect us through their words and actions. But the idea that we can absorb someone's anxiety, grief, or anger energetically — without a single word being spoken — that's still considered fringe. And yet so many people are living it without any tools or language for it.</p>
+            <p>There are tools. Shaking qigong. Grounding practices. Learning to ask the simple question — <em>was I fine five minutes ago?</em> Learning to go sit under a tree.</p>
+            <p>You're not too much. You're not broken. You're full. And full is actually a place you can work from.</p>
+          </div>
+        </article>
+
+      </section>
+
+      <aside class="closing-cta" aria-label="Learn more about this work">
+        <p>I'm building a class around exactly this — the emotions that arise in healing and energy work, what they mean, where they come from, and what to do with them.</p>
+        <p>If that resonates, I'd love to hear from you.</p>
+        <a href="index.html#contact">Reach Out →</a>
+      </aside>
+
     </div>
 
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">But why anger? This was supposed to be about opening the heart. How does a practice about love produce rage?</p>
-      <div class="qa-answer">
-        <p>Because anger is often what's sitting right on top of the heart, guarding it.</p>
-        <p>Think of it like a door that's been stuck shut for a long time. When something finally starts to push it open from the other side — and unconditional love is a powerful force — whatever's been leaning against that door comes flying toward you first.</p>
-        <p>In Chinese medicine there's a concept: stuck liver qi manifests as anger. When you start moving energy that hasn't moved in a long time, it doesn't leave quietly. It announces itself. What was frozen starts to thaw, and the thawing can feel sharp and hot before it feels like anything resembling love.</p>
-        <p><em>The anger wasn't blocking the love. It was what the love was moving through.</em></p>
-      </div>
-    </div>
+  </main>
 
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">What if I thought I had already done the work? I wasn't ignoring my healing. I was actively pursuing it.</p>
-      <div class="qa-answer">
-        <p>That's actually the most common place to be when something like this happens. Doing the work and being full are not mutually exclusive.</p>
-        <p>When I walked into that class I was in acupuncture school. I was studying to be a healing practitioner. I had already done significant bodywork. I thought I had it together.</p>
-        <p>But I was also carrying my father's recent death. Months of being on for other people. A new marriage. A new field of study. I had lived a full and hard life and hadn't yet had a container for any of it. I walked into that dojo already full — and then someone pointed a firehose of unconditional love at all of it.</p>
-        <p>Of course my body said <em>too much.</em></p>
-        <p>You can be actively healing and still be carrying more than you know. The body keeps its own timeline. It doesn't release just because you showed up to class. Sometimes the practice finds you exactly when you have the most to move — not because the timing is cruel, but because something in you was finally ready to start.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">I tried to talk to my teacher about what I was experiencing and he couldn't help me. I left thinking there was something wrong with me — like I was too much, or doing it wrong. How do I make sense of that?</p>
-      <div class="qa-answer">
-        <p>That thought — <em>there's something wrong with me</em> — is one of the most automatic responses a Western mind reaches for when something unexpected happens in a healing space.</p>
-        <p>Tara Brach calls it the trance of unworthiness. The Dalai Lama reportedly didn't even have a framework for it when she described it to him. It wasn't part of his worldview. In the Eastern mind, you have everything you need already within you. The idea that your difficult experience is evidence of your brokenness — that's a Western inheritance.</p>
-        <p>Nothing was wrong with you. Something was very right with you. Your body was responding honestly to an enormous amount of life.</p>
-        <p>As for the teacher — I understand the anger. I felt it too. But I've come to see his limitation as partly a cultural and pedagogical gap. In many Eastern teaching traditions, the transmission lives in the practice itself. In the doing, the repetition, the form. Sitting with a student's difficult experience and walking them through it verbally — that's a Western therapeutic model. He may have genuinely had no container for what I was asking.</p>
-        <p>That doesn't make it okay. You needed what you needed. But it makes him incomplete rather than fraudulent. A person who could transmit a practice beautifully and deliver it with skill — but couldn't do the real deep work underneath.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">I left angrier than when I arrived — at him, at the gap between what was promised and what was delivered. What do I do with that?</p>
-      <div class="qa-answer">
-        <p>First — let the anger be valid. You saw something real.</p>
-        <p>And then let it point you somewhere. The most useful thing anger can do is make you into the person who can have the conversation that didn't happen. The big sibling who finds you in the hallway afterward and says — <em>I know what just happened to you. Let me tell you what I figured out.</em></p>
-        <p>That's what this is. That's why I'm writing it.</p>
-      </div>
-    </div>
-
-    <div class="section-divider">And then there is this</div>
-
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">What if some of what I was feeling wasn't even mine?</p>
-      <div class="qa-answer">
-        <p>That question took me years to even know how to ask.</p>
-        <p>When I was standing in that dojo — sweaty, shaking, furious — I had no framework for what was happening. I just knew something felt wrong. I knew I wanted to run. What I didn't know was that I was feeling the room. Decades of other people's stuck energy, grief, anger, longing — all of it moving at once through a body that had no idea it was even picking it up.</p>
-        <p>The first time I heard a word for it I was in a shamanic healing class. Small room, maybe forty or fifty people packed in together. Someone mentioned being an empath. I had never heard the word. I asked what it meant. Someone said: <em>people who can feel what other people feel.</em> My jaw dropped open. Because that was me. That had always been me. I just didn't have language for it.</p>
-        <p>I'll be honest — the word empath gets a bad rap now. It has become almost a trendy self-identification, and that flattens something that is actually a serious energetic reality with real consequences for the person living it. But the experience itself is real.</p>
-        <p>The first time I recognized it as something clearly separate from my own experience I was sitting in my son's classroom with a group of parents, watching a video. I was fine. Not thinking anything in particular. And then suddenly — sweaty, heart racing, overwhelmed by anxiety that came from nowhere. I got up and left. Stood in the bright hallway. And as I moved away from the room, it lifted.</p>
-        <p><em>Something clicked: that wasn't mine.</em></p>
-        <p>A similar thing happened in a movement class I was taking around the same time. We were given the task of dancing our emotions — everyone in a big room moving whatever they were carrying. I started moving and then suddenly became completely frozen. Shaking. Flooded with anxiety and fear. There was one woman across the room emoting her anger and I became rooted to my spot, hands trembling, doing what looked like fast furious shaking qigong but was actually just my body trying to process something overwhelming. I wanted to leave. I probably should have.</p>
-        <p>That experience taught me something about teachers and containers. When you open a room full of people to their rawest emotions — you have a responsibility to prepare that space first. To ground it. In my own practice, before I work with anyone, I call in the four directions, the five elements, the archangels. I build the energetic architecture before I open the windows. That class didn't have walls. And I paid for it.</p>
-        <p>As I developed my practice as a healer I got sharper at catching it. I remember once finishing a session with a client and walking out of the room to give him a few minutes. In the hallway I suddenly felt this heaviness settle over my whole body. Exhaustion so complete I wanted to lie down. And then — the thought: <em>I didn't feel like this two minutes ago.</em></p>
-        <p>That wasn't mine either.</p>
-        <p>After he left I went outside and sat under my favorite tree. I did that often after sessions — just released whatever I'd picked up back to the earth. It sounds simple. It took years to develop the discernment to know when I needed it.</p>
-        <p>And even then — even after all of that — it can still sneak up on you.</p>
-        <p>A couple of years ago my family spent three days camping in the forest. I came home feeling so clean and clear it was almost startling — like I'd forgotten what my own baseline felt like. I went to the park to meet a friend. Asked him how he was doing. He said <em>hmph</em> — shoulders drooping, energy flat.</p>
-        <p>About five minutes later I started to feel depressed.</p>
-        <p>I didn't connect the two. Not for three days. Three days of feeling <em>hmph</em> before I tracked it back to that moment in the park and realized — I had picked it up in an instant, from one word, from one gesture, in an ordinary conversation on an ordinary afternoon.</p>
-        <p>I used a clearing practice I'd developed over years — drawing from Theta Healing, shamanic practice, and Pranic Healing. I released what wasn't mine and cut the energetic cord to that moment.</p>
-        <p>Within hours I was myself again.</p>
-        <p>That practice is something I now teach.</p>
-      </div>
-    </div>
-
-    <div class="qa-block">
-      <p class="qa-label student">Student</p>
-      <p class="qa-question">So what do I do now?</p>
-      <div class="qa-answer">
-        <p>First — know that there is nothing wrong with you. There may actually be more than one thing happening at once. Something from your own life that's ready to move. And something you're picking up from the people around you.</p>
-        <p>Our culture doesn't really have a framework for the second part. It recognizes that people affect us through their words and actions. But the idea that we can absorb someone's anxiety, grief, or anger energetically — without a single word being spoken — that's still considered fringe. And yet so many people are living it without any tools or language for it.</p>
-        <p>There are tools. Shaking qigong. Grounding practices. Learning to ask the simple question — <em>was I fine five minutes ago?</em> Learning to go sit under a tree.</p>
-        <p>You're not too much. You're not broken. You're full. And full is actually a place you can work from.</p>
-      </div>
-    </div>
-
-    <div class="closing-cta">
-      <p>I'm building a class around exactly this — the emotions that arise in healing and energy work, what they mean, where they come from, and what to do with them.</p>
-      <p>If that resonates, I'd love to hear from you.</p>
-      <a href="index.html#contact">Reach Out →</a>
-    </div>
-
-  </div>
-
-  <footer>
+  <footer role="contentinfo">
     <a href="index.html" class="footer-logo">Magic Healing Garden</a>
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>
