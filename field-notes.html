@@ -11,12 +11,23 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #7a8c72; --deep-sage: #4a5e42;
-      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #7a7a6e;
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #5a7052; --deep-sage: #4a5e42;
+      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #5a5a50;
       --border: #e0d8cc; --accent: #b5956a;
     }
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
+
+
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
 
     /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
@@ -164,8 +175,8 @@
 
     /* FOOTER */
     footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
-    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.9); font-size: 0.9rem; text-decoration: none; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
 
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -181,8 +192,9 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -190,11 +202,14 @@
       <li><a href="the-sessions.html">The Sessions</a></li>
       <li><a href="studies.html">Who I Am</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="field-notes.html" class="active">Writing</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="field-notes.html" class="active" aria-current="page">Writing</a></li>
       <li><a href="index.html#contact">Connect</a></li>
     </ul>
   </nav>
+  <main id="main-content">
 
+  <main id="main-content">
   <div class="page-header">
     <div>
       <p class="page-header-eyebrow">Writing</p>
@@ -209,7 +224,7 @@
     <div class="posts-grid">
 
       <!-- NEW ARTICLE: You Are Not Powerless -->
-      <a href="you-are-not-powerless.html" class="post-card">
+      <a href="you-are-not-powerless.html" class="post-card" aria-label="Read: You Are Not Powerless">
         <p class="post-tag">Essay — Immunity &amp; Chinese Medicine</p>
         <p class="post-title">You Are Not Powerless</p>
         <p class="post-excerpt">What Chinese Medicine has known for three thousand years about your body's ability to defend itself — and why nobody put it on the CVS counter.</p>
@@ -217,7 +232,7 @@
       </a>
 
       <!-- NEW ARTICLE: When Unconditional Love Makes You Furious -->
-      <a href="when-unconditional-love-makes-you-furious.html" class="post-card">
+      <a href="when-unconditional-love-makes-you-furious.html" class="post-card" aria-label="Read: When Unconditional Love Makes You Furious">
         <p class="post-tag">Essay — Energy Work</p>
         <p class="post-title">When Unconditional Love Makes You Furious</p>
         <p class="post-excerpt">A Q&A for people who have felt the wrong thing in the right place. On anger, empaths, ungrounded spaces, and what nobody tells you about healing work.</p>
@@ -255,7 +270,9 @@
     </div>
   </div>
 
-  <footer>
+  </main><!-- end main -->
+
+  <footer role="contentinfo">
     <a href="index.html" class="footer-logo">Magic Healing Garden</a>
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>
