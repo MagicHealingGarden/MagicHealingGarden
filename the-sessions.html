@@ -11,8 +11,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #7a8c72; --deep-sage: #4a5e42;
-      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #7a7a6e;
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #4d7060; --deep-sage: #4a5e42;
+      --earth: #6b5238; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #5e5e54;
       --border: #e0d8cc; --accent: #b5956a;
     }
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
@@ -53,7 +53,7 @@
     .modality-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 6rem; align-items: start; }
 
     .modality-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
-    .modality-section-dark .modality-eyebrow { color: rgba(255,255,255,0.45); }
+    .modality-section-dark .modality-eyebrow { color: rgba(255,255,255,0.63); }
 
     .modality-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.2; color: var(--dark); margin-bottom: 2rem; }
     .modality-title em { font-style: italic; color: var(--deep-sage); }
@@ -63,7 +63,7 @@
     .modality-body { font-size: 1rem; color: var(--mid); line-height: 2; }
     .modality-body p { margin-bottom: 1.25rem; }
     .modality-body p:last-child { margin-bottom: 0; }
-    .modality-section-dark .modality-body { color: rgba(255,255,255,0.75); }
+    .modality-section-dark .modality-body { color: rgba(255,255,255,1); }
 
     .modality-link { display: inline-block; margin-top: 2rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--deep-sage); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
     .modality-link:hover { color: var(--accent); }
@@ -72,14 +72,26 @@
 
     .modality-aside { position: sticky; top: 6rem; }
     .aside-label { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
-    .modality-section-dark .aside-label { color: rgba(255,255,255,0.4); }
+    .modality-section-dark .aside-label { color: #c8dcc0; }
     .aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--dark); line-height: 1.55; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
     .modality-section-dark .aside-quote { color: white; border-bottom-color: rgba(255,255,255,0.15); }
     .aside-details { display: flex; flex-direction: column; gap: 1rem; list-style: none; }
     .aside-detail { padding: 1.25rem; background: var(--cream); border-left: 2px solid var(--border); }
     .modality-section-dark .aside-detail { background: rgba(255,255,255,0.07); border-left-color: rgba(255,255,255,0.2); }
+
+    /* MODALITIES OVERVIEW GRID */
+    .modalities-overview { background: var(--cream); padding: 6rem 3rem; border-bottom: 1px solid var(--border); }
+    .modalities-overview-inner { max-width: 1100px; margin: 0 auto; }
+    .modalities-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; list-style: none; }
+    .modality-item { padding: 2.5rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .modality-item:nth-child(even) { border-right: none; }
+    .modality-item:nth-last-child(-n+2) { border-bottom: none; }
+    .modality-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--border); line-height: 1; margin-bottom: 1rem; }
+    .modality-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--dark); margin-bottom: 0.5rem; }
+    .modality-sub { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #7a5e38; margin-bottom: 1rem; }
+    .modality-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.9; }
     .aside-detail-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem; }
-    .modality-section-dark .aside-detail-label { color: rgba(255,255,255,0.45); }
+    .modality-section-dark .aside-detail-label { color: rgba(255,255,255,0.63); }
     .aside-detail-body { font-size: 0.88rem; color: var(--mid); line-height: 1.8; }
     .modality-section-dark .aside-detail-body { color: rgba(255,255,255,0.7); }
 
@@ -94,7 +106,7 @@
     .btn-ghost:hover { background: var(--deep-sage); color: white; }
 
     footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: #c8dcc0; font-size: 0.9rem; text-decoration: none; }
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
 
     @media (max-width: 768px) {
@@ -104,6 +116,9 @@
       .modality-section, .modality-section-alt, .modality-section-dark { padding: 4rem 1.5rem; }
       .modality-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .modality-aside { position: static; }
+      .modalities-grid { grid-template-columns: 1fr; }
+      .modality-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .modality-item:last-child { border-bottom: none; }
       .cta-section { padding: 4rem 1.5rem; }
       .btn-ghost { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
@@ -142,6 +157,52 @@
       <div class="intro-band-inner">
         <p class="intro-band-body">"I offer two distinct kinds of work — bodywork that speaks directly to the body's intelligence, and alchemical healing that works at the level of belief, energy, and pattern. They can be experienced separately or together. Most often, they find their way into the same session."</p>
         <p class="intro-band-note">Below you'll find each of the modalities I work with — what they are, how I came to them, and what they might offer you. If you're not sure where to start, reach out. We'll figure it out together.</p>
+      </div>
+    </section>
+
+    <!-- MODALITIES OVERVIEW -->
+    <section class="modalities-overview" aria-label="Modalities overview">
+      <div class="modalities-overview-inner">
+        <p class="section-label" style="font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem;">What I Work With</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.25; color: var(--dark); margin-bottom: 0.75rem;">The <em style="font-style: italic; color: var(--deep-sage);">modalities</em></h2>
+        <p style="font-size: 0.98rem; color: var(--mid); max-width: 600px; line-height: 1.9; margin-bottom: 3rem;">My sessions draw from multiple lineages — not because I collected modalities, but because each one found me when I needed it and proved itself in practice. I use what works, in the combination that's right for you. Scroll down to read more about each one.</p>
+
+        <ul class="modalities-grid">
+          <li class="modality-item">
+            <div class="modality-number" aria-hidden="true">01</div>
+            <h3 class="modality-name">Manual Chinese Medicine</h3>
+            <p class="modality-sub">Acupressure · Zen Shiatsu · Chi Nei Tsang</p>
+            <p class="modality-desc">Body-centered work rooted in TCM theory — moving qi and blood, addressing stagnation, supporting the organ systems. I work with my hands rather than needles, which allows for a different quality of presence and responsiveness. My foundation is Zen Shiatsu, built over 500 hours of training with Pam Ferguson — a genuine lineage holder in this tradition.</p>
+          </li>
+
+          <li class="modality-item">
+            <div class="modality-number" aria-hidden="true">02</div>
+            <h3 class="modality-name">Theta Healing &amp; Energy Work</h3>
+            <p class="modality-sub">Energetic Release · Belief Work · Soul Fragment Clearing</p>
+            <p class="modality-desc">A meditation-based healing modality that works at the level of belief and energetic memory. The two things I use most: releasing shock and trauma held in the system, and clearing soul fragments — the energetic residue of difficult relationships that can linger in the biofield long after the event. All work is done with clear verbal permission. Always.</p>
+          </li>
+
+          <li class="modality-item">
+            <div class="modality-number" aria-hidden="true">03</div>
+            <h3 class="modality-name">Trauma-Informed Care</h3>
+            <p class="modality-sub">Somatic Awareness · Nervous System Support · Pacing</p>
+            <p class="modality-desc">Every session is held with an understanding that the body protects itself — and those protections were intelligent once. We work with the nervous system, not against it. Going slow is not a limitation; it is the work. Calming the nervous system is always the first priority. Nothing is forced. Everything requires your yes.</p>
+          </li>
+
+          <li class="modality-item">
+            <div class="modality-number" aria-hidden="true">04</div>
+            <h3 class="modality-name">Flower Essence Therapy</h3>
+            <p class="modality-sub">Vibrational Medicine · Emotional Support</p>
+            <p class="modality-desc">Gentle vibrational medicine that supports the emotional and energetic shifts that happen between sessions. Often the quiet thread that holds everything else together — working subtly and continuously in the background of a healing process.</p>
+          </li>
+
+          <li class="modality-item">
+            <div class="modality-number" aria-hidden="true">05</div>
+            <h3 class="modality-name">Homeopathy</h3>
+            <p class="modality-sub">Constitutional · Classical · In Formal Study</p>
+            <p class="modality-desc">Homeopathy works at the level of constitutional pattern, addressing the whole person rather than isolated symptoms. I have been a lay user of homeopathy for 30 years and in 2025 spent a year working alongside an experienced homeopath — observing cases and learning about the craft from the inside.</p>
+          </li>
+        </ul>
       </div>
     </section>
 
