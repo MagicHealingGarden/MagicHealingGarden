@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light only" />
+  <title>My Healer Self Wild Origin — Magic Healing Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #7a8c72; --deep-sage: #4a5e42;
+      --earth: #8c7355; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #7a7a6e;
+      --border: #e0d8cc; --accent: #b5956a;
+    }
+    html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
+    body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
+
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--deep-sage); }
+    .nav-links a.active { color: var(--deep-sage); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    /* ARTICLE HEADER */
+    .article-header { padding: 10rem 3rem 5rem; max-width: 780px; margin: 0 auto; border-bottom: 1px solid var(--border); }
+    .article-eyebrow { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .article-eyebrow a { color: var(--sage); text-decoration: none; transition: color 0.2s; }
+    .article-eyebrow a:hover { color: var(--deep-sage); }
+    .article-eyebrow span { color: var(--border); }
+    .article-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1rem; }
+    .article-header h1 em { font-style: italic; color: var(--deep-sage); }
+    .article-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--light-mid); line-height: 1.5; margin-bottom: 2.5rem; }
+    .article-meta { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); }
+
+    /* ARTICLE BODY */
+    .article-body { max-width: 780px; margin: 0 auto; padding: 5rem 3rem 7rem; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); text-decoration: none; margin-bottom: 4rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--deep-sage); }
+
+    /* ESSAY SECTIONS */
+    .essay-section { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); }
+    .essay-section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .essay-section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.75rem; }
+
+    .essay-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 300; color: var(--dark); line-height: 1.2; margin-bottom: 2rem; }
+    .essay-section h2 em { font-style: italic; color: var(--deep-sage); }
+
+    .essay-body { font-size: 0.97rem; color: var(--mid); line-height: 1.95; }
+    .essay-body p { margin-bottom: 1.25rem; }
+    .essay-body p:last-child { margin-bottom: 0; }
+    .essay-body em { font-family: 'Cormorant Garamond', serif; font-size: 1.05em; font-style: italic; color: var(--dark); }
+    .essay-body strong { color: var(--dark); font-weight: 500; }
+
+    .essay-pullquote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: var(--deep-sage); line-height: 1.5; padding: 2rem 2.5rem; border-left: 2px solid var(--accent); background: var(--warm-white); margin: 2.5rem 0; }
+
+    /* CLOSING CTA */
+    .closing-cta { margin-top: 5rem; padding: 3rem; background: var(--warm-white); border: 1px solid var(--border); text-align: center; }
+    .closing-cta p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--mid); line-height: 1.6; margin-bottom: 1.5rem; }
+    .closing-cta a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--deep-sage); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; transition: color 0.2s; }
+    .closing-cta a:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.4); font-size: 0.9rem; text-decoration: none; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .article-header { padding: 7rem 1.5rem 3rem; }
+      .article-body { padding: 3rem 1.5rem 5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Magic Healing Garden</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#story">My Work</a></li>
+      <li><a href="the-sessions.html">The Sessions</a></li>
+      <li><a href="studies.html">Who I Am</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="field-notes.html" class="active" aria-current="page">Writing</a></li>
+      <li><a href="index.html#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <header class="article-header" aria-label="Article header">
+      <div class="article-eyebrow">
+        <a href="field-notes.html">Field Notes</a>
+        <span aria-hidden="true">/</span>
+        <span>Essay — Origin &amp; Lineage</span>
+      </div>
+      <h1>My Healer Self <em>Wild Origin</em></h1>
+      <p class="article-subtitle">On the people who shaped me — and what they passed down without knowing they were doing it.</p>
+      <p class="article-meta">Magic Healing Garden</p>
+    </header>
+
+    <div class="article-body">
+
+      <a href="field-notes.html" class="back-link">← Back to Field Notes</a>
+
+      <!-- SECTION 1: HOW I CAME TO THIS WORK -->
+      <section class="essay-section" aria-label="How I came to this work">
+        <p class="essay-section-label">The Beginning</p>
+        <h2>How I came to <em>this work</em></h2>
+        <div class="essay-body">
+          <p>I came to this work because it's what I needed for myself.</p>
+          <p>I felt a great deal from the time I was young. The world came in loud and I didn't always know where to put it. I lived for years with anxiety, with depression, with a feeling of impending doom that followed me like a shadow.</p>
+          <p>What I didn't know yet was that I came from a long line of people who felt deeply and had no container for it. The fracture went back generations. Unmet need passing quietly from one person to the next, each one doing their best with what they had, none of them knowing they were extraordinary.</p>
+
+          <div class="essay-pullquote">I am a wilder. I inherited the gifts, not the tradition. I have spent my life finding the name of what I already was — and learning how to work with what I carry.</div>
+
+          <p>What I found changed everything. And now I work with people who know what it feels like to carry too much — people who feel deeply, give generously, and are ready to finally put down what was never theirs to hold.</p>
+          <p>I have two master's degrees, a bachelor's degree, and years of specialized continuing education in healing, trauma, and somatic work. But what shaped me most wasn't any single program — it was the commitment to keep going deeper, to follow what I didn't yet know how to do until I could do it.</p>
+          <p>I came to healing because I needed it. And because I needed it, I studied it seriously. Over time, with trauma as my primary interest, I built a practice of self-directed learning alongside formal training — reading, studying, taking courses, finding mentors, and most importantly, doing my own work. <em>You cannot take someone somewhere you haven't been yourself.</em></p>
+          <p>I was being called forward at every turn. I followed what called me, inspired by the Creative Forces of the universe, and trusted that each step was part of a larger path. I didn't arrive here despite the winding way. I arrived here because of it — and that path led somewhere real.</p>
+        </div>
+      </section>
+
+      <!-- SECTION 2: THE PEOPLE WHO SHAPED ME -->
+      <section class="essay-section" aria-label="The people who shaped me">
+        <p class="essay-section-label">The Lineage</p>
+        <h2>The people who <em>shaped me</em></h2>
+        <div class="essay-body">
+          <p>The people who shaped me were not perfect. Neither were the relationships. But what they passed down — often without knowing — was real and worth keeping.</p>
+          <p>My father's mother was Irish and magical in ways the family whispered about but never quite named. My father never called himself a healer. But he grew a garden every year of my childhood, turning the soil by hand, tending what he planted with steady daily care. He taught me that hands are instruments of care. He just didn't call it that.</p>
+          <p>My mother was a sensitive. She had no language for what she felt and not enough confidence to trust it. I recognized her gifts long after I had found words for my own.</p>
+          <p>My brother placed books in my hands that became my foundation — herbalism, homeopathy, Chinese medicine. When I was lost in my early twenties, he wrote me a letter about how to find my way back through food and plants. I still have that letter.</p>
+
+          <div class="essay-pullquote">None of them knew they were extraordinary. I know now. And knowing is its own kind of calling.</div>
+        </div>
+      </section>
+
+      <aside class="closing-cta" aria-label="Learn more">
+        <p>If this resonated — the work I do now grew directly from this ground. I'd be glad to talk about what that might mean for you.</p>
+        <a href="index.html#contact">Reach Out →</a>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer role="contentinfo">
+    <a href="index.html" class="footer-logo">Magic Healing Garden</a>
+    <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
