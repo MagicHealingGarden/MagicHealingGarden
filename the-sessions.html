@@ -110,7 +110,8 @@
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
 
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-hamburger { display: flex; }
       .page-header { grid-template-columns: 1fr; gap: 2rem; padding: 7rem 1.5rem 3rem; }
       .intro-band { padding: 3rem 1.5rem; }
       .modality-section, .modality-section-alt, .modality-section-dark { padding: 4rem 1.5rem; }
@@ -123,6 +124,54 @@
       .btn-ghost { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
+
+    /* HAMBURGER BUTTON */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--dark);
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* MOBILE MENU OVERLAY */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(249, 245, 239, 0.98);
+      z-index: 150;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--deep-sage); }
   </style>
 </head>
 <body>
@@ -345,5 +394,26 @@
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>
 
+
+  <script>
+    function toggleMenu(btn) {
+      var menu = document.getElementById('mobile-menu');
+      var isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    // Close menu on link click
+    document.addEventListener('DOMContentLoaded', function() {
+      var links = document.querySelectorAll('#mobile-menu a');
+      var btn = document.querySelector('.nav-hamburger');
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          document.getElementById('mobile-menu').classList.remove('open');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
