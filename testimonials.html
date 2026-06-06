@@ -51,6 +51,7 @@
     .section-title em { font-style: italic; color: var(--deep-sage); }
 
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .story-grid article:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 580px; }
     .story-card { padding: 2.5rem; background: var(--cream); border-left: 2px solid var(--accent); }
     .story-pullquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--deep-sage); line-height: 1.5; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
     .story-body { font-size: 0.95rem; color: var(--mid); line-height: 1.9; }
@@ -177,14 +178,14 @@
     <section class="stories-section" aria-label="Featured client stories">
       <div class="stories-inner">
         <p class="section-label">The Work in Practice</p>
-        <h2 class="section-title">Two stories that stay <em>with me</em></h2>
+        <h2 class="section-title">Stories that stay <em>with me</em></h2>
 
         <div class="story-grid">
 
           <article class="story-card" aria-label="Christina's story">
             <p class="story-pullquote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</p>
             <div class="story-body">
-              <p>Christina came to Gwen while her husband was in the final stages of a chronic illness. A mother, a professional, a caretaker — holding a lot on her own. She had started using sugar to cope. She didn't know how to shift it.</p>
+              <p>Christina came to me while her husband was in the final stages of a chronic illness. A mother, a professional, a caretaker — holding a lot on her own. She had started using sugar to cope. She didn't know how to shift it.</p>
               <p>We began where we always begin — with what was present in the body. As we worked, something older surfaced: her relationship with a critical mother, and the emotional imprint of growing up in that dynamic.</p>
               <p>We stayed with it gently. Her system began to shift as we worked with what she was holding and created a different internal experience of safety.</p>
               <p>A few days later: <em>"I haven't thought about — or craved — sugar for several days now. How weird is that?"</em></p>
@@ -195,7 +196,7 @@
           <article class="story-card" aria-label="Delilah's story">
             <p class="story-pullquote">"That sounds like forgiveness."</p>
             <div class="story-body">
-              <p>Delilah came to Gwen months after an injury that had left her system shaken — tension, migraines, memory issues, low mood. After one session, her migraines eased significantly. She slept deeply for the first time in months.</p>
+              <p>Delilah came months after an injury that had left her system shaken — tension, migraines, memory issues, low mood. After one session, her migraines eased significantly. She slept deeply for the first time in months.</p>
               <p>A couple of weeks later she brought up something she hadn't shared before. Years ago, during a medical procedure, she hadn't felt safe. That experience had stayed in her body long after.</p>
               <p>In session it surfaced while we were working near an area that still held tension. We paused and stayed with what was present. I explained that energetic imprints from difficult experiences can remain in the body — and that with permission, they can be released.</p>
               <p>She paused and said:</p>
@@ -203,6 +204,16 @@
               <p>I smiled. <em>"Sometimes it is. But it doesn't require forgiveness. It simply asks: do you want to keep carrying this? If not, we can let it go."</em></p>
               <p>She said, absolutely.</p>
               <p>That week she felt effervescent. Her creativity began returning. A month later — the scar that had always brought the memory back with it was fading.</p>
+            </div>
+          </article>
+
+          <article class="story-card" aria-label="ID's story">
+            <p class="story-pullquote">"I'm amazed at how good my knees are feeling now."</p>
+            <div class="story-body">
+              <p>ID came to me with chronic knee pain — something that hadn't been a problem before, but a move to a new city had brought new conditions. Hot outside, air conditioning running hard at work all day. The constant swing between temperatures was landing in his knees.</p>
+              <p>We worked together weekly for six weeks. Session by session, his knees began to respond — the inflammation settling, the body finding its footing in the new environment.</p>
+              <p>He still comes in for regular tune-ups. Sometimes twice a month, sometimes once. The acute issue has resolved, and what continues now is something broader — an ongoing investment in his overall wellbeing.</p>
+              <p><em>"I come back for regular tune-ups now. The ongoing work has been really beneficial to my overall wellbeing."</em></p>
             </div>
           </article>
 
@@ -230,25 +241,8 @@
             <p class="testimonial-attribution">— A client</p>
           </li>
           <li class="testimonial-card">
-            <p class="testimonial-quote">"Such a massive turn of events! It feels like a new job this month. I'm really enjoying work!"</p>
-            <p class="testimonial-quote" style="font-size: 1rem; margin-top: 1rem;">I called Gwen one morning when I was really sick — weak, nauseous, vomiting — and dreading going to work more than I ever had. My boss had been making the environment genuinely toxic for a long time, and my body was telling me it had had enough. Gwen didn't ask me to come to her. She came to me. We sat in my kitchen and talked through everything that was going on, and together we started mapping out the beliefs I had been carrying and the energetic imprints the situation had left behind. Then she did Chi Nei Tsang — a gentle abdominal work that had first brought us together — which helped settle and ground what we were working on. She never told me what was wrong with me or claimed to have all the answers. We figured it out together. After the session I worked on affirmations and kept coming back to a vision of how I wanted things to feel. The situation at work resolved in a way neither of us could have predicted. In a very good way. I went from dreading every morning to genuinely loving my job again. Something moved that day. I'm certain of it.</p>
-            <p class="testimonial-attribution">— Carrie L., client</p>
-          </li>
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"I want to fully express my gratitude for the help I received. My shoulder is pretty much back to normal after your work together, and thanks to a referral to a specialist, I discovered that my liver had been seriously impacted by the hormone replacement therapy I was on — my liver function levels were significantly elevated. I switched treatments in early winter and my liver has been recovering ever since. I have so much more energy and far less achiness. A few months later, I walked a half marathon — 13.1 miles — with no problems."</p>
-            <p class="testimonial-attribution">— A client</p>
-          </li>
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"I was 9 months pregnant when I got my first-ever shiatsu treatment. I didn't know what to expect, but I felt comfortable right away. The setup was thoughtful and accommodating, and the touch was soft and deep — exactly what I needed. I instantly relaxed. I felt safe, at peace, and deeply aware of my body. I instantly trusted her natural, down-to-earth style. She guided me through breathwork during the treatment and offered supportive suggestions for the weeks ahead. I've been practicing ever since and look forward to my next treatment!"</p>
-            <p class="testimonial-attribution">— A client</p>
-          </li>
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"I was a little skeptical — this wasn't covered in medical school. As a physician, I had been living with back pain for 10 years following a pedestrian/auto injury. It had simply become something I worked around. I decided to give it a try, and from the very first visit I was impressed. The welcome was warm and the approach was thoughtful. When I walked out after a one-hour shiatsu treatment, my pain was significantly reduced and I felt better than I had in years. I don't know if this is typical, but it worked for me. I have since gone back to gardening and landscaping my yard — my true love."</p>
-            <p class="testimonial-attribution">— A physician, client</p>
-          </li>
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"In the 1950s, when I was around 4 or 5, I was nearly taken by alligators at a park in Florida. For decades afterward, I couldn't lie in bed on my stomach with my arm over the edge without that image flooding back. I shared this story with my practitioner, who offered to do a Theta Healing session to help release the trauma. Afterward, when the image returned, the alligator appeared almost comical. Eventually it faded away entirely. I am deeply grateful for the Theta Healing and would recommend it to anyone carrying old fears or trauma."</p>
-            <p class="testimonial-attribution">— A client</p>
+            <p class="testimonial-quote">"I'm amazed at how good my knees are feeling now. The ongoing work has been really beneficial to my overall wellbeing."</p>
+            <p class="testimonial-attribution">— ID</p>
           </li>
         </ul>
       </div>
