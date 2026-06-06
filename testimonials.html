@@ -18,17 +18,11 @@
     html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
     body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
 
-    /* SKIP LINK */
     .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
     .skip-link:focus { top: 1rem; }
 
-    /* FOCUS STYLES */
-    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -51,13 +45,16 @@
     .section-title em { font-style: italic; color: var(--deep-sage); }
 
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .story-grid article:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 580px; }
     .story-card { padding: 2.5rem; background: var(--cream); border-left: 2px solid var(--accent); }
     .story-pullquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--deep-sage); line-height: 1.5; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
     .story-body { font-size: 0.95rem; color: var(--mid); line-height: 1.9; }
     .story-body p { margin-bottom: 1rem; }
     .story-body p:last-child { margin-bottom: 0; }
     .story-dialogue { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--dark); padding: 1rem 1.25rem; border-left: 2px solid var(--border); margin: 1rem 0; }
+    .story-attribution { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+
+    /* PRACTITIONER NOTE */
+    .practitioner-note { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: var(--light-mid); line-height: 1.8; padding: 1.25rem 1.5rem; border-left: 2px solid var(--border); margin-top: 1.25rem; background: var(--warm-white); }
 
     /* SHORT TESTIMONIALS */
     .testimonials-section { padding: 6rem 3rem; }
@@ -78,7 +75,6 @@
     .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid var(--deep-sage); color: var(--deep-sage); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; margin-left: 1rem; }
     .btn-ghost:hover { background: var(--deep-sage); color: white; }
 
-    /* FOOTER */
     footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.9); font-size: 0.9rem; text-decoration: none; }
     .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
@@ -96,59 +92,22 @@
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
 
-    /* HAMBURGER BUTTON */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      gap: 5px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.25rem;
-      z-index: 200;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 1.5px;
-      background: var(--dark);
-      transition: transform 0.3s, opacity 0.3s;
-      transform-origin: center;
-    }
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.25rem; z-index: 200; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--dark); transition: transform 0.3s, opacity 0.3s; transform-origin: center; }
     .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
     .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    /* MOBILE MENU OVERLAY */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(249, 245, 239, 0.98);
-      z-index: 150;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2.5rem;
-    }
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(249, 245, 239, 0.98); z-index: 150; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
+    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--dark); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .mobile-menu a:hover, .mobile-menu a.active { color: var(--deep-sage); }
   </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav aria-label="Main navigation">
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-logo">Magic Healing Garden</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -191,6 +150,7 @@
               <p>A few days later: <em>"I haven't thought about — or craved — sugar for several days now. How weird is that?"</em></p>
               <p>Weeks later she placed one small piece of candy in a bowl on her counter. Not to eat it — as a reminder of how far she'd come.</p>
             </div>
+            <p class="story-attribution">— Christina, client</p>
           </article>
 
           <article class="story-card" aria-label="Delilah's story">
@@ -205,16 +165,42 @@
               <p>She said, absolutely.</p>
               <p>That week she felt effervescent. Her creativity began returning. A month later — the scar that had always brought the memory back with it was fading.</p>
             </div>
+            <p class="story-attribution">— Delilah, client</p>
+          </article>
+
+          <article class="story-card" aria-label="Carrie's story">
+            <p class="story-pullquote">"Such a massive turn of events! It feels like a new job this month. I'm really enjoying work!"</p>
+            <div class="story-body">
+              <p>Carrie called one morning when she was really sick — weak, nauseous, vomiting — and dreading going to work more than she ever had. Her boss had been making the environment genuinely toxic for a long time, and her body was telling her it had had enough.</p>
+              <p>I didn't ask her to come to me. I came to her. We sat in her kitchen and talked through everything that was going on, and together we started mapping out the beliefs she had been carrying and the energetic imprints the situation had left behind. Then I did Chi Nei Tsang — gentle abdominal work that had first brought us together — which helped settle and ground what we were working on.</p>
+              <p>I never told her what was wrong with her or claimed to have all the answers. We figured it out together. After the session she worked on affirmations and kept coming back to a vision of how she wanted things to feel.</p>
+              <p>The situation at work resolved in a way neither of us could have predicted. In a very good way. She went from dreading every morning to genuinely loving her job again.</p>
+              <p><em>"Something moved that day. I'm certain of it."</em></p>
+            </div>
+            <p class="story-attribution">— Carrie L., client</p>
+          </article>
+
+          <article class="story-card" aria-label="Judy's story">
+            <p class="story-pullquote">"Eventually the comical gator just faded away."</p>
+            <div class="story-body">
+              <p>In the 1950s, when Judy was around 4 or 5, she was nearly taken by alligators at a park in Florida. Her family was visiting, and while her parents talked with friends she knelt down near the pit, went through the fence, and stuck her arm in to pet the gators. The top one shot straight up and missed her hand by inches.</p>
+              <p>For decades afterward, she couldn't lie in bed on her stomach with her arm over the edge without that image flooding back.</p>
+              <p>She told me the story and I asked if she'd like to do a Theta Healing session to release it. She wholeheartedly said yes.</p>
+              <p>Afterward, when the image returned — the alligator appeared almost comical. And then, eventually, it faded away entirely.</p>
+              <p><em>"I am deeply grateful for Gwen's healing work and would recommend it to others needing help."</em></p>
+            </div>
+            <p class="story-attribution">— Judy H.</p>
           </article>
 
           <article class="story-card" aria-label="ID's story">
             <p class="story-pullquote">"I'm amazed at how good my knees are feeling now."</p>
             <div class="story-body">
-              <p>ID came to me with chronic knee pain — something that hadn't been a problem before, but a move to a new city had brought new conditions. Hot outside, air conditioning running hard at work all day. The constant swing between temperatures was landing in his knees.</p>
+              <p>He came to me with chronic knee pain — something that hadn't been a problem before, but a move to a new city had brought new conditions. Hot outside, air conditioning running hard at work all day. The constant swing between temperatures was landing in his knees.</p>
               <p>We worked together weekly for six weeks. Session by session, his knees began to respond — the inflammation settling, the body finding its footing in the new environment.</p>
               <p>He still comes in for regular tune-ups. Sometimes twice a month, sometimes once. The acute issue has resolved, and what continues now is something broader — an ongoing investment in his overall wellbeing.</p>
               <p><em>"I come back for regular tune-ups now. The ongoing work has been really beneficial to my overall wellbeing."</em></p>
             </div>
+            <p class="story-attribution">— ID</p>
           </article>
 
         </div>
@@ -228,22 +214,58 @@
         <h2 class="section-title">In their own <em>words</em></h2>
 
         <ul class="testimonials-grid">
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"I haven't thought about — or craved — sugar for several days now. How weird is that? Something shifted that I didn't even know was possible."</p>
-            <p class="testimonial-attribution">— Christina, client</p>
-          </li>
-          <li class="testimonial-card">
-            <p class="testimonial-quote">"The session was profound. I could still feel the effervescent, sparkly energy that had helped clear what had been held there for so long."</p>
-            <p class="testimonial-attribution">— Delilah, client</p>
-          </li>
+
           <li class="testimonial-card">
             <p class="testimonial-quote">"Most people don't know these things are possible — but they would love to have the work done if it's offered to them."</p>
+            <p class="testimonial-attribution">— K.H., client</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"I want to fully express my gratitude. My shoulder is pretty much back to normal after our work together — and thank you for your referral to a specialist, where I discovered that my liver had been seriously impacted by hormone replacement therapy. My liver has been recovering ever since. I have so much more energy and far less achiness. A few months later, I walked a half marathon — 13.1 miles — with no problems."</p>
+            <p class="testimonial-attribution">— A.M., client</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"I was 9 months pregnant when I got my first-ever shiatsu treatment. The touch was soft and deep — exactly what I needed. I instantly relaxed. I felt safe, at peace, and deeply aware of my body. She guided me through breathwork during the treatment and offered supportive suggestions for the weeks ahead. I've been practicing ever since."</p>
+            <p class="testimonial-attribution">— Amy C., client</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"As a physician, I had been living with back pain for 10 years following a pedestrian/auto injury. When I walked out after a one-hour shiatsu treatment, my pain was significantly reduced and I felt better than I had in years. I have since gone back to gardening and landscaping my yard — my true love."</p>
+            <p class="testimonial-attribution">— S.B., Physician</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"I had frozen shoulder after playing tennis — sudden, overnight. The day after playing I couldn't lift my arm. I saw Gwen and she fixed it in one treatment. She's a real miracle worker."</p>
+            <p class="testimonial-attribution">— John T.</p>
+            <p class="practitioner-note">A note: Shoulder problems can be complicated, and results vary. For what presents as true frozen shoulder, I've had remarkable results — three out of three people recovered fully after a single treatment. But not every shoulder issue is frozen shoulder, and some are longer-standing or more complex. Almost always there is improvement, but sometimes it takes time. I believe in being honest about that.</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"I had been working with Gwen for shoulder pain and though our work helped with an overall sense of wellbeing, my bone-on-bone shoulder was causing great pain. I decided to get a shoulder replacement. Gwen supported me through the whole process with a homeopathic protocol for before and after surgery — I think it was instrumental in my recovering so quickly and without much pain. After four weeks of rehabilitation work with Gwen alongside my trainer and physical therapist, I was much closer to my goal than when we started."</p>
+            <p class="testimonial-attribution">— T.P., client</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"After I had my baby I started having hip pain. Gwen brought to my awareness that I was holding the baby on my right hip — that might be a factor. She did a series of gentle stretches and used pressure along different points on my body with a special focus on my hips and back. The next week she asked how my hip pain was doing and I had to think for a moment — because I had forgotten I had any pain. It was gone."</p>
+            <p class="testimonial-attribution">— Mary J.</p>
+          </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"I brought my 4-year-old to see Gwen when she had a fever. Gwen did a little bit of work on her, she fell asleep for four hours and woke up fine. I was impressed!"</p>
             <p class="testimonial-attribution">— A client</p>
           </li>
+
           <li class="testimonial-card">
-            <p class="testimonial-quote">"I'm amazed at how good my knees are feeling now. The ongoing work has been really beneficial to my overall wellbeing."</p>
-            <p class="testimonial-attribution">— ID</p>
+            <p class="testimonial-quote">"I came to Gwen because I tweaked my back and couldn't walk — I was kind of discombobulated, slightly hunched, my one hip higher than the other. Gwen was very gentle, explained everything thoroughly, and told me that if there was anything that made me uncomfortable, that I should let her know. The session was very relaxing. The next day, I felt so much better I couldn't believe it. Usually when I tweak my back, I'm out of commission for a few days to a week. I'm so thankful to find Gwen."</p>
+            <p class="testimonial-attribution">— S.M., Physician</p>
           </li>
+
+          <li class="testimonial-card">
+            <p class="testimonial-quote">"When I first started working with Gwen, I had terrible foot pain — diagnosed as plantar fasciitis. Gwen worked with me doing shiatsu and reflexology and also gave me stretches to do on my own. The work we did together deeply improved my pain. I can now say that my feet are Happy Feet."</p>
+            <p class="testimonial-attribution">— P.C.</p>
+          </li>
+
         </ul>
       </div>
     </section>
@@ -265,7 +287,6 @@
     <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
   </footer>
 
-
   <script>
     function toggleMenu(btn) {
       var menu = document.getElementById('mobile-menu');
@@ -273,7 +294,6 @@
       btn.setAttribute('aria-expanded', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     }
-    // Close menu on link click
     document.addEventListener('DOMContentLoaded', function() {
       var links = document.querySelectorAll('#mobile-menu a');
       var btn = document.querySelector('.nav-hamburger');
