@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic Healing Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f9f5ef; --warm-white: #fdfaf6; --sage: #5a7052; --deep-sage: #4a5e42;
+      --earth: #6b5238; --dark: #1e1e1a; --mid: #4a4a42; --light-mid: #5a5a50;
+      --border: #e0d8cc; --accent: #b5956a;
+      --nav-purple: #4a1942; --nav-purple-light: #8a5a82;
+    }
+
+    html { scroll-behavior: smooth; color-scheme: light only; background: #f9f5ef; }
+    body { font-family: 'Jost', sans-serif; background-color: #f9f5ef !important; color: #1e1e1a !important; font-weight: 300; line-height: 1.7; }
+
+
+    /* SKIP LINK */
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--deep-sage); color: white; padding: 0.75rem 1.5rem; font-size: 0.9rem; text-decoration: none; z-index: 9999; transition: top 0.2s; }
+    .skip-link:focus { top: 1rem; }
+
+    /* FOCUS STYLES */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+    .form-field input:focus-visible, .form-field textarea:focus-visible {
+      outline: 3px solid var(--accent);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(249, 245, 239, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--dark); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--nav-purple); }
+    .nav-links a.active { color: var(--nav-purple); border-bottom: 1px solid var(--nav-purple-light); padding-bottom: 2px; }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 5rem; max-width: none; }
+    .hero-inner { max-width: 680px; margin: 0 auto; padding: 0 3rem; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
+
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 300; line-height: 1.2; color: var(--dark); margin-bottom: 1.75rem; }
+    .hero h1 em { font-style: italic; color: var(--deep-sage); }
+
+    .hero-sub { font-size: 1.15rem; color: var(--mid); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+    .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary { display: inline-block; padding: 0.85rem 2rem; background: var(--deep-sage); color: white; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--sage); }
+
+    .btn-ghost { display: inline-block; padding: 0.85rem 2rem; border: 1px solid var(--deep-sage); color: var(--deep-sage); text-decoration: none; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; }
+    .btn-ghost:hover { background: var(--deep-sage); color: white; }
+
+    .hero-quote { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--light-mid); }
+    .hero-quote cite { display: block; font-style: normal; font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); margin-top: 0.5rem; }
+
+    /* PHOTO BAND */
+    .photo-band {
+      position: relative;
+      min-height: 420px;
+      background-image: url('images/hydrangea.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+    .photo-band-overlay {
+      background: rgba(30, 15, 30, 0.45);
+      padding: 2.5rem 3rem;
+      max-width: 640px;
+      text-align: center;
+    }
+    .photo-band-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.7rem;
+      color: white;
+      line-height: 1.55;
+    }
+    .photo-band-quote cite {
+      display: block;
+      font-style: normal;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-top: 1rem;
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 3rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 300; line-height: 1.25; color: var(--dark); margin-bottom: 3rem; }
+    .section-title em { font-style: italic; color: var(--deep-sage); }
+    .divider { width: 3rem; height: 1px; background: var(--accent); margin: 2rem 0; }
+
+    /* STORIES */
+    #story { background: var(--warm-white); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .story-card { padding: 2.5rem; background: var(--cream); border-left: 2px solid var(--accent); }
+    .story-pullquote { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--deep-sage); line-height: 1.5; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .story-body { font-size: 0.95rem; color: var(--mid); line-height: 1.9; }
+    .story-body p { margin-bottom: 1rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-dialogue { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--dark); padding: 1rem 1.25rem; border-left: 2px solid var(--border); margin: 1rem 0; }
+
+    /* HEALERS */
+    #healers { background: var(--deep-sage); color: white; }
+    #healers .section-label { color: rgba(255,255,255,0.85); }
+    #healers .section-title { color: white; }
+    #healers .section-title em { color: #c8d9c0; }
+    .healers-intro { font-size: 1.05rem; color: rgba(255,255,255,0.95); max-width: 620px; margin-bottom: 3rem; line-height: 1.9; }
+    .healers-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: rgba(255,255,255,0.9); max-width: 600px; margin-bottom: 3rem; line-height: 1.6; }
+    .healers-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+    .healer-tag { padding: 0.4rem 1rem; border: 1px solid rgba(255,255,255,0.6); font-size: 0.78rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.9); }
+    .healers-body { font-size: 0.95rem; color: rgba(255,255,255,0.9); max-width: 620px; line-height: 1.9; }
+    .healers-body p { margin-bottom: 1rem; }
+
+    /* SELF-CARE */
+    #selfcare { background: var(--cream); border-top: 1px solid var(--border); }
+    .selfcare-inner { max-width: 1100px; margin: 0 auto; padding: 4rem 3rem; display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: center; }
+    .selfcare-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; line-height: 1.3; color: var(--dark); }
+    .selfcare-heading em { font-style: italic; color: var(--deep-sage); }
+    .selfcare-list { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--mid); line-height: 2; }
+    .selfcare-closing { margin-top: 1.25rem; font-size: 0.88rem; color: var(--light-mid); line-height: 1.8; font-style: normal; font-family: 'Jost', sans-serif; }
+
+    /* WHO */
+    #who { background: var(--cream); }
+    .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .who-item { padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .who-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--border); line-height: 1; margin-bottom: 1rem; }
+    .who-title { font-size: 0.95rem; font-weight: 500; color: var(--dark); margin-bottom: 0.75rem; letter-spacing: 0.02em; }
+    .who-body { font-size: 0.9rem; color: var(--mid); line-height: 1.8; }
+
+    /* TESTIMONIALS */
+    #testimonials { background: var(--warm-white); }
+    .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .testimonial-card { padding: 2.5rem; border: 1px solid var(--border); background: var(--cream); }
+    .testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--dark); line-height: 1.6; margin-bottom: 1.5rem; }
+    .testimonial-attribution { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--light-mid); }
+
+    /* ORIGIN */
+    #origin { background: var(--warm-white); }
+    .origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .origin-body { font-size: 0.98rem; color: var(--mid); line-height: 1.95; }
+    .origin-body p { margin-bottom: 1.25rem; }
+    .origin-body p:last-child { margin-bottom: 0; }
+    .origin-body strong { color: var(--dark); font-weight: 500; }
+    .origin-aside { padding-top: 1rem; }
+    .origin-aside-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; color: var(--deep-sage); line-height: 1.4; margin-bottom: 2rem; }
+    .origin-aside-body { font-size: 0.9rem; color: var(--light-mid); line-height: 1.9; }
+    .origin-aside-body p { margin-bottom: 1rem; }
+
+    .sessions-intro-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 3.5rem; align-items: center; margin-bottom: 3rem; }
+    .sessions-photo img { width: 100%; height: 320px; object-fit: cover; display: block; }
+    .sessions-photo figcaption { margin-top: 0.75rem; font-size: 0.78rem; font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--light-mid); text-align: center; }
+
+    /* SESSIONS */
+    #sessions { background: var(--cream); }
+    .sessions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .session-card { padding: 2rem; background: var(--warm-white); border-bottom: 2px solid var(--border); transition: border-color 0.2s; }
+    .session-card:hover { border-color: var(--sage); }
+    .session-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+    .session-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--dark); margin-bottom: 0.75rem; }
+    .session-body { font-size: 0.88rem; color: var(--mid); line-height: 1.85; }
+    .sessions-cta { text-align: center; margin-top: 3rem; }
+
+    /* CONTACT */
+    #contact { background: var(--dark); color: white; }
+    #contact .section-label { color: rgba(255,255,255,0.9); }
+    #contact .section-title { color: white; }
+    #contact .section-title em { color: var(--accent); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    .contact-intro { font-size: 1rem; color: rgba(255,255,255,0.9); line-height: 1.9; margin-bottom: 2rem; }
+    .contact-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.6; padding-left: 1.25rem; border-left: 2px solid var(--accent); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+    .form-field input, .form-field textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: white; padding: 0.85rem 1rem; font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300; transition: border-color 0.2s; }
+    .form-field input:focus, .form-field textarea:focus { border-color: rgba(255,255,255,0.9); }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .form-submit { display: inline-block; padding: 0.9rem 2rem; background: var(--accent); color: #1e1e1a; border: none; font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+    .form-submit:hover { background: var(--earth); }
+    .contact-alt { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.9); }
+    .contact-alt a { color: rgba(255,255,255,0.9); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* FOOTER */
+    footer { padding: 2rem 3rem; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; color: rgba(255,255,255,0.9); font-size: 0.9rem; text-decoration: none; }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.9); text-decoration: none; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 768px) {
+      nav { flex-direction: column; align-items: center; padding: 0.85rem 1.25rem; gap: 0.65rem; }
+      .nav-logo { font-size: 1.05rem; }
+      .nav-links { justify-content: center; gap: 0.7rem 1.15rem; }
+      .nav-links a { font-size: 0.66rem; letter-spacing: 0.08em; }
+      section { padding: 4rem 1.5rem; }
+      .hero { padding: 9.5rem 1.5rem 4rem; }
+      .hero-inner { padding: 0; }
+      .story-grid, .origin-grid, .contact-grid, .testimonials-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .selfcare-inner { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 1.5rem; }
+      .who-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .photo-band { min-height: 280px; padding: 2.5rem 1.25rem; }
+      .photo-band-overlay { padding: 1.5rem 1.5rem; }
+      .photo-band-quote { font-size: 1.3rem; }
+      .sessions-intro-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .sessions-photo img { height: 240px; }
+      .sessions-grid { grid-template-columns: 1fr; }
+      .sessions-cta { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+      .sessions-cta a { margin-left: 0 !important; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-logo">Magic Healing Garden</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+      <li><a href="index.html#story">My Work</a></li>
+      <li><a href="the-sessions.html">The Sessions</a></li>
+      <li><a href="studies.html">Who I Am</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="field-notes.html">Writing</a></li>
+      <li><a href="apply.html">Apply</a></li>
+      <li><a href="index.html#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction" style="padding-top: 8rem; padding-bottom: 5rem; max-width: none;">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Welcome. We're glad you found us.</p>
+      <h1>Body-centered healing that works where things actually get <em>stuck</em> — not just the symptom, but the story underneath it.</h1>
+      <p class="hero-sub">Sometimes true magic is just a change in perception — and that allows for healing to happen more easily.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Work With Me</a>
+        <a href="#story" class="btn-ghost">See What's Possible</a>
+        <a href="#sessions" class="btn-ghost">Modalities</a>
+        <a href="#who" class="btn-ghost">Who I Work With</a>
+      </div>
+      <div class="hero-quote">
+        "Most people don't know these things are possible — but they would love to have the work done if it's offered to them."
+        <cite>— A client</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK / STORIES -->
+  <section id="story" aria-label="Client stories">
+    <div class="section-inner">
+      <p class="section-label">The Work in Practice</p>
+      <h2 class="section-title">What becomes <em>possible</em></h2>
+
+      <div class="story-grid">
+
+        <div class="story-card">
+          <div class="story-pullquote">"I haven't thought about — or craved — sugar for several days now. How weird is that?"</div>
+          <div class="story-body">
+            <p>Christina came to me while her husband was in the final stages of a chronic illness. A mother, a professional, a caretaker — holding a lot on her own. She had started using sugar to cope. She didn't know how to shift it.</p>
+            <p>We began where we always begin — with what was present in the body. As we worked, something older surfaced: her relationship with a critical mother, and the emotional imprint of growing up in that dynamic.</p>
+            <p>We stayed with it gently. Her system began to shift as we worked with what she was holding and created a different internal experience of safety.</p>
+            <p>A few days later: <em>"I haven't thought about — or craved — sugar for several days now. How weird is that?"</em></p>
+            <p>Weeks later she placed one small piece of candy in a bowl on her counter. Not to eat it — as a reminder of how far she'd come.</p>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-pullquote">"That sounds like forgiveness."</div>
+          <div class="story-body">
+            <p>Delilah came months after an injury that had left her system shaken — tension, migraines, memory issues, low mood. After one session, her migraines eased significantly. She slept deeply for the first time in months.</p>
+            <p>A couple of weeks later she brought up something she hadn't shared before. Years ago, during a medical procedure, she hadn't felt safe. That experience had stayed in her body long after.</p>
+            <p>In session it surfaced while we were working near an area that still held tension. We paused and stayed with what was present. I explained that energetic imprints from difficult experiences can remain in the body — and that with permission, they can be released.</p>
+            <p>She paused and said:</p>
+            <div class="story-dialogue">"That sounds like forgiveness."</div>
+            <p>I smiled. <em>"Sometimes it is. But it doesn't require forgiveness. It simply asks: do you want to keep carrying this? If not, we can let it go."</em></p>
+            <p>She said, absolutely.</p>
+            <p>That week she felt effervescent. Her creativity began returning. A month later — the scar that had always brought the memory back with it was fading.</p>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+        <a href="testimonials.html" class="btn-ghost">Read More in Their Own Words</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="photo-band" aria-label="A moment to pause">
+    <div class="photo-band-overlay">
+      <p class="photo-band-quote">"The body keeps a record — and that record can be gently, lovingly revised."
+        <cite>— Magic Healing Garden</cite>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOR HEALERS -->
+  <section id="healers" aria-label="Who I work with">
+    <div class="section-inner">
+      <p class="section-label">You Might Be My People</p>
+      <h2 class="section-title">I work with people who <em>give</em></h2>
+
+      <p class="healers-quote">"If you take care of everyone else first — this is for you."</p>
+
+      <p class="healers-intro">When I look back at the people I've done my deepest work with, almost all of them share something: they give generously, they hold space for others, and their own needs have been quietly going unmet for a long time.</p>
+
+      <div class="healers-list">
+        <span class="healer-tag">Therapists</span>
+        <span class="healer-tag">Bodyworkers</span>
+        <span class="healer-tag">Acupuncturists</span>
+        <span class="healer-tag">Massage Therapists</span>
+        <span class="healer-tag">Energy Healers</span>
+        <span class="healer-tag">Teachers</span>
+        <span class="healer-tag">Educators</span>
+        <span class="healer-tag">Social Workers</span>
+        <span class="healer-tag">Nurses & Caregivers</span>
+        <span class="healer-tag">Movement Practitioners</span>
+        <span class="healer-tag">Activists</span>
+        <span class="healer-tag">Parents</span>
+        <span class="healer-tag">Executives & Leaders</span>
+        <span class="healer-tag">Managers & Team Leaders</span>
+        <span class="healer-tag">Lawyers</span>
+        <span class="healer-tag">Librarians</span>
+        <span class="healer-tag">Caterers & Private Chefs</span>
+      </div>
+
+      <div class="healers-body">
+        <p>Whether or not you call yourself a healer — if you spend your days holding space for other people's pain, growth, and needs, your system absorbs what they release. You don't need a title for this to apply to you. You just need to recognize yourself in it.</p>
+        <p><em>You deserve the same quality of care you offer everyone else. Let someone tend to you for a change.</em></p>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <a href="#contact" class="btn-primary" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);">Reach Out</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO I WORK WITH -->
+  <section id="who" aria-label="Who finds me">
+    <div class="section-inner">
+      <p class="section-label">Who Finds Me</p>
+      <h2 class="section-title">The people who find <em>their way here</em></h2>
+
+      <div class="who-grid">
+        <div class="who-item">
+          <div class="who-number">01</div>
+          <div class="who-title">You know what's stuck</div>
+          <div class="who-body">You're reflective. You've done some work on yourself. You have a sense of your patterns — you just haven't found the right tools to move through them. You're not looking for a diagnosis. You're looking for someone to work with you.</div>
+        </div>
+        <div class="who-item">
+          <div class="who-number">02</div>
+          <div class="who-title">You say yes to change</div>
+          <div class="who-body">When I ask if you want to release something that's been living in your body — an old grief, a shock you never processed, an energy that was never yours to carry — your answer is "heck yeah." You're ready. Not everyone is, and that's okay. But if you are, something remarkable becomes possible.</div>
+        </div>
+        <div class="who-item">
+          <div class="who-number">03</div>
+          <div class="who-title">You're open to what you don't know</div>
+          <div class="who-body">Most people don't know that sixty years of nightmares can end in fifteen minutes. That a scar can soften when the story beneath it is finally witnessed. That the body keeps a record — and that record can be gently, lovingly revised.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SESSIONS -->
+  <section id="sessions" aria-label="Modalities and sessions">
+    <div class="section-inner">
+      <p class="section-label">Modalities</p>
+      <h2 class="section-title">How we <em>work together</em></h2>
+
+      <div class="sessions-intro-grid">
+        <div>
+          <p style="color: var(--mid); margin-bottom: 1.5rem; line-height: 1.9; font-size: 0.98rem;">My sessions draw from multiple lineages — not because I collected modalities, but because each one found me when I needed it and proved itself in practice. I use what works, in the combination that's right for you.</p>
+          <p style="color: var(--mid); line-height: 1.9; font-size: 0.95rem; font-style: italic;">Before every session I center myself and set intention — for your highest good and the highest good of everyone connected to you. You arrive into a space that has already been prepared for you.</p>
+        </div>
+        <figure class="sessions-photo">
+          <img src="images/flower-essences.jpg" alt="Amber flower essence bottles in morning light on a windowsill" />
+          <figcaption>Flower essences, prepared and ready</figcaption>
+        </figure>
+      </div>
+
+      <div class="sessions-grid">
+        <div class="session-card">
+          <div class="session-icon">🌿</div>
+          <div class="session-title">Body-Centered Healing</div>
+          <div class="session-body">Drawing from Chinese medicine, Zen Shiatsu, Chi Nei Tsang, and acupressure — we work with the body as an intelligent system that holds memory, story, and unfinished business. The body knows what happened. We help it complete the cycle.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">✨</div>
+          <div class="session-title">Alchemical Healing (including Theta Healing & Energy Work)</div>
+          <div class="session-body">A meditation-based healing modality that works at the level of belief and energetic memory. Old shocks, inherited patterns, energy that was never yours to carry — with your permission, these can be released. The results often surprise people. <a href="the-sessions.html" style="color: var(--deep-sage); text-underline-offset: 3px;">Learn more →</a></div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">🌸</div>
+          <div class="session-title">Trauma-Informed Care</div>
+          <div class="session-body">Every session is held with an understanding that the body protects itself — and that those protections made sense once. We work with your nervous system, not against it. Nothing is forced. Everything requires your yes.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">💧</div>
+          <div class="session-title">Flower Essence Therapy</div>
+          <div class="session-body">Gentle vibrational medicine that supports emotional and energetic shifts between sessions. Often the quiet thread that holds everything else together.</div>
+        </div>
+        <div class="session-card">
+          <div class="session-icon">🌬️</div>
+          <div class="session-title">Guided Breathwork</div>
+          <div class="session-body">Sometimes the body isn't ready for touch. Breathwork offers a way in through the breath itself — calming the nervous system, moving stagnant energy, restoring ease and strength. Sessions are gentle, guided, and entirely non-invasive.</div>
+        </div>
+      </div>
+
+      <div class="sessions-cta">
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--mid); margin-bottom: 1.5rem; font-size: 1.05rem;">Ready for deep alchemical work? The application is for you.</p>
+        <a href="the-sessions.html" class="btn-ghost">For More Details on These Modalities</a>
+        <a href="apply.html" class="btn-primary" style="margin-left: 1rem;">Apply — Alchemical Healing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact form">
+    <div class="section-inner">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Something <em>stirred</em> in you</h2>
+
+      <div class="contact-grid">
+        <div>
+          <p class="contact-intro">If you've read this far, something resonated. Maybe you recognized yourself in one of these stories. Maybe you've been carrying something for a long time and didn't know there was another way.</p>
+          <p class="contact-intro">Reach out. Tell me what's going on. We'll figure out together whether my work is right for what you're carrying.</p>
+          <div class="contact-quote">"Saying yes to releasing something that no longer serves us is a very powerful step. It doesn't require certainty — just willingness."</div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-field">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" autocomplete="name" />
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" name="email" autocomplete="email" />
+          </div>
+          <div class="form-field">
+            <label for="contact-message">What's Bringing You Here</label>
+            <textarea id="contact-message" name="message"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <p class="contact-alt"><a href="apply.html">Ready to go deeper? Apply to work together →</a></p>
+        </form>
+      </div>
+      <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);">
+        <a href="#booking" style="display: inline-block; padding: 0.85rem 2rem; border: 1px solid rgba(255,255,255,0.5); color: white; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s, border-color 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='white';" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.5)';">Ready to Schedule? See Booking Below ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING WIDGET -->
+  <section id="booking" aria-label="Book a session" style="background: var(--warm-white); padding: 5rem 3rem; text-align: center;">
+    <div style="max-width: 540px; margin: 0 auto;">
+      <p class="section-label">Book a Session</p>
+      <h2 class="section-title">Ready to <em>begin</em></h2>
+      <p style="color: var(--mid); margin-bottom: 2.5rem; line-height: 1.9; font-size: 0.98rem;">Schedule directly below — or reach out through the form above if you'd like to talk first.</p>
+      <script src='https://app.squareup.com/appointments/buyer/widget/uhmi2bqxwlk9v3/L0Q1556BA4J25.js'></script>
+    </div>
+  </section>
+
+  </main><!-- end main -->
+
+  <footer role="contentinfo">
+    <a href="#" class="footer-logo">Magic Healing Garden</a>
+    <ul class="footer-links">
+      <li><a href="#story">The Work</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="#who">Who I Work With</a></li>
+      <li><a href="#sessions">Modalities</a></li>
+      <li><a href="studies.html">My Story</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Magic Healing Garden. All rights reserved.</p>
+  </footer>
+
+
+
+</body>
+</html>
